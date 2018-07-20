@@ -1,0 +1,78 @@
+Description - to be added
+###### Version: CRHM 3.40c  Creation: 11/17/2010 21:37
+Dimensions:
+######
+nhru 2
+nlay 1
+nobs 1
+######
+Macros:
+######
+######
+Observations:
+######
+######
+Dates:
+######
+2010 1 1 24
+2010 12 31
+######
+Modules:
+######
+basin CRHM 10/24/08
+global CRHM 11/17/10
+######
+Parameters:
+###### 'basin' parameters always first
+Shared hru_ASL <0 to 360>
+0 0 
+Shared hru_elev <0 to 1E5>
+637 637 
+Shared hru_GSL <0 to 90>
+0 0 
+Shared hru_lat <-90 to 90>
+51.32 51.32 
+basin basin_area <1E-6 to 1E9>
+2 
+basin basin_name
+'Basin' 
+basin hru_area <1E-6 to 1E9>
+1 1 
+basin hru_names
+'HRU' 'HRU2' 
+basin INIT_STATE
+'' 
+basin RUN_END <0 to 1E5>
+0 
+basin RUN_ID <-1E8 to 1E8>
+1 
+basin RUN_START <0 to 1E5>
+0 
+global hemisphere <0 to 1>
+0 1 
+global Time_Offset <-12 to 12>
+0 0 
+######
+Initial_State
+######
+######
+Final_State
+######
+######
+Display_Variable:
+######
+global QdflatD 1 2
+######
+Display_Observation:
+######
+######
+TChart:
+######
+The Cold Regions Hydrological Model Platform 2010
+ 
+ 
+(MJ/m^2*d)
+ 
+ 
+ 
+######

@@ -1,0 +1,68 @@
+Project file: pbsm0.prj
+ 
+Observation file: Winter1974.obs
+ 
+Time of model run:  2015 5 29. Program Version: 5/28/15
+ 
+Module List "obs, intcp, pbsm."
+ 
+timestep 1 hr.
+
+HRU 1: 'obs (obs)'  cumhru_rain      (mm) (mm*hru) (mm*hru/basin): 94.26667 94.26667 31.42222
+HRU 1: 'obs (obs)'  cumhru_snow (mm) (mm*hru) (mm*hru/basin): 202.1366 202.1366 67.37887
+HRU 1: 'obs (obs)'  cumhru_snow_meas (mm) (mm*hru) (mm*hru/basin): 142.6322 142.6322 47.54407
+ 
+ 
+HRU 2: 'obs (obs)'  cumhru_rain      (mm) (mm*hru) (mm*hru/basin): 94.26667 94.26667 31.42222
+HRU 2: 'obs (obs)'  cumhru_snow (mm) (mm*hru) (mm*hru/basin): 202.1366 202.1366 67.37887
+HRU 2: 'obs (obs)'  cumhru_snow_meas (mm) (mm*hru) (mm*hru/basin): 142.6322 142.6322 47.54407
+ 
+ 
+HRU 3: 'obs (obs)'  cumhru_rain      (mm) (mm*hru) (mm*hru/basin): 94.26667 94.26667 31.42222
+HRU 3: 'obs (obs)'  cumhru_snow (mm) (mm*hru) (mm*hru/basin): 202.1366 202.1366 67.37887
+HRU 3: 'obs (obs)'  cumhru_snow_meas (mm) (mm*hru) (mm*hru/basin): 142.6322 142.6322 47.54407
+ 
+ 
+'obs (obs)' Allcumhru_rain (mm*basin): 282.8
+'obs (obs)' Allcumhru_snow (mm*basin): 606.4099
+ 
+HRU 1: 'intcp (intcp)'  cumnetrain  (mm) (mm*hru) (mm*hru/basin): 94.26667 94.26667 31.42222
+HRU 1: 'intcp (intcp)'  cumnetsnow  (mm) (mm*hru) (mm*hru/basin): 202.1366 202.1366 67.37887
+ 
+HRU 2: 'intcp (intcp)'  cumnetrain  (mm) (mm*hru) (mm*hru/basin): 94.26667 94.26667 31.42222
+HRU 2: 'intcp (intcp)'  cumnetsnow  (mm) (mm*hru) (mm*hru/basin): 202.1366 202.1366 67.37887
+ 
+HRU 3: 'intcp (intcp)'  cumnetrain  (mm) (mm*hru) (mm*hru/basin): 94.26667 94.26667 31.42222
+HRU 3: 'intcp (intcp)'  cumnetsnow  (mm) (mm*hru) (mm*hru/basin): 202.1366 202.1366 67.37887
+ 
+ 
+HRU 1: 'pbsm (pbsm)' cumSno     (mm) (mm*hru) (mm*hru/basin): 202.1366 202.1366 67.37887
+HRU 1: 'pbsm (pbsm)' cumDrift   (mm) (mm*hru) (mm*hru/basin): 51.09157 51.09157 17.03052
+HRU 1: 'pbsm (pbsm)' cumDriftIn (mm) (mm*hru) (mm*hru/basin):  0  0   0
+HRU 1: 'pbsm (pbsm)' cumSubl    (mm) (mm*hru) (mm*hru/basin): 127.6322 127.6322 42.54405
+HRU 1: 'pbsm (pbsm)' cumCover   (mm) (mm*hru) (mm*hru/basin): 23.41289 23.41289 7.804296
+HRU 1: 'pbsm (pbsm)' SWE        (mm) (mm*hru) (mm*hru/basin): 23.41301 23.41301 7.804335
+HRU 1: 'pbsm (pbsm)' SWE_change (mm) (mm*hru) (mm*hru/basin): 23.41301 23.41301 7.804335
+ 
+HRU 2: 'pbsm (pbsm)' cumSno     (mm) (mm*hru) (mm*hru/basin): 202.1366 202.1366 67.37887
+HRU 2: 'pbsm (pbsm)' cumDrift   (mm) (mm*hru) (mm*hru/basin): 41.80463 41.80463 13.93488
+HRU 2: 'pbsm (pbsm)' cumDriftIn (mm) (mm*hru) (mm*hru/basin): 8.343954 8.343954 2.781318
+HRU 2: 'pbsm (pbsm)' cumSubl    (mm) (mm*hru) (mm*hru/basin): 109.2679 109.2679 36.42264
+HRU 2: 'pbsm (pbsm)' cumCover   (mm) (mm*hru) (mm*hru/basin): 59.40802 59.40802 19.80267
+HRU 2: 'pbsm (pbsm)' SWE        (mm) (mm*hru) (mm*hru/basin): 59.40794 59.40794 19.80265
+HRU 2: 'pbsm (pbsm)' SWE_change (mm) (mm*hru) (mm*hru/basin): 59.40794 59.40794 19.80265
+ 
+HRU 3: 'pbsm (pbsm)' cumSno     (mm) (mm*hru) (mm*hru/basin): 202.1366 202.1366 67.37887
+HRU 3: 'pbsm (pbsm)' cumDrift   (mm) (mm*hru) (mm*hru/basin):  0  0   0
+HRU 3: 'pbsm (pbsm)' cumDriftIn (mm) (mm*hru) (mm*hru/basin): 84.55221 84.55221 28.18407
+HRU 3: 'pbsm (pbsm)' cumSubl    (mm) (mm*hru) (mm*hru/basin):  0  0   0
+HRU 3: 'pbsm (pbsm)' cumCover   (mm) (mm*hru) (mm*hru/basin): 286.6888 286.6888 95.56293
+HRU 3: 'pbsm (pbsm)' SWE        (mm) (mm*hru) (mm*hru/basin): 286.6884 286.6884 95.56278
+HRU 3: 'pbsm (pbsm)' SWE_change (mm) (mm*hru) (mm*hru/basin): 286.6884 286.6884 95.56278
+ 
+'pbsm (pbsm)' AllcumSubl  (mm*basin): 236.9001
+'pbsm (pbsm)' AllcumCover (mm*basin): 369.5097
+ 
+'pbsm' cumBasinSnowLoss (mm):    0
+'pbsm' cumBasinSnowGain (mm):    0
+ 

@@ -1,0 +1,412 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TMain (09/05/02)</title>
+</head>
+
+<body>
+
+<h3>TMain - CRHM main window.</h3>
+
+<h3>Routines</h3>
+
+<p>void __fastcall FormCreate(TObject *Sender); 
+
+<ol>
+  <li>Changes Application-&gt;OnHelp to AppHelp.</li>
+  <li>Sets default directories to CRHM program directory.</li>
+  <li>Global::crhmMain set to Main-&gt;Handle for messaging.</li>
+  <li>Creates Global Lists.</li>
+  <li>Moves modules to CRHM by calling MoveModulesToGlobal();</li>
+  <li>Updates models in <strong>Build</strong> menu.</li>
+  <li>Determines if CRHM is DLL version and enables <strong>DLL</strong> menu.</li>
+</ol>
+
+<p>void __fastcall FormActivate(TObject *Sender); 
+
+<ol>
+  <li>&nbsp;</li>
+</ol>
+
+<p>void __fastcall FormDestroy(TObject *Sender); 
+
+<ol>
+  <li>If (_HHwinHwnd) call <em>HtmlHelp(...)</em> and null _HHwinHwnd.</li>
+  <li>Close observation files by deleting ClassData instances in ObsFilesList-&gt;Objects.</li>
+  <li>Delete ObsFilesList.</li>
+  <li>Call<em> ModVarRemove(Global::MapVars)</em> to remove all variable (observation and
+    module).</li>
+  <li>Delete ProjectList.</li>
+  <li>Delete Global::OurModulesList.</li>
+  <li>Delete Global::ModelModulesList.</li>
+  <li>Free all TChart series.</li>
+  <li>Call <em>ClearListBox4(...)</em> to </li>
+  <li>If CRHM_DLL defined call FreeLibrary(...) for each DLL in OpenDLLs list.</li>
+  <li>Delete OpenDLLs.</li>
+</ol>
+
+<p>void __fastcall ExitClick(TObject *Sender); 
+
+<ol>
+  <li>calls Application-&gt;terminate() to close the CRHM application.</li>
+</ol>
+
+<p>void __fastcall DateTimePicker1Change(TObject *Sender); </p>
+
+<p>void __fastcall DateTimePicker2Change(TObject *Sender); </p>
+
+<p>void __fastcall UpDownHRUIndxClick(TObject *Sender, TUDBtnType Button); 
+
+<ol>
+  <li>Updates HRU # label when HRU changed.</li>
+</ol>
+
+<p>void __fastcall UpDownOBSIndxClick(TObject *Sender, TUDBtnType Button); 
+
+<ol>
+  <li>&nbsp;</li>
+</ol>
+
+<p>void __fastcall OpenClick(TObject *Sender); 
+
+<ol>
+  <li>calls OpenDialog for observation file</li>
+  <li>calls routine OpenObsFile</li>
+</ol>
+
+<p>void __fastcall ObsFileClose(TObject *Sender); 
+
+<ol>
+  <li>&nbsp;</li>
+</ol>
+
+<p>void __fastcall ObsCloseClick(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - close all observation files. 
+
+<ol>
+  <li>generates&nbsp; &quot;First observation File affects Obs timebase&quot; prompt.</li>
+  <li>clears ListBox2</li>
+  <li>deletes all ClassData instances.</li>
+</ol>
+
+<p>bool __fastcall OpenObsFile(TObject *Sender, String FileName); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose -&nbsp; read observation file. 
+
+<ol>
+  <li>Checks if file is already open.</li>
+  <li>If the first observation file sets Global::DTstart and Global::DTend = 0.</li>
+  <li>Status bar text set to &quot;Reading Data File&quot;.</li>
+  <li>Instantiates ClassData object.</li>
+  <li>Status bar text set to &quot;Idle&quot;.</li>
+  <li>If the first observation file sets Global and DateTimePickers.</li>
+  <li>Remove any of the obsevation variables currently in ListBox1 and ListBox3.</li>
+  <li>Clear ListBox2 and rescan MapVars for observation variables.</li>
+  <li>Update <strong>Observation</strong> menu.</li>
+</ol>
+
+<p>void __fastcall BldModelClick(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - build current model. 
+
+<ol>
+  <li>Call <em>ClearModulesClick()</em>.</li>
+  <li>Load Global::OurModulesList from</li>
+  <li>Search Global::AllModulesList-&gt;Strings for Global::OurModulesList modules and put
+    their addresses in Global::OurModulesList-&gt;Objects list.</li>
+  <li>Call <em>InitModules()</em></li>
+</ol>
+
+<p>void __fastcall RunClick(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - Execute CRHM model. 
+
+<ol>
+  <li>If any &quot;Declaration Errors&quot; exit.</li>
+  <li>Call <em>ClearRunLogs()</em>.</li>
+  <li>Free any series currently in TChart.</li>
+  <li>Exit if no model ouput requested in ListBox3.</li>
+  <li>Instantiate TChart series required by ListBox3 count.</li>
+  <li>Instantiate array of pointers to be set to variable value pointers.</li>
+  <li>Process ListBox3 variables,&nbsp; find object, decode dimension and layer from string
+    and save in long or float array.</li>
+  <li>Call <em>InitReadObs()</em> to clear storage for observation read and function lists.</li>
+  <li>Call <em>initbase()</em> to initialise and declare modules.</li>
+  <li>Exit after cleaning up,&nbsp; if there are LogForm errors or the Start time of the model
+    run is greater or equal to the End time.</li>
+  <li>Calculate the long indices, DTmin and DTmax from DTstart, DTEnd and DateTimePicker
+    values DTstartR and DTendR.</li>
+  <li>Initialise try exceptions for &quot;Runtime Error&quot; (Exception class) and module
+    errors (CHMException class).</li>
+  <li>Loop from DTmin to DTmax the following:<ol>
+      <li>Every 168 steps display date and time in status bar.</li>
+      <li>Call <em>ReadObs()</em> to read current observation values.</li>
+      <li>Loop through all <em>modules-&gt;run()</em> to execute module code.</li>
+      <li>Loop through all variables to be displayed and add latest value to TChart series.</li>
+    </ol>
+  </li>
+  <li>Catch exceptions for &quot;Runtime Error&quot; and module errors.</li>
+</ol>
+
+<p>void __fastcall ExportClick(TObject *Sender); </p>
+
+<p>void __fastcall AboutClick(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - display About box.</p>
+
+<p>void __fastcall ListBox1Click(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose -Change UpDownOBSIndex to display LAY# and update status
+bar. 
+
+<ol>
+  <li>If not previously displaying module variable, load UpDownOBSIndex control and updat
+    LabelOBSIndex.</li>
+  <li>Display in status bar module variable help and units.</li>
+  <li>If one or fewer layers reset to &quot;LAY 1&quot;.</li>
+</ol>
+
+<p>void __fastcall AddListBox1Click(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - Handle ListBox1 pop-up. 
+
+<ol>
+  <li>If ClassName == &quot;TListBox&quot; and Name == &quot;ListBox1&quot; do the following:</li>
+  <li>If item in ListBox1 is selected do the following:</li>
+  <li>Create name string with dimension and optional layer.</li>
+  <li>If name string not already in ListBox3 add.</li>
+</ol>
+
+<p>void __fastcall HRUsAddListBox1Click(TObject *Sender); </p>
+
+<p>void __fastcall AddListBox2Click(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - Handle ListBox2 pop-up. 
+
+<ol>
+  <li>If ClassName == &quot;TListBox&quot; and Name == &quot;ListBox2&quot; or&nbsp; If
+    ClassName == &quot;TLabel&quot; and Name == &quot;LabelFunct&quot;do the following:</li>
+  <li>If item in ListBox2 is selected do the following:</li>
+  <li>Create name string with dimension and function.</li>
+  <li>If name string is not already in ListBox4 add as follows.</li>
+  <li>Create new TChart line series or point series if sparse data.</li>
+  <li>Add to ListBox4 making the Object a pointer to the TChart series.</li>
+  <li>Call <em>AddObsPlot(...)</em> to generate series on TChart.</li>
+</ol>
+
+<p>void __fastcall ListBox2Click(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - Change UpDownOBSIndex to display OBS# and update status
+bar. 
+
+<ol>
+  <li>If not previously displaying observation, load UpDownOBSIndex control and updat
+    LabelOBSIndex.</li>
+  <li>Display in status bar observation variable help, units and file name.</li>
+  <li>Update function label.</li>
+</ol>
+
+<p>void __fastcall ListBox3Click(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - delete module variable from ListBox3. 
+
+<ol>
+  <li>If model not yet run, i.e. SeriesCnt &lt;= 0, simply delete item from ListBox3 and exit.</li>
+  <li>Search TChart cdSeries for variable name and then free series.</li>
+  <li>Move following series up to fill hole.</li>
+  <li>Delete module variable from ListBox3.</li>
+</ol>
+
+<p>void __fastcall DeleteListBox3Click(TObject *Sender); </p>
+
+<p>void __fastcall NegateListBox3Click(TObject *Sender); </p>
+
+<p>void __fastcall ListBox4Click(TObject *Sender); </p>
+
+<p>void __fastcall DeleteListBox4Click(TObject *Sender); </p>
+
+<p>void __fastcall NegateListBox4Click(TObject *Sender); </p>
+
+<p>&nbsp;</p>
+
+<p>void __fastcall ClearListBox4(TObject *Sender); 
+
+<ol>
+  <li>Free all Tchart series defined by ListBox4.</li>
+  <li>Call <em>ListBox4-Clear()</em>.</li>
+</ol>
+
+<p>void __fastcall FunctionListBox2Click(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - Display RadioGroup1 
+
+<ol>
+  <li>Set RadioGroup1 = Funct.</li>
+  <li>Show RadioGroup1 control.</li>
+</ol>
+
+<p>void __fastcall RadioGroup1Click(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - update observation function display label. 
+
+<ol>
+  <li>Set Funct = RadioGroup1-&gt;ItemIndex.</li>
+  <li>Set LabelFunct-&gt;Caption = Function.</li>
+  <li>Hide RadioGroup1 control.</li>
+</ol>
+
+<p>void __fastcall ConstructClick(TObject *Sender); </p>
+
+<p>void __fastcall InitModules(TObject *Sender); </p>
+
+<p>void __fastcall ClearModules1Click(TObject *Sender); </p>
+
+<p>void __fastcall Analysis1Click(TObject *Sender); </p>
+
+<p>void __fastcall PrjOpenClick(TObject *Sender); </p>
+
+<p>void __fastcall PrjExitClick(TObject *Sender); </p>
+
+<p>void __fastcall PrjCloseClick(TObject *Sender); </p>
+
+<p>void __fastcall PrjSaveAsClick(TObject *Sender); 
+
+<ol>
+  <li>Call SaveDialogPrj-Execute().</li>
+  <li>Call <em>SaveProject().</em></li>
+</ol>
+
+<p>void __fastcall PrjSaveClick(TObject *Sender); 
+
+<ol>
+  <li>Call <em>SaveProject()</em> if project file name not empty,</li>
+  <li>Else call <em>PrjSaveAsClick(),</em></li>
+</ol>
+
+<p>void __fastcall PrjAutoRunClick(TObject *Sender); </p>
+
+<p>void __fastcall PrjReportClick(TObject *Sender); </p>
+
+<p>void __fastcall StatSaveStateAsClick(TObject *Sender); </p>
+
+<p>void __fastcall StatSaveClick(TObject *Sender); </p>
+
+<p>void __fastcall StatOpenInitClick(TObject *Sender); </p>
+
+<p>void __fastcall LogClick(TObject *Sender); </p>
+
+<p>void __fastcall ParametersClick(TObject *Sender); </p>
+
+<p>void __fastcall SqueezeParams(TObject *Sender); </p>
+
+<p>void __fastcall HTMLhelp1Click(TObject *Sender); </p>
+
+<p>void __fastcall ShapeClick(TObject *Sender); </p>
+
+<p>void __fastcall Recall1Click(TObject *Sender); </p>
+
+<p>void __fastcall Chart1ClickBackground(TCustomChart *Sender, TMouseButton Button,
+TShiftState Shift, int X, int Y); </p>
+
+<p>void __fastcall DLL1OpenClick(TObject *Sender); </p>
+
+<p>void __fastcall DLL1CloseALLClick(TObject *Sender); </p>
+
+<p>void __fastcall LabelFunctClick(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - to select next observation function 
+
+<ol>
+  <li>If function is last goto first otherwise increment Funct.</li>
+  <li>Set LabelFunct-&gt;Caption to Fstrings[Funct];</li>
+</ol>
+
+<p>void __fastcall VariablesClick(TObject *Sender); private: // User declarations </p>
+
+<p>void __fastcall AddObsPlot(TObject *Sender, ClassVar *thisVar, TLineSeries *cdSeries,
+String S, TFun Funct); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose - to display observation or function of observation on the
+TChart. 
+
+<ol>
+  <li>If the desired end time after defined data exit.</li>
+  <li>Calculate the DTmin and DTmax data indices.</li>
+  <li>&nbsp;</li>
+</ol>
+
+<p>void __fastcall FreeChart1(TObject *Sender); </p>
+
+<p>void __fastcall SaveProject(TObject *Sender); </p>
+
+<p>&nbsp;&nbsp;&nbsp; Purpose to save model to file.&nbsp; All strings are inserted into
+an instance ProjectList of type TStringList. When completed the list is saved to file
+using <em>ProjectList-&gt;SaveToFile()</em>.&nbsp; Finally <em>ProjectList-&gt;clear()</em>
+is called 
+
+<ol>
+  <li>Display on screen Project file name.</li>
+  <li>Add Description.</li>
+  <li>Add Dimensions.</li>
+  <li>Add Observations.</li>
+  <li>If CRHM_DLL defined add DLLs.</li>
+  <li>Add Modules.</li>
+  <li>Add Dates.</li>
+  <li>Add Parameters.</li>
+  <li>Add Initial_State.</li>
+  <li>Add Display_Variable.</li>
+  <li>Add Display_Observation.</li>
+  <li>Call <em>ProjectList-&gt;SaveToFile()</em>.</li>
+  <li><em>ProjectList-&gt;clear()</em>.</li>
+</ol>
+
+<p>void __fastcall TMain::SaveState(TObject *Sender); </p>
+
+<p>void __fastcall TMain::ReadStateFile(TObject *Sender, bool &amp; GoodRun); </p>
+
+<p>void __fastcall TMain::OnHint(TObject *Sender); </p>
+
+<p>bool __fastcall AppHelp(Word Command, int Data, bool &amp;CallHelp); </p>
+
+<p>void __fastcall Update_Main(TDim Dim, long dim); </p>
+
+<p>bool __fastcall DllinUse(String FileName); </p>
+
+<p>void __fastcall DllFileClose(TObject *Sender); </p>
+
+<p>void __fastcall CompactDlls(void); </p>
+
+<p>bool __fastcall OpenDLLFile(String FileName); </p>
+
+<p>void __fastcall DllDelete(String FileName); </p>
+
+<p>void __fastcall UpDateModelMenu(void); </p>
+
+<p>protected: void __fastcall WMGetMinMaxInfo(TWMGetMinMaxInfo &amp;Msg); // prototype for
+msg handler </p>
+
+<p>void __fastcall WMMainUpdate(TMessage &amp;Message); // prototype for msg handler </p>
+
+<p>void __fastcall WMMainStatus(TMessage &amp;Message); // prototype for msg handler </p>
+
+<p>BEGIN_MESSAGE_MAP MESSAGE_HANDLER(WM_GETMINMAXINFO,TWMGetMinMaxInfo, WMGetMinMaxInfo)
+MESSAGE_HANDLER(WM_CRHM_Main_UPDATE,TMessage, WMMainUpdate)
+MESSAGE_HANDLER(WM_CRHM_Main_STATUS,TMessage, WMMainStatus) END_MESSAGE_MAP(TForm) </p>
+
+<p>public: // User declarations __fastcall TMain(TComponent* Owner); </p>
+
+<p>TLineSeries **cdSeries; long SeriesCnt; </p>
+
+<p>TStringList *ObsFilesList; TStringList *ProjectList; TStringList *OpenDLLs; </p>
+
+<p>bool SaveStateFlag; bool OpenStateFlag; bool ProjectOpen; </p>
+
+<p>typedef void __declspec(dllimport) LoadModuleType(String DllName); </p>
+
+<p>LoadModuleType *LoadUserModules; </p>
+
+<p>TDateTime ProjectFileDate;</p>
+</body>
+</html>

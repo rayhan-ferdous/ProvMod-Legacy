@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Administer (10/17/04)</title>
+</head>
+
+<body>
+
+<h3>Administer - </h3>
+
+<p>class __declspec(dllexport) Administer { </p>
+
+<p>public:</p>
+
+<blockquote>
+  <p>TStringList *DLLModuleList;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // modules defined in DLL</p>
+  <p>TStringList *DLLModelList;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // models defined
+  in DLL</p>
+  <p>TStringList *DLLModelModuleList; // modules used in DLL models in CommaText</p>
+  <p>String Version;</p>
+  <p>String DLLName;</p>
+  <p>String HelpFile;</p>
+  <p>Administer(String Version, String _HelpFile);</p>
+  <p>~Administer();</p>
+  <p>void AddModule(ClassModule *Module);</p>
+  <p>void AddModel(String ModelName, String ModelModules);</p>
+  <p>void LoadCRHM(String DllName);</p>
+</blockquote>
+
+<p>};</p>
+
+<h3>Member Functions.</h3>
+
+<h3>Constructor.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Creates three TStringLists to hold all the modules defined,&nbsp; to
+hold defined models and lastly the modules used by each model.</p>
+
+<h3>Destructor.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Deletes instances of all modules defined.&nbsp; Deletes the three
+TStringLists.</p>
+
+<h3>void AddModule(ClassModule *Module);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Called by function <em>MoveModulesToGlobal()</em> to add user module
+name and address to the DLLModuleList.</p>
+
+<h3>void AddModel(String ModelName, String ModelModules);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Called by function <em>MoveModulesToGlobal()</em> to add user model
+name to the DLLModelList and a String holding the required user modules to
+DLLModelModuleList.</p>
+
+<h3>void LoadCRHM(String DllName);</h3>
+
+<p>&nbsp;</p>
+</body>
+</html>

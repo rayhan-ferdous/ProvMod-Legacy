@@ -1,0 +1,282 @@
+Project file: C:\CRHM_Blocks\prj\CRHM_CodeBlocks\junk.prj
+ 
+Observation file: C:\CRHM_Blocks\prj\CRHM_CodeBlocks\Badlake73_76.obs
+ 
+Time of model run: 9/21/2016 13:14. Program  Version: CRHM 09/20/16
+ 
+Module List "basin, global, obs, Slope_Qsi, calcsun, intcp, pbsm, albedo, netall, ebsm, evap, frozen, Soil, Netroute."
+ 
+Linkage modifications (AKAs)
+OBSR calcsun Qsi Qsi# Slope_Qsi
+ 
+OBSF (Classcalcsun) calcsun -> Qsi *** AKA warning, not changed to *** obs ->Qsi#
+ 
+timestep 1 hr.
+yy mm dd hh mm - 73 10 01 01 00  - "start of run".
+ 
+HRU 1: 'Soil (Soil)' soil_rechr_init     (mm) (mm*hru) (mm*hru/basin): 45.00 210.15 18.450
+HRU 1: 'Soil (Soil)' soil_moist_init     (mm) (mm*hru) (mm*hru/basin): 225.00 1050.75 92.252
+HRU 1: 'Soil (Soil)' Sd_init             (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'Soil (Soil)' gw_init             (mm) (mm*hru) (mm*hru/basin): 187.00 873.29 76.672
+ 
+HRU 2: 'Soil (Soil)' soil_rechr_init     (mm) (mm*hru) (mm*hru/basin): 45.00 226.80 19.912
+HRU 2: 'Soil (Soil)' soil_moist_init     (mm) (mm*hru) (mm*hru/basin): 225.00 1134.00 99.561
+HRU 2: 'Soil (Soil)' Sd_init             (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 2: 'Soil (Soil)' gw_init             (mm) (mm*hru) (mm*hru/basin): 187.00 942.48 82.746
+ 
+HRU 3: 'Soil (Soil)' soil_rechr_init     (mm) (mm*hru) (mm*hru/basin): 45.00 75.60 6.637
+HRU 3: 'Soil (Soil)' soil_moist_init     (mm) (mm*hru) (mm*hru/basin): 225.00 378.00 33.187
+HRU 3: 'Soil (Soil)' Sd_init             (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 3: 'Soil (Soil)' gw_init             (mm) (mm*hru) (mm*hru/basin): 187.00 314.16 27.582
+ 
+74 04 15 frozen Start save 
+74 04 15 Start save Main
+74 05 13 frozen End save 
+74 05 13 End save Main
+ 
+75 04 18 frozen Start save 
+75 04 18 Start save Main
+75 08 15 frozen End save 
+75 08 15 End save Main
+ 
+ 
+End of model run: 9/21/2016 13:14. Program  Version: CRHM 09/20/16
+ 
+HRU 1: 'obs (obs)'  cumhru_rain      (mm) (mm*hru) (mm*hru/basin): 506.95 2367.48 207.856
+HRU 1: 'obs (obs)'  cumhru_snow (mm) (mm*hru) (mm*hru/basin): 384.89 1797.42 157.807
+HRU 1: 'obs (obs)'  cumhru_snow_meas (mm) (mm*hru) (mm*hru/basin): 270.75 1264.39 111.009
+ 
+ 
+HRU 2: 'obs (obs)'  cumhru_rain      (mm) (mm*hru) (mm*hru/basin): 506.95 2555.05 224.324
+HRU 2: 'obs (obs)'  cumhru_snow (mm) (mm*hru) (mm*hru/basin): 384.89 1939.83 170.310
+HRU 2: 'obs (obs)'  cumhru_snow_meas (mm) (mm*hru) (mm*hru/basin): 270.75 1364.57 119.804
+ 
+ 
+HRU 3: 'obs (obs)'  cumhru_rain      (mm) (mm*hru) (mm*hru/basin): 506.95 851.68 74.775
+HRU 3: 'obs (obs)'  cumhru_snow (mm) (mm*hru) (mm*hru/basin): 384.89 646.61 56.770
+HRU 3: 'obs (obs)'  cumhru_snow_meas (mm) (mm*hru) (mm*hru/basin): 270.75 454.86 39.935
+ 
+ 
+'obs (obs)' Allcumhru_rain (mm*basin): 5774.2163
+'obs (obs)' Allcumhru_snow (mm*basin): 4383.8647 *** adjusted snowfall
+ 
+HRU 1: 'intcp (intcp)'  cumnetrain  (mm) (mm*hru) (mm*hru/basin): 506.95 2367.48 207.856
+HRU 1: 'intcp (intcp)'  cumnetsnow  (mm) (mm*hru) (mm*hru/basin): 384.89 1797.42 157.807
+ 
+HRU 2: 'intcp (intcp)'  cumnetrain  (mm) (mm*hru) (mm*hru/basin): 506.95 2555.05 224.324
+HRU 2: 'intcp (intcp)'  cumnetsnow  (mm) (mm*hru) (mm*hru/basin): 384.89 1939.83 170.310
+ 
+HRU 3: 'intcp (intcp)'  cumnetrain  (mm) (mm*hru) (mm*hru/basin): 506.95 851.68 74.775
+HRU 3: 'intcp (intcp)'  cumnetsnow  (mm) (mm*hru) (mm*hru/basin): 384.89 646.61 56.770
+ 
+ 
+HRU 1: 'pbsm (pbsm)' cumSno     (mm) (mm*hru) (mm*hru/basin): 384.89 1797.42 157.807
+HRU 1: 'pbsm (pbsm)' cumDrift   (mm) (mm*hru) (mm*hru/basin): 55.94 261.26 22.937
+HRU 1: 'pbsm (pbsm)' cumDriftIn (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'pbsm (pbsm)' cumSubl    (mm) (mm*hru) (mm*hru/basin): 127.03 593.25 52.085
+HRU 1: 'pbsm (pbsm)' cumCover   (mm) (mm*hru) (mm*hru/basin): 201.91 942.91 82.784 *** SWE just before melt
+HRU 1: 'pbsm (pbsm)' SWE        (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'pbsm (pbsm)' SWE_change (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+ 
+HRU 2: 'pbsm (pbsm)' cumSno     (mm) (mm*hru) (mm*hru/basin): 384.89 1939.83 170.310
+HRU 2: 'pbsm (pbsm)' cumDrift   (mm) (mm*hru) (mm*hru/basin): 36.10 181.96 15.976
+HRU 2: 'pbsm (pbsm)' cumDriftIn (mm) (mm*hru) (mm*hru/basin): 14.07 70.90 6.225
+HRU 2: 'pbsm (pbsm)' cumSubl    (mm) (mm*hru) (mm*hru/basin): 99.32 500.56 43.947
+HRU 2: 'pbsm (pbsm)' cumCover   (mm) (mm*hru) (mm*hru/basin): 263.53 1328.21 116.612 *** SWE just before melt
+HRU 2: 'pbsm (pbsm)' SWE        (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 2: 'pbsm (pbsm)' SWE_change (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+ 
+HRU 3: 'pbsm (pbsm)' cumSno     (mm) (mm*hru) (mm*hru/basin): 384.89 646.61 56.770
+HRU 3: 'pbsm (pbsm)' cumDrift   (mm) (mm*hru) (mm*hru/basin): 32.64 54.83 4.814
+HRU 3: 'pbsm (pbsm)' cumDriftIn (mm) (mm*hru) (mm*hru/basin): 56.85 95.50 8.385
+HRU 3: 'pbsm (pbsm)' cumSubl    (mm) (mm*hru) (mm*hru/basin): 90.70 152.38 13.378
+HRU 3: 'pbsm (pbsm)' cumCover   (mm) (mm*hru) (mm*hru/basin): 318.39 534.90 46.962 *** SWE just before melt
+HRU 3: 'pbsm (pbsm)' SWE        (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 3: 'pbsm (pbsm)' SWE_change (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+ 
+'pbsm (pbsm)' AllcumSubl  (mm*basin): 1246.1877 *** cumulative sum of all HRUs cumSubl
+'pbsm (pbsm)' AllcumCover (mm*basin): 2777.6487 *** SWE just before melt cumulative sum of all HRUs cumCover
+ 
+'pbsm' cumBasinSnowLoss (mm): 28.3734
+'pbsm' cumBasinSnowGain (mm): 0.0000
+ 
+HRU 1: 'ebsm (ebsm)' cumQe_subl   (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'ebsm (ebsm)' cumsnowmelt   (mm) (mm*hru) (mm*hru/basin): 201.91 942.91 82.784
+HRU 2: 'ebsm (ebsm)' cumQe_subl   (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 2: 'ebsm (ebsm)' cumsnowmelt   (mm) (mm*hru) (mm*hru/basin): 263.53 1328.21 116.612
+HRU 3: 'ebsm (ebsm)' cumQe_subl   (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 3: 'ebsm (ebsm)' cumsnowmelt   (mm) (mm*hru) (mm*hru/basin): 318.39 534.90 46.962
+ 
+'ebsm (ebsm)' Allcumsnowmelt (mm*basin): 2806.0168
+ 
+HRU 1: 'evap (evap)' hru_cum_evap    (mm) (mm*hru) (mm*hru/basin): 207.84 970.64 85.218 **** Granger ****
+HRU 1: 'evap (evap)' hru_cum_actet   (mm) (mm*hru) (mm*hru/basin): 207.84 970.64 85.218
+ 
+HRU 2: 'evap (evap)' hru_cum_evap    (mm) (mm*hru) (mm*hru/basin): 454.30 2289.67 201.024 **** Granger ****
+HRU 2: 'evap (evap)' hru_cum_actet   (mm) (mm*hru) (mm*hru/basin): 453.40 2285.15 200.628
+ 
+HRU 3: 'evap (evap)' hru_cum_evap    (mm) (mm*hru) (mm*hru/basin): 461.31 775.01 68.043 **** Granger ****
+HRU 3: 'evap (evap)' hru_cum_actet   (mm) (mm*hru) (mm*hru/basin): 460.28 773.27 67.890
+ 
+'evap (evap)' Allcum_evap  (mm*basin): 4035.3120 *** potential evaporation
+'evap (evap)' Allcum_actet (mm*basin): 4029.0527 *** actual evaporation
+ 
+HRU 1: 'frozen (frozen)' cumsnowinfil       (mm) (mm*hru) (mm*hru/basin): 20.59 96.18 8.444
+HRU 1: 'frozen (frozen)' cummeltrunoff      (mm) (mm*hru) (mm*hru/basin): 181.31 846.73 74.340
+HRU 1: 'frozen (frozen)' cuminfil(rain)     (mm) (mm*hru) (mm*hru/basin): 506.95 2367.48 207.856
+HRU 1: 'frozen (frozen)' cumrunoff(rain)    (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+ 
+HRU 2: 'frozen (frozen)' cumsnowinfil       (mm) (mm*hru) (mm*hru/basin): 38.80 195.58 17.171
+HRU 2: 'frozen (frozen)' cummeltrunoff      (mm) (mm*hru) (mm*hru/basin): 224.73 1132.63 99.441
+HRU 2: 'frozen (frozen)' cuminfil(rain)     (mm) (mm*hru) (mm*hru/basin): 506.95 2555.05 224.324
+HRU 2: 'frozen (frozen)' cumrunoff(rain)    (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+ 
+HRU 3: 'frozen (frozen)' cumsnowinfil       (mm) (mm*hru) (mm*hru/basin): 40.56 68.15 5.983
+HRU 3: 'frozen (frozen)' cummeltrunoff      (mm) (mm*hru) (mm*hru/basin): 277.83 466.75 40.979
+HRU 3: 'frozen (frozen)' cuminfil(rain)     (mm) (mm*hru) (mm*hru/basin): 506.95 851.68 74.775
+HRU 3: 'frozen (frozen)' cumrunoff(rain)    (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+ 
+HRU 1: 'Soil (Soil)' soil_rechr         (mm) (mm*hru) (mm*hru/basin): 59.59 278.28 24.432  *** information only - already included in 'soil_moist'.
+HRU 1: 'Soil (Soil)' soil_rechr_change  (mm) (mm*hru) (mm*hru/basin): 14.59 68.13 5.981  *** information only - already included in 'soil_moist'.
+HRU 1: 'Soil (Soil)' soil_moist         (mm) (mm*hru) (mm*hru/basin): 374.59 1749.33 153.585
+HRU 1: 'Soil (Soil)' soil_moist_change  (mm) (mm*hru) (mm*hru/basin): 149.59 698.58 61.333
+HRU 1: 'Soil (Soil)' hru_cum_actet      (mm) (mm*hru) (mm*hru/basin): 207.84 970.64 85.218
+HRU 1: 'Soil (Soil)' cum_hru_condense   (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'Soil (Soil)' cum_infil_act(all) (mm) (mm*hru) (mm*hru/basin): 357.44 1669.24 146.553
+HRU 1: 'Soil (Soil)' cum_soil_gw        (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'Soil (Soil)' cum_soil_runoff    (mm) (mm*hru) (mm*hru/basin): 181.02 845.35 74.219
+HRU 1: 'Soil (Soil)' cum_rechr_ssr      (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'Soil (Soil)' cum_soil_ssr       (mm) (mm*hru) (mm*hru/basin): 170.40 795.79 69.868
+HRU 1: 'Soil (Soil)' Sd                 (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'Soil (Soil)' Sd_change          (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'Soil (Soil)' cum_runoff_to_Sd   (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'Soil (Soil)' gw                 (mm) (mm*hru) (mm*hru/basin): 187.00 873.29 76.672
+HRU 1: 'Soil (Soil)' gw_change          (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 1: 'Soil (Soil)' cum_gw_flow        (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+ 
+HRU 1: 'Soil (Soil)' cum_redirected_residual (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000  *** Added to this HRU surface runoff
+ 
+HRU 2: 'Soil (Soil)' soil_rechr         (mm) (mm*hru) (mm*hru/basin): 32.37 163.13 14.322  *** information only - already included in 'soil_moist'.
+HRU 2: 'Soil (Soil)' soil_rechr_change  (mm) (mm*hru) (mm*hru/basin): -12.63 -63.67 -5.590  *** information only - already included in 'soil_moist'.
+HRU 2: 'Soil (Soil)' soil_moist         (mm) (mm*hru) (mm*hru/basin): 315.39 1589.57 139.559
+HRU 2: 'Soil (Soil)' soil_moist_change  (mm) (mm*hru) (mm*hru/basin): 90.39 455.57 39.998
+HRU 2: 'Soil (Soil)' hru_cum_actet      (mm) (mm*hru) (mm*hru/basin): 453.40 2285.15 200.628
+HRU 2: 'Soil (Soil)' cum_hru_condense   (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 2: 'Soil (Soil)' cum_infil_act(all) (mm) (mm*hru) (mm*hru/basin): 543.80 2740.73 240.626
+HRU 2: 'Soil (Soil)' cum_soil_gw        (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 2: 'Soil (Soil)' cum_soil_runoff    (mm) (mm*hru) (mm*hru/basin): 224.42 1131.09 99.306
+HRU 2: 'Soil (Soil)' cum_rechr_ssr      (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 2: 'Soil (Soil)' cum_soil_ssr       (mm) (mm*hru) (mm*hru/basin): 2.27 11.42 1.002
+HRU 2: 'Soil (Soil)' Sd                 (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 2: 'Soil (Soil)' Sd_change          (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 2: 'Soil (Soil)' cum_runoff_to_Sd   (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 2: 'Soil (Soil)' gw                 (mm) (mm*hru) (mm*hru/basin): 187.00 942.48 82.746
+HRU 2: 'Soil (Soil)' gw_change          (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 2: 'Soil (Soil)' cum_gw_flow        (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+ 
+HRU 2: 'Soil (Soil)' cum_redirected_residual (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000  *** Added to this HRU surface runoff
+ 
+HRU 3: 'Soil (Soil)' soil_rechr         (mm) (mm*hru) (mm*hru/basin): 31.98 53.73 4.718  *** information only - already included in 'soil_moist'.
+HRU 3: 'Soil (Soil)' soil_rechr_change  (mm) (mm*hru) (mm*hru/basin): -13.02 -21.87 -1.920  *** information only - already included in 'soil_moist'.
+HRU 3: 'Soil (Soil)' soil_moist         (mm) (mm*hru) (mm*hru/basin): 310.93 522.36 45.862
+HRU 3: 'Soil (Soil)' soil_moist_change  (mm) (mm*hru) (mm*hru/basin): 85.93 144.36 12.675
+HRU 3: 'Soil (Soil)' hru_cum_actet      (mm) (mm*hru) (mm*hru/basin): 460.28 773.27 67.890
+HRU 3: 'Soil (Soil)' cum_hru_condense   (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 3: 'Soil (Soil)' cum_infil_act(all) (mm) (mm*hru) (mm*hru/basin): 546.21 917.63 80.565
+HRU 3: 'Soil (Soil)' cum_soil_gw        (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 3: 'Soil (Soil)' cum_soil_runoff    (mm) (mm*hru) (mm*hru/basin): 277.80 466.71 40.976
+HRU 3: 'Soil (Soil)' cum_rechr_ssr      (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 3: 'Soil (Soil)' cum_soil_ssr       (mm) (mm*hru) (mm*hru/basin): 1.33 2.23 0.196
+HRU 3: 'Soil (Soil)' Sd                 (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 3: 'Soil (Soil)' Sd_change          (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 3: 'Soil (Soil)' cum_runoff_to_Sd   (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 3: 'Soil (Soil)' gw                 (mm) (mm*hru) (mm*hru/basin): 187.00 314.16 27.582
+HRU 3: 'Soil (Soil)' gw_change          (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+HRU 3: 'Soil (Soil)' cum_gw_flow        (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000
+ 
+HRU 3: 'Soil (Soil)' cum_redirected_residual (mm) (mm*hru) (mm*hru/basin): 0.00 0.00 0.000  *** Added to this HRU surface runoff
+ 
+'Soil (Soil)' Allcum_soil_runoff (mm*basin): 2443.1604
+'Soil (Soil)' Allcum_soil_ssr (mm*basin): 809.4382
+'Soil (Soil)' Allcum_rechr_ssr (mm*basin): 0.0000
+'Soil (Soil)' Allcum_soil_gw (mm*basin): 0.0000
+'Soil (Soil)' Allcum_gw_flow (mm*basin): 0.0000
+'Soil (Soil)' Allcum_infil_act (mm*basin): 5327.6030
+'Soil (Soil)' Allcum_soil_moist_change (mm*basin): 1298.5176
+'Soil (Soil)' Allcum_Sd_change (mm*basin): 0.0000
+'Soil (Soil)' Allcum_gw_change (mm*basin): 0.0000
+ 
+HRU 1: 'Netroute (Netroute)' cuminflow              (mm) (mm*km^2) (mm*basin): 351.42 1641.15 144.087
+HRU 1: 'Netroute (Netroute)' cumoutflow             (mm) (mm*km^2) (mm*basin): 351.42 1641.15 144.087
+HRU 1: 'Netroute (Netroute)' cumoutflow_diverted    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 1: 'Netroute (Netroute)' hruDelay_in_storage    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 1: 'Netroute (Netroute)' ssrcuminflow           (mm) (mm*km^2) (mm*basin): 170.41 795.79 69.868
+HRU 1: 'Netroute (Netroute)' ssrcumoutflow          (mm) (mm*km^2) (mm*basin): 170.41 795.79 69.868
+HRU 1: 'Netroute (Netroute)' ssrDelay_in_storage    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 1: 'Netroute (Netroute)' runoffcuminflow        (mm) (mm*km^2) (mm*basin): 181.02 845.36 74.219
+HRU 1: 'Netroute (Netroute)' runoffcumoutflow       (mm) (mm*km^2) (mm*basin): 181.02 845.36 74.219
+HRU 1: 'Netroute (Netroute)' runDelay_in_storage    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 1: 'Netroute (Netroute)' gwcuminflow            (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 1: 'Netroute (Netroute)' gwcumoutflow           (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 1: 'Netroute (Netroute)' gwcumdiverted          (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 1: 'Netroute (Netroute)' gwDelay_in_storage     (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 1: 'Netroute (Netroute)' cum_to_Sd              (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000  *** Added to this HRU Sd
+HRU 1: 'Netroute (Netroute)' cum_to_soil_rechr      (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000  *** Added to this HRU recharge
+HRU 1: 'Netroute (Netroute)' HRU_cumbasinflow       (mm) (mm*km^2) (mm*basin): 351.42 1641.15 144.087
+ 
+HRU 2: 'Netroute (Netroute)' cuminflow              (mm) (mm*km^2) (mm*basin): 226.69 1142.51 100.308
+HRU 2: 'Netroute (Netroute)' cumoutflow             (mm) (mm*km^2) (mm*basin): 226.69 1142.51 100.308
+HRU 2: 'Netroute (Netroute)' cumoutflow_diverted    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 2: 'Netroute (Netroute)' hruDelay_in_storage    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 2: 'Netroute (Netroute)' ssrcuminflow           (mm) (mm*km^2) (mm*basin): 2.27 11.42 1.002
+HRU 2: 'Netroute (Netroute)' ssrcumoutflow          (mm) (mm*km^2) (mm*basin): 2.27 11.42 1.002
+HRU 2: 'Netroute (Netroute)' ssrDelay_in_storage    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 2: 'Netroute (Netroute)' runoffcuminflow        (mm) (mm*km^2) (mm*basin): 224.42 1131.09 99.306
+HRU 2: 'Netroute (Netroute)' runoffcumoutflow       (mm) (mm*km^2) (mm*basin): 224.42 1131.09 99.306
+HRU 2: 'Netroute (Netroute)' runDelay_in_storage    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 2: 'Netroute (Netroute)' gwcuminflow            (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 2: 'Netroute (Netroute)' gwcumoutflow           (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 2: 'Netroute (Netroute)' gwcumdiverted          (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 2: 'Netroute (Netroute)' gwDelay_in_storage     (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 2: 'Netroute (Netroute)' cum_to_Sd              (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000  *** Added to this HRU Sd
+HRU 2: 'Netroute (Netroute)' cum_to_soil_rechr      (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000  *** Added to this HRU recharge
+HRU 2: 'Netroute (Netroute)' HRU_cumbasinflow       (mm) (mm*km^2) (mm*basin): 226.69 1142.51 100.308
+ 
+HRU 3: 'Netroute (Netroute)' cuminflow              (mm) (mm*km^2) (mm*basin): 279.13 468.94 41.171
+HRU 3: 'Netroute (Netroute)' cumoutflow             (mm) (mm*km^2) (mm*basin): 279.13 468.94 41.171
+HRU 3: 'Netroute (Netroute)' cumoutflow_diverted    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 3: 'Netroute (Netroute)' hruDelay_in_storage    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 3: 'Netroute (Netroute)' ssrcuminflow           (mm) (mm*km^2) (mm*basin): 1.33 2.23 0.196
+HRU 3: 'Netroute (Netroute)' ssrcumoutflow          (mm) (mm*km^2) (mm*basin): 1.33 2.23 0.196
+HRU 3: 'Netroute (Netroute)' ssrDelay_in_storage    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 3: 'Netroute (Netroute)' runoffcuminflow        (mm) (mm*km^2) (mm*basin): 277.80 466.71 40.976
+HRU 3: 'Netroute (Netroute)' runoffcumoutflow       (mm) (mm*km^2) (mm*basin): 277.80 466.71 40.976
+HRU 3: 'Netroute (Netroute)' runDelay_in_storage    (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 3: 'Netroute (Netroute)' gwcuminflow            (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 3: 'Netroute (Netroute)' gwcumoutflow           (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 3: 'Netroute (Netroute)' gwcumdiverted          (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 3: 'Netroute (Netroute)' gwDelay_in_storage     (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000
+HRU 3: 'Netroute (Netroute)' cum_to_Sd              (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000  *** Added to this HRU Sd
+HRU 3: 'Netroute (Netroute)' cum_to_soil_rechr      (mm) (mm*km^2) (mm*basin): 0.00 0.00 0.000  *** Added to this HRU recharge
+HRU 3: 'Netroute (Netroute)' HRU_cumbasinflow       (mm) (mm*km^2) (mm*basin): 279.13 468.94 41.171
+ 
+'Netroute (Netroute)' cumbasinflow (m^3): 3252595.0000
+'Netroute (Netroute)' cumbasingw   (m^3): 0.0000
+ 
+'Netroute (Netroute)' Allgwcuminflow (mm*basin): 0.0000
+'Netroute (Netroute)' Allgwcumoutflow (mm*basin): 0.0000
+'Netroute (Netroute)' Allgwcumoutflowdiverted (mm*basin): 0.0000
+ 
+'Netroute (Netroute)' Allcuminflow (mm*basin): 3252.5989
+'Netroute (Netroute)' Allcumoutflow (mm*basin): 3252.5989
+'Netroute (Netroute)' Allcumoutflowdiverted (mm*basin): 0.0000
+ 
+'Netroute (Netroute)' Allssrcuminflow (mm*basin): 809.4404
+'Netroute (Netroute)' Allssrcumoutflow (mm*basin): 809.4404
+ 
+'Netroute (Netroute)' Allruncuminflow (mm*basin): 2443.1616
+'Netroute (Netroute)' Allruncumoutflow (mm*basin): 2443.1614
+ 
+'Netroute (Netroute)' AllSdcuminflow (mm*basin): 0.0000
+'Netroute (Netroute)' Allrechrcuminflow (mm*basin): 0.0000
+ 

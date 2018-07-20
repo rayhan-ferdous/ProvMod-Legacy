@@ -1,0 +1,61 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Classmacro (09/03/02)</title>
+</head>
+
+<body>
+
+<h3>Classmacro - Processes observation file filter calls creating Classfilter objects.</h3>
+
+<p>class __declspec(dllexport) Classmacro {</p>
+
+<p>public:</p>
+
+<blockquote>
+  <p>Classmacro(ClassData *File); // constructor.</p>
+  <p>~Classmacro(); // destructor.</p>
+  <p><a href="file:///C:/Crhm/Code%20Help/classdata.htm">ClassData</a> *File; // Current
+  ClassData object.</p>
+  <p>TStringList *FilterList;&nbsp; // List to hold filters used by a ClassData object.</p>
+  <p>void addfilter(String Line); // Processes filter lines&nbsp; in observation file.</p>
+  <p>void fixup(void); // Memory is not allocated until after all the header lines in
+  observation file are read.</p>
+  <p>void execute(long Line); // Executed for every observation line read.</p>
+</blockquote>
+
+<p>};</p>
+
+<h3>Member Functions.</h3>
+
+<h3>Constructor.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Creates a new FilterList to store observation filters used by
+current ClassData object.</p>
+
+<h3>Destructor</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Deletes filters in FilterList and then the FilterList.</p>
+
+<h3>void addfilter(String Line);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Processes filter lines&nbsp; in observation file to determine filter
+type.&nbsp; Then instantiates the filter class and adds the object to the FilterList. If
+there is an error generates a CHMException.</p>
+
+<h3>void fixup(void);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Memory is not allocated until after all header lines in observation
+file are read. After memory is allocated the FilterList is gone through calling all the
+filter *-&gt;fixup() routines which calculate the actual pointers for observation
+variables used by the filter.</p>
+
+<h3>void execute(long Line);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Executes after every observation line is read. Using the FilterList,
+&nbsp; it is able to call the doFunction() of every filter.&nbsp; Parameters include Line
+and using ObsCnt multiple calls are made to handle observations dimensioned greater than
+1.</p>
+</body>
+</html>

@@ -1,0 +1,529 @@
+starting module run-ahead to determine future variables
+######
+Time:
+1974 4 13
+######
+DTindx:
+4655
+######
+CurrentModuleRun:
+14
+######
+Dimension:
+3 1
+######
+Netroute basinflow
+95.00118 0 0 
+######
+Netroute basinflow_s
+0.02638922 0 0 
+######
+Netroute basingw
+0 0 0 
+######
+Netroute basingw_s
+0 0 0 
+######
+Netroute cum_to_Sd
+0 0 0 
+######
+Netroute cum_to_soil_rechr
+0 0 0 
+######
+Netroute cumbasinflow
+2185.028 0 0 
+######
+Netroute cumbasingw
+0 0 0 
+######
+Netroute cuminflow
+2.185028 0 0 
+######
+Netroute cumoutflow
+2.185028 0 0 
+######
+Netroute cumoutflow_diverted
+0 0 0 
+######
+Netroute gwcuminflow
+0 0 0 
+######
+Netroute gwcumoutflow
+0 0 0 
+######
+Netroute gwcumoutflow_diverted
+0 0 0 
+######
+Netroute gwinflow
+0 0 0 
+######
+Netroute gwoutflow
+0 0 0 
+######
+Netroute gwoutflow_diverted
+0 0 0 
+######
+Netroute inflow
+0.09500118 0 0 
+######
+Netroute outflow
+0.09500118 0 0 
+######
+Netroute outflow_diverted
+0 0 0 
+######
+Netroute runcuminflow
+3.021329 0 0 
+######
+Netroute runcumoutflow
+2.185028 0 0 
+######
+Netroute runinflow
+0.8363018 0 0 
+######
+Netroute runoutflow
+0.8363018 0 0 
+######
+Netroute ssrcuminflow
+0 0 0 
+######
+Netroute ssrcumoutflow
+0 0 0 
+######
+Netroute ssrinflow
+0 0 0 
+######
+Netroute ssroutflow
+0 0 0 
+######
+Slope_Qsi QsiD_Obs
+236.3615 236.3615 236.3615 
+######
+Slope_Qsi QsiD_Var
+236.3615 236.3615 236.3615 
+######
+Slope_Qsi QsiS_Var
+0 0 0 
+######
+Soil Sd
+0 0 0 
+######
+Soil cum_rechr_ssr
+0 0 0 
+######
+Soil cum_runoff_to_Sd
+0 0 0 
+######
+Soil cum_soil_gw
+0 0 0 
+######
+Soil cum_soil_runoff
+0.6469654 0 0 
+######
+Soil cum_soil_ssr
+0 0 0 
+######
+Soil rechr_ssr
+0 0 0 
+######
+Soil soil_gw
+0 0 0 
+######
+Soil soil_gw_D
+0 0 0 
+######
+Soil soil_moist
+228.661 218.3555 216.9565 
+######
+Soil soil_rechr
+48.66105 38.35539 36.95646 
+######
+Soil soil_runoff
+0.1790796 0 0 
+######
+Soil soil_runoff_D
+0.6469654 0 0 
+######
+Soil soil_ssr
+0 0 0 
+######
+Soil soil_ssr_D
+0 0 0 
+######
+albedo Albedo
+0.4660001 0.6900001 0.6900001 
+######
+albedo meltflag
+1 1 1 
+######
+albedo net_snowD
+0 0 0 
+######
+albedo newsnowcnt
+6 6 6 
+######
+albedo winter
+1 1 1 
+######
+basin run_ID
+-1 0 0 
+######
+calcsun hru_SunAct
+0 0 0 
+######
+ebsm LW_ebsm
+2.373382 0 0 
+######
+ebsm LWmax
+2.373382 4.118711 4.4807 
+######
+ebsm Qe_ebsm
+0.01960191 0 0 
+######
+ebsm Qh_ebsm
+0.3320999 0 0 
+######
+ebsm Qmelt
+1.313864 0 0 
+######
+ebsm Qn_ebsm
+0.9621626 0 0 
+######
+ebsm Qp_ebsm
+0 0 0 
+######
+ebsm cumsnowmelt
+4.786139 0 0 
+######
+ebsm net_rainD
+0 0 0 
+######
+ebsm snowmeltD
+4.297911 0 0 
+######
+ebsm u_ebsm
+0 -0.2286764 -0.7630193 
+######
+evap evapGrangerD
+0 0 0 
+######
+evap hru_actet
+0 0 0 
+######
+evap hru_cum_actet
+2.600886 12.8862 14.28517 
+######
+evap hru_cum_evap
+2.600886 15.34667 17.74193 
+######
+evap hru_evap
+0 0 0 
+######
+evap hru_evapD
+0 0 0 
+######
+frozen cuminfil
+6.241668 6.241668 6.241668 
+######
+frozen cummeltrunoff
+0.6673083 0 0 
+######
+frozen cumrunoff
+0 0 0 
+######
+frozen cumsnowinfil
+0 0 0 
+######
+frozen infil
+0 0 0 
+######
+frozen infiltype
+1 2 2 
+######
+frozen meltrunoff
+0.1790796 0 0 
+######
+frozen runoff
+0 0 0 
+######
+frozen snowinfil
+0 0 0 
+######
+frozen t0_Acc
+1 0 0 
+######
+frozen t0_Var
+0 0 0 
+######
+global Qdflat
+0 0 0 
+######
+global QdflatD
+24.19814 24.19814 24.19814 
+######
+global QdflatE
+0 0 0 
+######
+global Qdfo
+0 0 0 
+######
+global QdfoD
+1.844545 3.196088 3.196088 
+######
+global Qdro
+0 0 0 
+######
+global QdroD
+9.588812 21.00205 21.00205 
+######
+global QdroDext
+30.10354 30.10354 30.10354 
+######
+global SolAng
+0 0 0 
+######
+global SunMax
+13.41667 13.41667 13.41667 
+######
+global cosxs
+0 0 0 
+######
+global cosxsflat
+0 0 0 
+######
+intcp cumnet_rain
+6.241668 6.241668 6.241668 
+######
+intcp intcp_evap
+0 0 0 
+######
+intcp net_p
+0 0 0 
+######
+intcp net_rain
+0 0 0 
+######
+intcp net_snow
+0 0 0 
+######
+netall Rn
+-0.05108256 -0.05108256 -0.05108256 
+######
+netall RnD
+-0.2826297 -0.1702957 -0.1702957 
+######
+netall RnD_POS
+0.2898673 0.3980215 0.3980215 
+######
+netall cum_net
+-347.5706 -181.3152 -181.3152 
+######
+netall net
+-0.1277334 -0.1277334 -0.1277334 
+######
+netall netD
+-0.7077084 -0.4275224 -0.4275224 
+######
+obs EAday
+0.5808 0.5808 0.5808 
+0.5757 0.5757 0.5757 
+0.5768 0.5768 0.5768 
+0.5702 0.5702 0.5702 
+0.5683 0.5683 0.5683 
+0.5704 0.5704 0.5704 
+0.5648 0.5648 0.5648 
+0.5642 0.5642 0.5642 
+0.5742 0.5742 0.5742 
+0.5951 0.5951 0.5951 
+0.5955 0.5955 0.5955 
+0.6081 0.6081 0.6081 
+0.6066 0.6066 0.6066 
+0.6212 0.6212 0.6212 
+0.6036 0.6036 0.6036 
+0.5904 0.5904 0.5904 
+0.5659 0.5659 0.5659 
+0.5332 0.5332 0.5332 
+0.551 0.551 0.551 
+0.5458 0.5458 0.5458 
+0.5367 0.5367 0.5367 
+0.5386 0.5386 0.5386 
+0.5422 0.5422 0.5422 
+0.5363 0.5363 0.5363 
+######
+obs RHday
+85.9 85.9 85.9 
+87 87 87 
+87.8 87.8 87.8 
+88.7 88.7 88.7 
+88.4 88.4 88.4 
+88.1 88.1 88.1 
+88.5 88.5 88.5 
+88.4 88.4 88.4 
+87.4 87.4 87.4 
+84.3 84.3 84.3 
+78 78 78 
+73.7 73.7 73.7 
+72.5 72.5 72.5 
+72.7 72.7 72.7 
+74.2 74.2 74.2 
+73.6 73.6 73.6 
+73.6 73.6 73.6 
+75 75 75 
+81.5 81.5 81.5 
+84.3 84.3 84.3 
+84.1 84.1 84.1 
+84.4 84.4 84.4 
+86.2 86.2 86.2 
+86.5 86.5 86.5 
+######
+obs Tday
+1.4 1.4 1.4 
+1.1 1.1 1.1 
+1 1 1 
+0.7 0.7 0.7 
+0.7 0.7 0.7 
+0.8 0.8 0.8 
+0.6 0.6 0.6 
+0.6 0.6 0.6 
+1 1 1 
+2 2 2 
+3.1 3.1 3.1 
+4.2 4.2 4.2 
+4.4 4.4 4.4 
+4.7 4.7 4.7 
+4 4 4 
+3.8 3.8 3.8 
+3.2 3.2 3.2 
+2.1 2.1 2.1 
+1.4 1.4 1.4 
+0.8 0.8 0.8 
+0.6 0.6 0.6 
+0.6 0.6 0.6 
+0.4 0.4 0.4 
+0.2 0.2 0.2 
+######
+obs Umean
+4.725 4.725 4.725 
+######
+obs cumhru_rain
+6.241668 6.241668 6.241668 
+######
+obs cumhru_snow
+198.1149 198.1149 198.1149 
+######
+obs cumhru_snow_meas
+140.2572 140.2572 140.2572 
+######
+obs hru_ea
+0.5362574 0.5362574 0.5362574 
+######
+obs hru_eamean
+0.5714796 0.5714796 0.5714796 
+######
+obs hru_newsnow
+0 0 0 
+######
+obs hru_p
+0 0 0 
+######
+obs hru_rain
+0 0 0 
+######
+obs hru_rh
+86.5 86.5 86.5 
+######
+obs hru_rhmean
+82.28333 82.28333 82.28333 
+######
+obs hru_snow
+0 0 0 
+######
+obs hru_t
+0.2 0.2 0.2 
+######
+obs hru_tmax
+4.7 4.7 4.7 
+######
+obs hru_tmean
+1.808333 1.808333 1.808333 
+######
+obs hru_tmin
+0.2 0.2 0.2 
+######
+obs hru_u
+1.4 1.4 1.4 
+######
+obs hru_umean
+4.725 4.725 4.725 
+######
+obs pptD
+0 0 0 
+######
+obs t_obs
+1.4 1.4 1.4 
+1.1 1.1 1.1 
+1 1 1 
+0.7 0.7 0.7 
+0.7 0.7 0.7 
+0.8 0.8 0.8 
+0.6 0.6 0.6 
+0.6 0.6 0.6 
+1 1 1 
+2 2 2 
+3.1 3.1 3.1 
+4.2 4.2 4.2 
+4.4 4.4 4.4 
+4.7 4.7 4.7 
+4 4 4 
+3.8 3.8 3.8 
+3.2 3.2 3.2 
+2.1 2.1 2.1 
+1.4 1.4 1.4 
+0.8 0.8 0.8 
+0.6 0.6 0.6 
+0.6 0.6 0.6 
+0.4 0.4 0.4 
+0.2 0.2 0.2 
+######
+pbsm BasinSnowLoss
+0 0 0 
+######
+pbsm Drift
+0 0 0 
+######
+pbsm DrySnow
+0 0 0 
+######
+pbsm Prob
+0 0 0 
+######
+pbsm SWE
+43.32035 98.68928 329.3004 
+######
+pbsm SnowAge
+0 0 0 
+######
+pbsm Subl
+0 0 0 
+######
+pbsm cumBasinSnowGain
+0 0 0 
+######
+pbsm cumBasinSnowLoss
+4.153439 0 0 
+######
+pbsm cumDrift
+42.38727 30.04189 5.525385 
+######
+pbsm cumDriftIn
+0 9.843343 155.4922 
+######
+pbsm cumSno
+198.1149 198.1149 198.1149 
+######
+pbsm cumSubl
+105.2478 79.22713 18.78219 
+######
+pbsm snowdepth
+0.190032 0.4043485 1.002807 
+######

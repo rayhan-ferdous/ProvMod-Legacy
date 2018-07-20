@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="C:\CRHM_Borland\lib\NewModulesDLL.dll"/>
+    <OBJFILES value="C:\CRHM_2008\tmp\CRHM.dll\NewModulesDLL.obj 
+      C:\CRHM_2008\tmp\CRHM.dll\NewModules.obj 
+      C:\CRHM_2008\tmp\CRHM.dll\Common.obj"/>
+    <RESFILES value="NewModulesDLL.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value="..\lib\CRHMGlobal.lib"/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value="vcl.lib rtl.lib vcldbx.lib vcldb.lib dbrtl.lib vclx.lib bdertl.lib 
+      visualclx.lib"/>
+    <PACKAGES value="vcl.bpi rtl.bpi vclx.bpi bcbsmp.bpi adortl.bpi qrpt.bpi vcldbx.bpi 
+      dsnap.bpi cds.bpi bdecds.bpi ibxpress.bpi visualclx.bpi visualdbclx.bpi 
+      vclie.bpi xmlrtl.bpi inet.bpi inetdbbde.bpi inetdbxpress.bpi inetdb.bpi 
+      nmfast.bpi bcbie.bpi soaprtl.bpi dclocx.bpi dbexpress.bpi dbxcds.bpi 
+      indy.bpi bcb97axserver.bpi vcldb.bpi dbrtl.bpi bdertl.bpi"/>
+    <PATHCPP value=".;&quot;..\src\CRHM dll module&quot;;..\src\Shared"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="CRHM_NEW;_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT;_RTLDLL;USEPACKAGES"/>
+    <MAINSOURCE value="NewModulesDLL.bpf"/>
+    <INCLUDEPATH value="&quot;..\src\CRHM dll module&quot;;C:\CRHM_Borland\src\Shared;$(BCB)\include;$(BCB)\include\vcl;$(Boost)"/>
+    <LIBPATH value="&quot;..\src\CRHM dll module&quot;;C:\CRHM_Borland\src\Shared;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par -w-8026"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-WD -Od -Vx -Ve -X- -r- -a8 -6 -b- -k -y -v -vi- -tWD -tWM -c"/>
+    <PFLAGS value="-N2C:\CRHM_2008\tmp\CRHM.dll -N0C:\CRHM_2008\tmp\CRHM.dll -$Y+ -$W -$O- 
+      -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-lC:\CRHM_Borland\lib -IC:\CRHM_2008\tmp\CRHM.dll -D&quot;&quot; -aa -Tpd -x -Gn -Gi 
+      -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0d32.obj $(PACKAGES) Memmgr.Lib sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="NewModulesDLL.res" FORMNAME="" UNITNAME="NewModulesDLL.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="NewModulesDLL.bpf" FORMNAME="" UNITNAME="NewModulesDLL" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\CRHM dll module\NewModulesDLL.cpp" FORMNAME="" UNITNAME="NewModulesDLL" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\NewModules.cpp" FORMNAME="" UNITNAME="NewModules" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Common.cpp" FORMNAME="" UNITNAME="Common" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\lib\CRHMGlobal.lib" FORMNAME="" UNITNAME="CRHMGlobal.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=11
+Item0=..\src\CRHM dll module;C:\CRHM_Borland\src\Shared;$(BCB)\include;$(BCB)\include\vcl;$(Boost)
+Item1=C:\CRHM_Borland\src\Shared;$(BCB)\include;$(BCB)\include\vcl;$(Boost)
+Item2=C:\CRHM_Borland\src\CRHM dll module;C:\CRHM_Borland\src\Shared;C:\Program Files\Borland\CBuilder6\Projects;C:\Program Files\Borland\CBuilder6\Bin;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Spirit);$(Spirit2);$(BCBboost)
+Item3=C:\Program Files\Borland\CBuilder6\Projects;C:\Program Files\Borland\CBuilder6\Bin;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Spirit);$(Spirit2);$(BCBboost)
+Item4=C:\Program Files\Borland\CBuilder6\Bin;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Spirit);$(Spirit2);$(BCBboost)
+Item5=$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Spirit);$(Spirit2);$(BCBboost)
+Item6=C:\Program Files\Borland\CBuilder6\Bin;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Spirit};$(Spirit2}
+Item7=C:\Program Files\Borland\CBuilder6\Bin;$(TEEINCPATH);C:\CRHM;$(BCB)\include;$(BCB)\include\vcl
+Item8=$(TEEINCPATH);C:\CRHM;$(BCB)\include;$(BCB)\include\vcl
+Item9=C:\Program Files\Borland\CBuilder6\Bin;C:\CRHM;$(BCB)\include;$(BCB)\include\vcl
+Item10=C:\CRHM;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=11
+Item0=..\src\CRHM dll module;C:\CRHM_Borland\src\Shared;$(BCB)\lib\obj;$(BCB)\lib
+Item1=C:\CRHM_Borland\src\Shared;$(BCB)\lib\obj;$(BCB)\lib
+Item2=C:\CRHM_Borland\src\CRHM dll module;C:\CRHM_Borland\src\Shared;C:\Program Files\Borland\CBuilder6\Projects;C:\Program Files\Borland\CBuilder6\Bin;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib
+Item3=C:\Program Files\Borland\CBuilder6\Projects;C:\Program Files\Borland\CBuilder6\Bin;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib
+Item4=C:\Program Files\Borland\CBuilder6\Projects;C:\Program Files\Borland\CBuilder6\Bin;$(TEELIBPATH);C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item5=C:\Program Files\Borland\CBuilder6\Bin;$(TEELIBPATH);C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item6=$(TEELIBPATH);C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item7=C:\Program Files\Borland\CBuilder6\Bin;..\..\..\Steema Software\TeeChart 6.01 for C++ Builder 6\CBuilder6\Lib;$(TEELIBPATH);C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item8=..\..\..\Steema Software\TeeChart 6.01 for C++ Builder 6\CBuilder6\Lib;$(TEELIBPATH);C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item9=..\..\..\Steema Software\TeeChart 6.01 for C++ Builder 6\CBuilder6\Lib;C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item10=C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=3
+Item0=CRHM_NEW;_DEBUG
+Item1=CRHM_NEW
+Item2=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=C:\CRHM_2008\tmp\CRHM.dll
+Item1=C:\CRHM
+
+[HistoryLists\hlFinalOutputDir]
+Count=4
+Item0=C:\CRHM_Borland\lib\
+Item1=C:\CRHM_Borland\lib
+Item2=C:\CRHM\
+Item3=C:\CRHM
+
+[HistoryLists\hIBPIOutputDir]
+Count=2
+Item0=C:\CRHM_Borland\lib
+Item1=C:\CRHM
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[Linker]
+LibPrefix=
+LibSuffix=
+LibVersion=
+  </IDEOPTIONS>
+</PROJECT>

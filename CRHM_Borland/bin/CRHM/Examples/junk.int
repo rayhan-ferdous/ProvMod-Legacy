@@ -1,0 +1,38 @@
+Description of State File - to be added
+######
+Time:
+1973 10 1
+######
+Dimension:
+3 1
+######
+albedo Albedo
+0.17 0.17 0.17 
+######
+albedo meltflag
+0 0 0 
+######
+albedo winter
+0 0 0 
+######
+basin run_ID
+1 0 0 
+######
+ebsm LW_ebsm
+0 0 0 
+######
+ebsm u_ebsm
+0 0 0 
+######
+pbsm SWE
+0 0 0 
+######
+pbsm snowdepth
+0 0 0 
+######
+smbal soil_moist
+325.8 295.1 325.6 
+######
+smbal soil_rechr
+52.29 42.77 43.1 
+######

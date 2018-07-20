@@ -1,0 +1,586 @@
+starting module run-ahead to determine future variables
+######
+Time:
+1975 3 17
+######
+DTindx:
+19319
+######
+CurrentModuleRun:
+14
+######
+Dimension:
+3 1
+######
+Annandale QsiA_Var
+0 0 0 
+######
+Annandale QsiD_Var
+113.7727 113.7727 113.7727 
+######
+Annandale QsiS_Var
+0 0 0 
+######
+Annandale hru_SunAct
+6.126381 6.126381 6.126381 
+######
+Netroute HRU_cumbasinflow
+584.1502 1338.472 280.2548 
+######
+Netroute basinflow
+13.97771 0 0 
+######
+Netroute basinflow_s
+0.003882696 0 0 
+######
+Netroute basingw
+0 0 0 
+######
+Netroute basingw_s
+0 0 0 
+######
+Netroute cum_to_Sd
+0 0 0 
+######
+Netroute cum_to_soil_rechr
+0 0 0 
+######
+Netroute cumbasinflow
+2202891 0 0 
+######
+Netroute cumbasingw
+0 0 0 
+######
+Netroute cuminflow
+584.1502 1338.472 280.2548 
+######
+Netroute cumoutflow
+584.1502 1338.472 280.2548 
+######
+Netroute cumoutflow_diverted
+0 0 0 
+######
+Netroute gwcuminflow
+0 0 0 
+######
+Netroute gwcumoutflow
+0 0 0 
+######
+Netroute gwcumoutflow_diverted
+0 0 0 
+######
+Netroute gwinflow
+0 0 0 
+######
+Netroute gwoutflow
+0 0 0 
+######
+Netroute gwoutflow_diverted
+0 0 0 
+######
+Netroute inflow
+0.01397771 0 0 
+######
+Netroute outflow
+0.01397771 0 0 
+######
+Netroute outflow_diverted
+0 0 0 
+######
+Netroute runcuminflow
+585.1055 1338.901 280.2548 
+######
+Netroute runcumoutflow
+584.1502 1338.472 280.2548 
+######
+Netroute runinflow
+0.9553449 0.4292701 0 
+######
+Netroute runoutflow
+0.9553449 0.4292701 0 
+######
+Netroute ssrcuminflow
+0 0 0 
+######
+Netroute ssrcumoutflow
+0 0 0 
+######
+Netroute ssrinflow
+0 0 0 
+######
+Netroute ssroutflow
+0 0 0 
+######
+Soil Sd
+0 0 0 
+######
+Soil cum_gw_flow
+0 0 0 
+######
+Soil cum_infil_act
+188.001 188.0009 324.1465 
+######
+Soil cum_rechr_ssr
+0 0 0 
+######
+Soil cum_redirected_residual
+0 0 0 
+######
+Soil cum_runoff_to_Sd
+0 0 0 
+######
+Soil cum_soil_gw
+0 0 0 
+######
+Soil cum_soil_runoff
+163.4375 218.4186 166.8189 
+######
+Soil cum_soil_ssr
+0 0 0 
+######
+Soil gw
+187 187 187 
+######
+Soil gw_flow
+0 0 0 
+######
+Soil gw_flow_D
+0 0 0 
+######
+Soil infil_act
+0 0 0 
+######
+Soil infil_act_D
+0 0 0 
+######
+Soil rechr_ssr
+0 0 0 
+######
+Soil redirected_residual
+0 0 0 
+######
+Soil soil_gw
+0 0 0 
+######
+Soil soil_gw_D
+0 0 0 
+######
+Soil soil_moist
+375 375 367.9482 
+######
+Soil soil_rechr
+60 60 52.94846 
+######
+Soil soil_runoff
+0.2668561 0.07002774 0 
+######
+Soil soil_runoff_D
+0.356657 0.07002774 0 
+######
+Soil soil_ssr
+0 0 0 
+######
+Soil soil_ssr_D
+0 0 0 
+######
+albedo Albedo
+0.5660002 0.5660002 0.6780002 
+######
+albedo meltflag
+1 1 1 
+######
+albedo net_snowD
+0 0 0 
+######
+albedo newsnowcnt
+11 11 11 
+######
+albedo winter
+1 1 1 
+######
+ebsm LW_ebsm
+1.319318 2.894027 0.3953041 
+######
+ebsm LWmax
+1.319318 2.894027 3.467534 
+######
+ebsm Qe_ebsm
+0.0578335 0.0578335 0.0578335 
+######
+ebsm Qe_subl
+0.02043587 0.02043587 0.02043587 
+######
+ebsm Qh_ebsm
+0.1813666 0.1813666 0.1813666 
+######
+ebsm Qmelt
+2.005186 2.005186 1.412674 
+######
+ebsm Qn_ebsm
+1.765986 1.765986 1.173473 
+######
+ebsm Qp_ebsm
+0 0 0 
+######
+ebsm cumQe_subl
+0 0 0 
+######
+ebsm cumsnowmelt
+26.58894 77.04339 159.9785 
+######
+ebsm net_rainD
+0 0 0 
+######
+ebsm snowmeltD
+6.404547 1.680666 0 
+######
+ebsm u_ebsm
+0 0 0 
+######
+evap evapGrangerD
+0 0 0 
+######
+evap hru_actet
+0 0 0 
+######
+evap hru_cum_actet
+0 0 143.1962 
+######
+evap hru_cum_evap
+251.3175 197.7647 143.3182 
+######
+evap hru_evap
+0 0 0 
+######
+evap hru_evapD
+0 0 0 
+######
+evap hru_evap_PT
+0 0 0 
+######
+frostdepth Cacc
+1.948639 1.83801 1.795307 
+######
+frostdepth Findex
+3297.178 3297.178 3297.178 
+######
+frostdepth Kacc
+1.352379 1.228086 1.186011 
+######
+frostdepth Lacc
+72.41031 66.92783 64.81158 
+######
+frostdepth Tfreeze
+126 288 288 
+######
+frostdepth frostdepth
+1.600258 1.545481 1.492034 
+######
+frozen cuminfil
+330.9871 330.9871 330.9871 
+######
+frozen cummeltrunoff
+9.159723 59.70326 136.3888 
+######
+frozen cumrunoff
+0 0 0 
+######
+frozen cumsnowinfil
+11.29153 15.72959 23.58969 
+######
+frozen infil
+0 0 0 
+######
+frozen meltrunoff
+0.2668561 0.07002774 0 
+######
+frozen runoff
+0 0 0 
+######
+frozen snowinfil
+0 0 0 
+######
+global Qdflat
+0 0 0 
+######
+global QdflatD
+16.95555 16.95555 16.95555 
+######
+global QdflatE
+0 0 0 
+######
+global Qdfo
+0 0 0 
+######
+global QdfoD
+1.830249 1.830249 1.830249 
+######
+global Qdro
+0 0 0 
+######
+global QdroD
+12.32771 12.32771 12.32771 
+######
+global QdroDext
+21.7661 21.7661 21.7661 
+######
+global SolAng
+0 0 0 
+######
+global SunMax
+11.58333 11.58333 11.58333 
+######
+global cosxs
+0 0 0 
+######
+global cosxsflat
+0 0 0 
+######
+intcp cumnet_rain
+330.9871 330.9871 330.9871 
+######
+intcp cumnet_snow
+205.6109 205.6109 205.6109 
+######
+intcp intcp_evap
+0 0 0 
+######
+intcp net_p
+0 0 0 
+######
+intcp net_rain
+0 0 0 
+######
+intcp net_snow
+0 0 0 
+######
+netall Rn
+-0.1125161 -0.1125161 -0.1125161 
+######
+netall RnD
+-1.174805 -1.174805 -1.408948 
+######
+netall RnD_POS
+0.3803797 0.3803797 0.1924086 
+######
+netall cum_net
+-318.1794 -366.6915 -436.0446 
+######
+netall net
+-0.281323 -0.281323 -0.281323 
+######
+netall netD
+-2.944085 -2.944085 -3.528777 
+######
+obs EAday
+0.4085 0.4085 0.4085 
+0.4119 0.4119 0.4119 
+0.3949 0.3949 0.3949 
+0.3935 0.3935 0.3935 
+0.3809 0.3809 0.3809 
+0.3768 0.3768 0.3768 
+0.3598 0.3598 0.3598 
+0.4015 0.4015 0.4015 
+0.4302 0.4302 0.4302 
+0.4933 0.4933 0.4933 
+0.5148 0.5148 0.5148 
+0.564 0.564 0.564 
+0.6061 0.6061 0.6061 
+0.6562 0.6562 0.6562 
+0.6605 0.6605 0.6605 
+0.6451 0.6451 0.6451 
+0.6239 0.6239 0.6239 
+0.5786 0.5786 0.5786 
+0.5615 0.5615 0.5615 
+0.5412 0.5412 0.5412 
+0.5439 0.5439 0.5439 
+0.549 0.549 0.549 
+0.5352 0.5352 0.5352 
+0.5133 0.5133 0.5133 
+######
+obs Pa
+93.99345 93.99345 93.99345 
+######
+obs RHday
+83.7 83.7 83.7 
+83.7 83.7 83.7 
+84.4 84.4 84.4 
+84.1 84.1 84.1 
+83.5 83.5 83.5 
+83.3 83.3 83.3 
+81.6 81.6 81.6 
+80.9 80.9 80.9 
+80.4 80.4 80.4 
+81.4 81.4 81.4 
+79.5 79.5 79.5 
+78.2 78.2 78.2 
+81.1 81.1 81.1 
+81.8 81.8 81.8 
+85.3 85.3 85.3 
+83.9 83.9 83.9 
+82.9 82.9 82.9 
+86.2 86.2 86.2 
+86.1 86.1 86.1 
+84.8 84.8 84.8 
+84 84 84 
+81.2 81.2 81.2 
+80.3 80.3 80.3 
+82.2 82.2 82.2 
+######
+obs Tday
+-2.7 -2.7 -2.7 
+-2.6 -2.6 -2.6 
+-3.2 -3.2 -3.2 
+-3.2 -3.2 -3.2 
+-3.5 -3.5 -3.5 
+-3.6 -3.6 -3.6 
+-3.9 -3.9 -3.9 
+-2.5 -2.5 -2.5 
+-1.6 -1.6 -1.6 
+-0.1 -0.1 -0.1 
+0.8 0.8 0.8 
+2.3 2.3 2.3 
+2.8 2.8 2.8 
+3.8 3.8 3.8 
+3.3 3.3 3.3 
+3.2 3.2 3.2 
+2.9 2.9 2.9 
+1.3 1.3 1.3 
+0.9 0.9 0.9 
+0.6 0.6 0.6 
+0.8 0.8 0.8 
+1.4 1.4 1.4 
+1.2 1.2 1.2 
+0.3 0.3 0.3 
+######
+obs Umean
+4.991666 4.991666 4.991666 
+######
+obs cumhru_rain
+330.9871 330.9871 330.9871 
+######
+obs cumhru_snow
+205.6109 205.6109 205.6109 
+######
+obs cumhru_snow_meas
+205.6109 205.6109 205.6109 
+######
+obs hru_ea
+0.5133139 0.5133139 0.5133139 
+######
+obs hru_eamean
+0.5060142 0.5060142 0.5060142 
+######
+obs hru_newsnow
+0 0 0 
+######
+obs hru_p
+0 0 0 
+######
+obs hru_rain
+0 0 0 
+######
+obs hru_rh
+82.2 82.2 82.2 
+######
+obs hru_rhmean
+82.68751 82.68751 82.68751 
+######
+obs hru_snow
+0 0 0 
+######
+obs hru_t
+0.3 0.3 0.3 
+######
+obs hru_tmax
+3.8 3.8 3.8 
+######
+obs hru_tmean
+-0.05416678 -0.05416678 -0.05416678 
+######
+obs hru_tmin
+-3.9 -3.9 -3.9 
+######
+obs hru_u
+7.2 7.2 7.2 
+######
+obs hru_umean
+4.991666 4.991666 4.991666 
+######
+obs pptD
+0 0 0 
+######
+obs t_obs
+-2.7 -2.7 -2.7 
+-2.6 -2.6 -2.6 
+-3.2 -3.2 -3.2 
+-3.2 -3.2 -3.2 
+-3.5 -3.5 -3.5 
+-3.6 -3.6 -3.6 
+-3.9 -3.9 -3.9 
+-2.5 -2.5 -2.5 
+-1.6 -1.6 -1.6 
+-0.1 -0.1 -0.1 
+0.8 0.8 0.8 
+2.3 2.3 2.3 
+2.8 2.8 2.8 
+3.8 3.8 3.8 
+3.3 3.3 3.3 
+3.2 3.2 3.2 
+2.9 2.9 2.9 
+1.3 1.3 1.3 
+0.9 0.9 0.9 
+0.6 0.6 0.6 
+0.8 0.8 0.8 
+1.4 1.4 1.4 
+1.2 1.2 1.2 
+0.3 0.3 0.3 
+######
+pbsm BasinSnowLoss
+0 0 0 
+######
+pbsm Drift
+0 0 0 
+######
+pbsm DriftH
+0 0 0 
+######
+pbsm DrySnow
+0 0 0 
+######
+pbsm Prob
+0.02421617 0 0 
+######
+pbsm SWE
+20.05686 53.30584 68.95537 
+######
+pbsm SnowAge
+0 0 0 
+######
+pbsm Subl
+0 0 0 
+######
+pbsm SublH
+0 0 0 
+######
+pbsm cumBasinSnowGain
+21.33799 0 0 
+######
+pbsm cumBasinSnowLoss
+16.51151 0 0 
+######
+pbsm cumDrift
+67.88831 27.40322 44.29658 
+######
+pbsm cumDriftIn
+67.88831 14.91519 108.88 
+######
+pbsm cumSno
+205.6109 205.6109 205.6109 
+######
+pbsm cumSubl
+157.6475 59.88095 40.8668 
+######
+pbsm snowdepth
+0.1018258 0.2336005 0.2815928 
+######

@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="C:\CRHM_Borland\bin\CRHM\CRHM.exe"/>
+    <OBJFILES value="..\tmp\CRHM.obj ..\tmp\About.obj ..\tmp\AKAform.obj ..\tmp\Analy.obj 
+      ..\tmp\Bld.obj ..\tmp\ClassCRHM.obj ..\tmp\ClassModule.obj 
+      ..\tmp\Common.obj ..\tmp\CRHM_parse.obj ..\tmp\CRHMmain.obj 
+      ..\tmp\EntryForm.obj ..\tmp\Export.obj ..\tmp\Flow.obj 
+      ..\tmp\GlobalCommon.obj ..\tmp\GlobalDll.obj ..\tmp\Log.obj 
+      ..\tmp\MacroUnit.obj ..\tmp\Numerical.obj ..\tmp\Para.obj 
+      ..\tmp\report.obj ..\tmp\UpdateForm.obj ..\tmp\NewModules.obj 
+      ..\tmp\Hype_routines.obj ..\tmp\Hype_river.obj ..\tmp\Hype_CRHM.obj 
+      ..\tmp\Hype_lake.obj"/>
+    <RESFILES value="CRHM.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) ..\src\Shared\About.dfm ..\src\Shared\AKAform.dfm 
+      ..\src\Shared\Analy.dfm ..\src\Shared\Bld.dfm ..\src\Shared\CRHMmain.dfm 
+      ..\src\Shared\EntryForm.dfm ..\src\Shared\Export.dfm 
+      ..\src\Shared\Flow.dfm ..\src\Shared\Log.dfm ..\src\Shared\Para.dfm 
+      ..\src\Shared\report.dfm ..\src\Shared\UpdateForm.dfm"/>
+    <LIBFILES value="..\lib\NewMat.lib ..\lib\htmlhelp.lib"/>
+    <LIBRARIES value="TeePro7C6.lib TeeUI7C6.lib Tee7C6.lib visualclx.lib bdertl.lib vclx.lib 
+      dbrtl.lib vcldb.lib vcldbx.lib rtl.lib vcl.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib vcldbx.lib vcldb.lib dbrtl.lib vclx.lib bdertl.lib 
+      visualclx.lib Tee7C6.lib TeeUI7C6.lib TeePro7C6.lib"/>
+    <PACKAGES value="vcl.bpi rtl.bpi vclx.bpi TeeUI7C6.bpi Tee7C6.bpi TeeDB7C6.bpi vcldb.bpi 
+      dbrtl.bpi bdertl.bpi TeeLanguage7C6.bpi TeePro7C6.bpi"/>
+    <PATHCPP value=".;..\src\Shared"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="CRHM.cpp"/>
+    <INCLUDEPATH value="&quot;C:\Program Files (x86)\Borland\CBuilder6\Bin&quot;;&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects&quot;;..\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost)"/>
+    <LIBPATH value="&quot;C:\Program Files (x86)\Borland\CBuilder6\Bin&quot;;&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects&quot;;..\src\Shared;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib"/>
+    <WARNINGS value="-w-par -w-8026"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-Od -w- -Vx -Ve -X- -r- -a8 -6 -b- -k -y -v -vi- -c -tW -tWM"/>
+    <PFLAGS value="-N2C:\CRHM_Borland\tmp -N0C:\CRHM_Borland\tmp -$Y+ -$W -$O- -$A8 -v -JPHNE 
+      -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-lC:\CRHM_Borland\lib -IC:\CRHM_Borland\tmp -D&quot;&quot; -aa -Tpe -x -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="CRHM.res" FORMNAME="" UNITNAME="CRHM.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CRHM.cpp" FORMNAME="" UNITNAME="CRHM" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\About.cpp" FORMNAME="AboutBox" UNITNAME="About" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\AKAform.cpp" FORMNAME="FormAKA" UNITNAME="AKAform" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Analy.cpp" FORMNAME="Analysis" UNITNAME="Analy" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Bld.cpp" FORMNAME="BldForm" UNITNAME="Bld" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\ClassCRHM.cpp" FORMNAME="" UNITNAME="ClassCRHM.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\ClassModule.cpp" FORMNAME="" UNITNAME="ClassModule.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Common.cpp" FORMNAME="" UNITNAME="Common.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\CRHM_parse.cpp" FORMNAME="" UNITNAME="CRHM_parse.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\CRHMmain.cpp" FORMNAME="Main" UNITNAME="CRHMmain" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\EntryForm.cpp" FORMNAME="FormEntry" UNITNAME="EntryForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Export.cpp" FORMNAME="FileOutput" UNITNAME="Export" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Flow.cpp" FORMNAME="FlowForm" UNITNAME="Flow" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\GlobalCommon.cpp" FORMNAME="" UNITNAME="GlobalCommon.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\GlobalDll.cpp" FORMNAME="" UNITNAME="GlobalDll.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Log.cpp" FORMNAME="LogForm" UNITNAME="Log" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\MacroUnit.cpp" FORMNAME="" UNITNAME="MacroUnit.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Numerical.cpp" FORMNAME="" UNITNAME="Numerical.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Para.cpp" FORMNAME="Parameter" UNITNAME="Para" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\report.cpp" FORMNAME="Rprt" UNITNAME="report" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\lib\NewMat.lib" FORMNAME="" UNITNAME="NewMat.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\lib\htmlhelp.lib" FORMNAME="" UNITNAME="htmlhelp.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\UpdateForm.cpp" FORMNAME="PlotControl" UNITNAME="UpdateForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\NewModules.cpp" FORMNAME="" UNITNAME="NewModules" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Hype_routines.cpp" FORMNAME="" UNITNAME="Hype_routines.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Hype_river.cpp" FORMNAME="" UNITNAME="Hype_river" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Hype_CRHM.cpp" FORMNAME="" UNITNAME="Hype_CRHM" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Hype_lake.cpp" FORMNAME="" UNITNAME="Hype_lake" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=23
+Item0=C:\Program Files (x86)\Borland\CBuilder6\Bin;C:\Program Files (x86)\Borland\CBuilder6\Projects;..\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost)
+Item1=C:\Program Files (x86)\Borland\CBuilder6\Projects;..\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost)
+Item2=..\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost)
+Item3=$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost)
+Item4=..\src\Shared;C:\CRHM_std\src;C:\Program Files\Borland\CBuilder6\Projects;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost);C:\gsl\include
+Item5=C:\CRHM_std\src;C:\Program Files\Borland\CBuilder6\Projects;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost);C:\gsl\include
+Item6=C:\CRHM_std\src;C:\Program Files\Borland\CBuilder6\Projects;..\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost);C:\gsl\include
+Item7=C:\Program Files\Borland\CBuilder6\Projects;..\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost);C:\gsl\include
+Item8=..\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost);C:\gsl\include
+Item9=..\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost);C:\gsl\VS\gsl\include
+Item10=..\src\Shared;..\src\CRHM;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost)
+Item11=..\src\Shared;..\src\CRHM;C:\CRHM_Borland\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost)
+Item12=..\src\CRHM;C:\CRHM_Borland\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost)
+Item13=C:\CRHM_Borland\src\Shared;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Boost)
+Item14=C:\CRHM_Borland\src\CRHM;C:\CRHM_Borland\src\Shared;C:\Program Files\Borland\CBuilder6\Projects;C:\Program Files\Borland\CBuilder6\Bin;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Spirit);$(Spirit2);$(BCBboost)
+Item15=C:\Program Files\Borland\CBuilder6\Projects;C:\Program Files\Borland\CBuilder6\Bin;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Spirit);$(Spirit2);$(BCBboost)
+Item16=C:\Program Files\Borland\CBuilder6\Bin;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Spirit);$(Spirit2);$(BCBboost)
+Item17=$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Spirit);$(Spirit2);$(BCBboost)
+Item18=C:\Program Files\Borland\CBuilder6\Bin;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(Spirit};$(Spirit2}
+Item19=C:\Program Files\Borland\CBuilder6\Bin;$(TEEINCPATH);C:\CRHM;$(BCB)\include;$(BCB)\include\vcl
+Item20=$(TEEINCPATH);C:\CRHM;$(BCB)\include;$(BCB)\include\vcl
+Item21=C:\Program Files\Borland\CBuilder6\Bin;C:\CRHM;$(BCB)\include;$(BCB)\include\vcl
+Item22=C:\CRHM;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=22
+Item0=C:\Program Files (x86)\Borland\CBuilder6\Bin;C:\Program Files (x86)\Borland\CBuilder6\Projects;..\src\Shared;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib
+Item1=C:\Program Files (x86)\Borland\CBuilder6\Projects;..\src\Shared;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib
+Item2=..\src\Shared;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib
+Item3=$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib
+Item4=..\src\Shared;C:\CRHM_std\src;C:\Program Files\Borland\CBuilder6\Projects;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib
+Item5=C:\CRHM_std\src;C:\Program Files\Borland\CBuilder6\Projects;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib
+Item6=C:\CRHM_std\src;C:\Program Files\Borland\CBuilder6\Projects;..\src\Shared;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib
+Item7=C:\Program Files\Borland\CBuilder6\Projects;..\src\Shared;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib
+Item8=..\src\Shared;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib
+Item9=..\src\Shared;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib;C:\gsl\VS\gsl\lib
+Item10=$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib
+Item11=..\src\Shared;..\src\CRHM;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;C:\CRHM_Borland\lib
+Item12=..\src\Shared;..\src\CRHM;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib
+Item13=C:\CRHM_Borland\src\CRHM;C:\CRHM_Borland\src\Shared;C:\Program Files\Borland\CBuilder6\Projects;C:\Program Files\Borland\CBuilder6\Bin;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib
+Item14=C:\Program Files\Borland\CBuilder6\Projects;C:\Program Files\Borland\CBuilder6\Bin;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib
+Item15=C:\Program Files\Borland\CBuilder6\Projects;C:\Program Files\Borland\CBuilder6\Bin;$(TEELIBPATH);C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item16=C:\Program Files\Borland\CBuilder6\Bin;$(TEELIBPATH);C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item17=$(TEELIBPATH);C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item18=C:\Program Files\Borland\CBuilder6\Bin;..\..\..\Steema Software\TeeChart 6.01 for C++ Builder 6\CBuilder6\Lib;$(TEELIBPATH);C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item19=..\..\..\Steema Software\TeeChart 6.01 for C++ Builder 6\CBuilder6\Lib;$(TEELIBPATH);C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item20=..\..\..\Steema Software\TeeChart 6.01 for C++ Builder 6\CBuilder6\Lib;C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item21=C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=3
+Item0=_DEBUG
+Item1=CRHM_NEW;_DEBUG
+Item2=CRHM_NEW
+
+[HistoryLists\hlIntOutputDir]
+Count=3
+Item0=C:\CRHM_Borland\tmp
+Item1=C:\CRHM_Borland\tmp\CRHM
+Item2=C:\CRHM
+
+[HistoryLists\hlFinalOutputDir]
+Count=4
+Item0=C:\CRHM_Borland\bin\CRHM\
+Item1=C:\CRHM_Borland\bin\CRHM
+Item2=C:\CRHM\
+Item3=C:\CRHM
+
+[HistoryLists\hIBPIOutputDir]
+Count=2
+Item0=C:\CRHM_Borland\lib
+Item1=C:\CRHM
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=F:\CRHMSampleProjects\BadLake1974-1975.prj
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=1
+LinkCGLIB=0
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

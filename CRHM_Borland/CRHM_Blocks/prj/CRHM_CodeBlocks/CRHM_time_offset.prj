@@ -1,0 +1,84 @@
+Description
+###### Version: CRHM 4.7_16  Creation: 8/27/2012 16:37
+Dimensions:
+######
+nhru 3
+nlay 1
+nobs 1
+######
+Macros:
+######
+######
+Observations:
+######
+######
+Dates:
+######
+1970 1 1 24
+1970 2 1
+######
+Modules:
+######
+basin CRHM 02/24/12
+######
+Parameters:
+###### 'basin' parameters always first
+basin basin_area <1E-6 to 1E9>
+3 
+basin basin_name
+'Basin' 
+basin hru_area <1E-6 to 1E9>
+1 1 1 
+basin hru_ASL <0 to 360>
+0 0 0 
+basin hru_elev <0 to 1E5>
+637 637 637 
+basin hru_GSL <0 to 90>
+0 0 0 
+basin hru_lat <-90 to 90>
+51.32 51.32 51.32 
+basin hru_names
+'HRU' 'HRU2' 'HRU3' 
+basin INIT_STATE
+'' 
+basin Loop_to
+'' '' 
+basin RapidAdvance_to
+'' 
+basin RUN_END <0 to 1E5>
+0 
+basin RUN_ID <-1E8 to 1E8>
+1 
+basin RUN_START <0 to 1E5>
+0 
+basin StateVars_to_Update
+' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' 
+basin TraceVars
+' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' 
+######
+Initial_State
+######
+######
+Final_State
+######
+######
+Display_Variable:
+######
+basin run_ID 1
+######
+Display_Observation:
+######
+######
+Log_All
+######
+TChart:
+######
+The Cold Regions Hydrological Model Platform 2006
+ 
+Bad74_Frozen.prj
+ 
+()
+ 
+ 
+ 
+######

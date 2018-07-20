@@ -1,0 +1,221 @@
+Error 00150. 0x300010 (Thread 0x0710):
+Resource leak: The object array (0x2579C7C) was never deleted
+
+The object array (0x02579C7C) [size: 0 bytes] was created with new[]
+| C:\CRHM_Borland\src\Shared\ClassCRHM.cpp line 692:
+|     }
+| 
+|>    values = new float[dim];
+|     for(int kk = 0; kk < dim; ++kk)
+|       values[kk] = 0.0;
+Call Tree:
+   0x004144E6(=CodeGear.exe:0x01:0134E6) C:\CRHM_Borland\src\Shared\ClassCRHM.cpp#692
+   0x00467C5A(=CodeGear.exe:0x01:066C5A) C:\CRHM_Borland\src\Shared\CodeGear_ClassModule.cpp#767
+   0x0049651A(=CodeGear.exe:0x01:09551A) C:\CRHM_Borland\src\Shared\CodeGear_Modules.cpp#65
+   0x00492F9C(=CodeGear.exe:0x01:091F9C) C:\CRHM_Borland\src\Shared\Main_CodeGear.cpp#71
+   0x4010798A(=vcl60.bpl:0x01:05698A)
+   0x401075BF(=vcl60.bpl:0x01:0565BF)
+   0x4010A83D(=vcl60.bpl:0x01:05983D)
+   0x4010A623(=vcl60.bpl:0x01:059623)
+   0x4003947A(=rtl60.bpl:0x01:03847A)
+   0x74AB84F3(=USER32.dll:0x01:0374F3)
+   0x74A96C40(=USER32.dll:0x01:015C40)
+   0x74A969D7(=USER32.dll:0x01:0159D7)
+   0x73F75B3A(=comctl32.dll:0x01:004B3A)
+   0x73F75AC4(=comctl32.dll:0x01:004AC4)
+   0x73F75967(=comctl32.dll:0x01:004967)
+
+------------------------------------------
+Error 00151. 0x300010 (Thread 0x0710):
+Resource leak: The object array (0x2579C30) was never deleted
+
+The object array (0x02579C30) [size: 0 bytes] was created with new[]
+| C:\CRHM_Borland\src\Shared\ClassCRHM.cpp line 692:
+|     }
+| 
+|>    values = new float[dim];
+|     for(int kk = 0; kk < dim; ++kk)
+|       values[kk] = 0.0;
+Call Tree:
+   0x004144E6(=CodeGear.exe:0x01:0134E6) C:\CRHM_Borland\src\Shared\ClassCRHM.cpp#692
+   0x00467C5A(=CodeGear.exe:0x01:066C5A) C:\CRHM_Borland\src\Shared\CodeGear_ClassModule.cpp#767
+   0x0049632F(=CodeGear.exe:0x01:09532F) C:\CRHM_Borland\src\Shared\CodeGear_Modules.cpp#63
+   0x00492F9C(=CodeGear.exe:0x01:091F9C) C:\CRHM_Borland\src\Shared\Main_CodeGear.cpp#71
+   0x4010798A(=vcl60.bpl:0x01:05698A)
+   0x401075BF(=vcl60.bpl:0x01:0565BF)
+   0x4010A83D(=vcl60.bpl:0x01:05983D)
+   0x4010A623(=vcl60.bpl:0x01:059623)
+   0x4003947A(=rtl60.bpl:0x01:03847A)
+   0x74AB84F3(=USER32.dll:0x01:0374F3)
+   0x74A96C40(=USER32.dll:0x01:015C40)
+   0x74A969D7(=USER32.dll:0x01:0159D7)
+   0x73F75B3A(=comctl32.dll:0x01:004B3A)
+   0x73F75AC4(=comctl32.dll:0x01:004AC4)
+   0x73F75967(=comctl32.dll:0x01:004967)
+
+------------------------------------------
+Error 00152. 0x300010 (Thread 0x0710):
+Resource leak: The object array (0x2579CC8) was never deleted
+
+The object array (0x02579CC8) [size: 0 bytes] was created with new[]
+| C:\CRHM_Borland\src\Shared\ClassCRHM.cpp line 692:
+|     }
+| 
+|>    values = new float[dim];
+|     for(int kk = 0; kk < dim; ++kk)
+|       values[kk] = 0.0;
+Call Tree:
+   0x004144E6(=CodeGear.exe:0x01:0134E6) C:\CRHM_Borland\src\Shared\ClassCRHM.cpp#692
+   0x00467C5A(=CodeGear.exe:0x01:066C5A) C:\CRHM_Borland\src\Shared\CodeGear_ClassModule.cpp#767
+   0x00496706(=CodeGear.exe:0x01:095706) C:\CRHM_Borland\src\Shared\CodeGear_Modules.cpp#67
+   0x00492F9C(=CodeGear.exe:0x01:091F9C) C:\CRHM_Borland\src\Shared\Main_CodeGear.cpp#71
+   0x4010798A(=vcl60.bpl:0x01:05698A)
+   0x401075BF(=vcl60.bpl:0x01:0565BF)
+   0x4010A83D(=vcl60.bpl:0x01:05983D)
+   0x4010A623(=vcl60.bpl:0x01:059623)
+   0x4003947A(=rtl60.bpl:0x01:03847A)
+   0x74AB84F3(=USER32.dll:0x01:0374F3)
+   0x74A96C40(=USER32.dll:0x01:015C40)
+   0x74A969D7(=USER32.dll:0x01:0159D7)
+   0x73F75B3A(=comctl32.dll:0x01:004B3A)
+   0x73F75AC4(=comctl32.dll:0x01:004AC4)
+   0x73F75967(=comctl32.dll:0x01:004967)
+
+------------------------------------------
+Error 00153. 0x300010 (Thread 0x0710):
+Resource leak: The object array (0x2579BE4) was never deleted
+
+The object array (0x02579BE4) [size: 0 bytes] was created with new[]
+| C:\CRHM_Borland\src\Shared\ClassCRHM.cpp line 692:
+|     }
+| 
+|>    values = new float[dim];
+|     for(int kk = 0; kk < dim; ++kk)
+|       values[kk] = 0.0;
+Call Tree:
+   0x004144E6(=CodeGear.exe:0x01:0134E6) C:\CRHM_Borland\src\Shared\ClassCRHM.cpp#692
+   0x00467C5A(=CodeGear.exe:0x01:066C5A) C:\CRHM_Borland\src\Shared\CodeGear_ClassModule.cpp#767
+   0x00496143(=CodeGear.exe:0x01:095143) C:\CRHM_Borland\src\Shared\CodeGear_Modules.cpp#61
+   0x00492F9C(=CodeGear.exe:0x01:091F9C) C:\CRHM_Borland\src\Shared\Main_CodeGear.cpp#71
+   0x4010798A(=vcl60.bpl:0x01:05698A)
+   0x401075BF(=vcl60.bpl:0x01:0565BF)
+   0x4010A83D(=vcl60.bpl:0x01:05983D)
+   0x4010A623(=vcl60.bpl:0x01:059623)
+   0x4003947A(=rtl60.bpl:0x01:03847A)
+   0x74AB84F3(=USER32.dll:0x01:0374F3)
+   0x74A96C40(=USER32.dll:0x01:015C40)
+   0x74A969D7(=USER32.dll:0x01:0159D7)
+   0x73F75B3A(=comctl32.dll:0x01:004B3A)
+   0x73F75AC4(=comctl32.dll:0x01:004AC4)
+   0x73F75967(=comctl32.dll:0x01:004967)
+
+------------------------------------------
+Error 00154. 0x300010 (Thread 0x0710):
+Resource leak: The object array (0x2579B98) was never deleted
+
+The object array (0x02579B98) [size: 0 bytes] was created with new[]
+| C:\CRHM_Borland\src\Shared\ClassCRHM.cpp line 692:
+|     }
+| 
+|>    values = new float[dim];
+|     for(int kk = 0; kk < dim; ++kk)
+|       values[kk] = 0.0;
+Call Tree:
+   0x004144E6(=CodeGear.exe:0x01:0134E6) C:\CRHM_Borland\src\Shared\ClassCRHM.cpp#692
+   0x00467C5A(=CodeGear.exe:0x01:066C5A) C:\CRHM_Borland\src\Shared\CodeGear_ClassModule.cpp#767
+   0x00495F57(=CodeGear.exe:0x01:094F57) C:\CRHM_Borland\src\Shared\CodeGear_Modules.cpp#59
+   0x00492F9C(=CodeGear.exe:0x01:091F9C) C:\CRHM_Borland\src\Shared\Main_CodeGear.cpp#71
+   0x4010798A(=vcl60.bpl:0x01:05698A)
+   0x401075BF(=vcl60.bpl:0x01:0565BF)
+   0x4010A83D(=vcl60.bpl:0x01:05983D)
+   0x4010A623(=vcl60.bpl:0x01:059623)
+   0x4003947A(=rtl60.bpl:0x01:03847A)
+   0x74AB84F3(=USER32.dll:0x01:0374F3)
+   0x74A96C40(=USER32.dll:0x01:015C40)
+   0x74A969D7(=USER32.dll:0x01:0159D7)
+   0x73F75B3A(=comctl32.dll:0x01:004B3A)
+   0x73F75AC4(=comctl32.dll:0x01:004AC4)
+   0x73F75967(=comctl32.dll:0x01:004967)
+
+------------------------------------------
+Functions called:
+ fflush (4 times)
+ delete[] (103 times)
+ memcmp (3132 times)
+ strchr (41 times)
+ new[] (108 times)
+ atof (27 times)
+ delete (41 times)
+ free (7 times)
+ memmove (2062 times)
+ new (58 times)
+ memset (93 times)
+ calloc (1 times)
+ strlen (2160 times)
+ realloc (1 times)
+ strdup (1 times)
+ malloc (4 times)
+ memcpy (58 times)
+Resource types used:
+ object array (108 allocs, 26 max)
+ object (58 allocs, 51 max)
+ memory block (7 allocs, 7 max)
+Modules used:
+ 00400000 05/13/2016 16:04:52 C:\CRHM_Borland\bin\CodeGear\CodeGear.exe
+ 0CD00000 06/06/2013 16:55:00 C:\Program Files (x86)\Embarcadero\RAD
+ Studio\11.0\bin\CG32.DLL
+ 40000000 01/30/2003 06:04:00 C:\WINDOWS\SYSTEM32\rtl60.bpl
+ 400B0000 02/01/2002 08:00:00 C:\WINDOWS\SYSTEM32\vcl60.bpl
+ 5C970000 10/30/2015 01:18:40 C:\WINDOWS\AppPatch\AcLayers.DLL
+ 5E7D0000 03/03/2016 16:28:30 C:\Program Files (x86)\Norton Internet
+ Security\NortonData\22.5.4.24\Definitions\BASHDefs\20160502.001\UMEngx86.dll
+ 66680000 10/30/2015 01:18:24 C:\WINDOWS\SYSTEM32\sfc.dll
+ 6A560000 10/30/2015 01:18:26 C:\WINDOWS\SYSTEM32\oledlg.dll
+ 6B620000 10/30/2015 01:18:24 C:\WINDOWS\SYSTEM32\sfc_os.DLL
+ 6BFC0000 10/30/2015 01:18:24 C:\WINDOWS\system32\apphelp.dll
+ 6DC70000 02/23/2016 23:22:28 C:\WINDOWS\SYSTEM32\fwbase.dll
+ 6E500000 10/30/2015 01:18:26 C:\WINDOWS\SYSTEM32\DAVHLPR.DLL
+ 6F880000 10/30/2015 01:18:30 C:\WINDOWS\system32\dwmapi.dll
+ 6F8C0000 10/30/2015 01:18:38 C:\WINDOWS\system32\uxtheme.dll
+ 701D0000 10/30/2015 01:18:38
+ C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.
+10586.0_none_d3c2e4e965da4528\comctl32.DLL
+ 71890000 10/30/2015 01:18:36 C:\WINDOWS\SYSTEM32\wsock32.dll
+ 73C60000 10/30/2015 01:18:28 C:\WINDOWS\SYSTEM32\bcrypt.dll
+ 73D20000 02/23/2016 01:35:44 C:\WINDOWS\SYSTEM32\WINSPOOL.DRV
+ 73F70000 10/30/2015 01:18:38
+ C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82
+.10586.0_none_811bc0006c44242b\comctl32.dll
+ 740A0000 10/30/2015 01:18:32 C:\WINDOWS\SYSTEM32\MPR.dll
+ 74230000 10/30/2015 01:18:38 C:\WINDOWS\SYSTEM32\version.dll
+ 74240000 10/30/2015 01:18:32 C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+ 74250000 10/30/2015 01:18:32 C:\WINDOWS\SYSTEM32\SspiCli.dll
+ 74290000 10/30/2015 01:18:32 C:\WINDOWS\SYSTEM32\RPCRT4.dll
+ 74340000 10/30/2015 01:18:32 C:\WINDOWS\SYSTEM32\profapi.dll
+ 74360000 10/30/2015 01:18:24 C:\WINDOWS\SYSTEM32\cfgmgr32.dll
+ 743A0000 10/30/2015 01:18:38 C:\WINDOWS\SYSTEM32\shcore.dll
+ 744F0000 10/30/2015 01:18:32 C:\WINDOWS\SYSTEM32\WS2_32.dll
+ 74550000 02/24/2016 03:15:08 C:\WINDOWS\SYSTEM32\KERNELBASE.dll
+ 74730000 10/30/2015 01:18:30 C:\WINDOWS\SYSTEM32\IMM32.DLL
+ 74760000 02/24/2016 02:11:48 C:\WINDOWS\SYSTEM32\ole32.dll
+ 74850000 01/16/2016 00:08:08 C:\WINDOWS\SYSTEM32\MSCTF.dll
+ 74970000 10/30/2015 01:18:04 C:\WINDOWS\SYSTEM32\bcryptPrimitives.dll
+ 74A30000 10/30/2015 01:18:32 C:\WINDOWS\SYSTEM32\sechost.dll
+ 74A80000 11/24/2015 03:26:36 C:\WINDOWS\SYSTEM32\USER32.dll
+ 74D50000 02/24/2016 00:17:36 C:\WINDOWS\SYSTEM32\FirewallAPI.dll
+ 74DC0000 01/26/2016 23:57:36 C:\WINDOWS\SYSTEM32\combase.dll
+ 74F80000 10/30/2015 01:18:24 C:\WINDOWS\SYSTEM32\KERNEL32.DLL
+ 75060000 10/30/2015 01:18:38 C:\WINDOWS\SYSTEM32\comdlg32.dll
+ 75160000 10/30/2015 01:18:32 C:\WINDOWS\SYSTEM32\msvcrt.dll
+ 75220000 02/23/2016 03:27:16 C:\WINDOWS\SYSTEM32\SHELL32.dll
+ 76630000 10/30/2015 01:18:32 C:\WINDOWS\SYSTEM32\OLEAUT32.dll
+ 766D0000 01/04/2016 20:48:24 C:\WINDOWS\SYSTEM32\advapi32.dll
+ 76750000 03/29/2016 02:23:02 C:\WINDOWS\SYSTEM32\NETAPI32.dll
+ 76770000 02/24/2016 02:06:40 C:\WINDOWS\SYSTEM32\windows.storage.dll
+ 76E30000 10/30/2015 01:18:38 C:\WINDOWS\SYSTEM32\shlwapi.dll
+ 76E80000 10/30/2015 01:18:24 C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+ 76F80000 01/04/2016 20:21:28 C:\WINDOWS\SYSTEM32\GDI32.dll
+ 770E0000 10/30/2015 01:18:26 C:\WINDOWS\SYSTEM32\powrprof.dll
+ 77130000 10/30/2015 01:18:24 C:\WINDOWS\SYSTEM32\SETUPAPI.dll
+ 77540000 02/23/2016 04:34:34 C:\WINDOWS\SYSTEM32\ntdll.dll
+==========================================

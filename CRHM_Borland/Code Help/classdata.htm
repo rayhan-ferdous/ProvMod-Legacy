@@ -1,0 +1,140 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>ClassData (08/27/02)</title>
+</head>
+
+<body>
+
+<h3>ClassData - observation file object.</h3>
+
+<p>&nbsp;</p>
+
+<p>class Classmacro;</p>
+
+<p>class parser; </p>
+
+<p>class __declspec(dllexport) ClassData {</p>
+
+<p>public:</p>
+
+<blockquote>
+  <p>string DataFileName; // filename from dialogue control</p>
+  <p>string Description; // not used</p>
+  <p>float **Data; // memory allocated to hold observations. [obs, Line].&nbsp; If NULL
+  after instantiating a ClassData object it indicates that an error has occurred.</p>
+  <p>double *Times; // holds sparse times</p>
+  <p>double Dt1; // file start time (days)</p>
+  <p>double Dt2; // file end time (days)</p>
+  <p>long Lines; // # of lines of data (or intervals) in file - calculated from (Dt2 -
+  Dt1)*Freq</p>
+  <p>long DataCnt; // total # of data items/line.</p>
+  <p>long MacroCnt; // # of new observations created by filters.</p>
+  <p>double Interval; // calculated from (Dt2 - Dt1) (days)</p>
+  <p>long Freq; // calculated from 1/Interval</p>
+  <p>long IndxMin; // range of data available referenced to base file.</p>
+  <p>long IndxMax; // range of data available referenced to base file.</p>
+  <p>long ModN; // divisor for data less frequent than basic interval.</p>
+  <p><a href="file:///C:/Crhm/Code%20Help/classmacro.htm">Classmacro</a> *myMacro; //
+  Classmacro object to process this files filters.</p>
+  <p>bool Simulation; // Set when filter 'Sim' is used to synthesize observations.</p>
+  <p>ClassData(string DataFileName) : DataFileName(DataFileName), Data(NULL), myMacro(NULL),
+  DataCnt(0), MacroCnt(0), Simulation(false), ModN(0), Times(NULL) {DataReadFile();};</p>
+  <p>virtual __fastcall ~ClassData(); </p>
+  <p>void DataReadFile(void);</p>
+  <p>bool Execute(void) {return (Data); }</p>
+</blockquote>
+
+<p>};</p>
+
+<p>&nbsp;</p>
+
+<h3>Member Functions.</h3>
+
+<h3>Constructor.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Creates a new object and calls <em>DataReadFile()</em>&nbsp; to
+actually read observation file.</p>
+
+<h3>Destructor</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Deletes allocated storage for observation data and sparse times.</p>
+
+<h3>void DataReadFile(void);</h3>
+
+<ol>
+  <li>Error is thrown if datafile cannot be opened.</li>
+  <li>The first line of the observation file is discarded.&nbsp; It is assumed to be a user
+    comment.</li>
+  <li>The header lines are read and processed.&nbsp; Characters in column 1 and 2 determines
+    the command.<ol>
+      <li>'#' indicates the end of the header.&nbsp; Ignore line and begin reading values.</li>
+      <li>'$$' assume a comment and continue after ignoring the line.</li>
+      <li>'$' and next character not '$' indicates a filter.&nbsp; Processing is done by <a
+        href="file:///C:/Crhm/Code%20Help/classmacro.htm">myMacro-&gt;addfilter</a>.</li>
+      <li>If not one of the above the line is assumed to be the definition of an observation
+        variable.&nbsp; If any filters have been defined before all observation variables are
+        defined an error is thrown as this is illegal.&nbsp; The variable is processed by <a
+        href="file:///C:/Crhm/Code%20Help/declread.htm">declread()</a>.</li>
+    </ol>
+  </li>
+  <li>Time variables are next determined as follows:<ul>
+      <li>If data from a data file<ol>
+          <li>The current position in the data file is saved, i.e. the first line of data.</li>
+          <li>The time field is read and saved as Dt1.&nbsp; If Global::DTstart is zero indicating the
+            first observation file, it is set equal to Dt1.</li>
+          <li>Read the time field of the next line and calculate the Interval and daily frequency
+            (Freq).</li>
+          <li>If Freq == 0, then the SparseFlag is set to TRUE and Freq = 1.</li>
+          <li>Interval is recalculated as 1/Freq.</li>
+          <li>IndxMin is set.</li>
+          <li>Position to the beginning of the last line in the file.</li>
+          <li>Read the time field and save as Dt2.&nbsp; If Global::DTend is zero indicating the first
+            observation file, it is set equal to Dt2.</li>
+          <li>If current observation file has more data than the first observation file set Dt2 =
+            Global::DTend.</li>
+          <li>Calculate the number of data lines to be read.</li>
+          <li>IndxMax is set.</li>
+          <li>If daily data increment number of data lines by one.</li>
+          <li>Reposition to the beginning of the data using the position saved in 1.</li>
+        </ol>
+      </li>
+      <li>If synthesizing data using the simulation filter, the values above will have already
+        been set by the filter object.</li>
+    </ul>
+  </li>
+  <li>Memory is allocated to hold the observation values</li>
+  <li>A call is made to myMacro-&gt;fixup() to update pointer values.</li>
+  <li>The cursor is changed to an hourglass.&nbsp; </li>
+  <li>The following code is contained in a 'try __finally' to return the cursor to normal when
+    finished and a loop to read <em>Lines</em> lines.<p>Only if data from a data file<ol>
+      <li>Read the time field</li>
+      <li>If eof() break from loop after setting Lines to current iteration count.</li>
+      <li>If current time is less than that of the previous line,&nbsp; throw an error exception.</li>
+      <li>If current time is great than the last time display a warning and set the SparseFlag.</li>
+      <li>Read the observation data.&nbsp; Ignore extra data but throw an error if data is short.</li>
+    </ol>
+    <p>Call myMacro-&gt;execute to execute filters which in the case of 'Sim' also generates
+    observation data.</p>
+  </li>
+  <li>If not Sparse data delete the array Times as it is only required for soarse data.</li>
+  <li>Delete myMacro.</li>
+  <li>Close the data file.</li>
+  <li>Return.</li>
+</ol>
+
+<h3>bool Execute(void) {return (Data); }</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Data is NULL if an error has occurred in instantiating a ClassData
+object.&nbsp; Errors include faulty time data,&nbsp; earlier dates occurring after later
+dates and insufficient number of data on a line.&nbsp; Missing times cause the file to be
+sparse data.&nbsp; Extra data on a line is ignored.</p>
+
+<h3>double *Times;</h3>
+
+<p>&nbsp;&nbsp;&nbsp; When the observation file is read by <em>DataReadFile(void)</em>,
+the date/time for every interval is saved in this array.&nbsp; This array is only retained
+if the file holds sparse data otherwise it is released.</p>
+</body>
+</html>

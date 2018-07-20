@@ -1,0 +1,189 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Missing (06/04/08)</title>
+</head>
+
+<body>
+
+<h3>Using Missing filters.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Missing data are data values outside of a user specified
+range.&nbsp; There are five filters which handle missing data.&nbsp; This range must be
+consistent in the observation file and in the parameter arguments of the filters.&nbsp; In
+the following example data &gt;= 9999 and &lt;= -9999 are handled as missing data.</p>
+
+<p>$d missing(var, c1, c2), where <strong>var</strong> is the data being checked. Values
+less than or equal c1 or greater than or equal c2 are replaced with the most recent 'good'
+value.&nbsp; If first line of data is not 'good' data,&nbsp; warning is issued.&nbsp; Data
+replacement does not begin until after an interval with 'good' data.</p>
+
+<p>$d missingC(var, c1, c2, c3), where <strong>var</strong> is the data being checked.
+Values less than or equal c1 or greater than or equal c2 are replaced with c3.</p>
+
+<p>$d missing0(var, c1, c2), where <strong>var</strong> is the data being checked. Values
+less than or equal c1 or greater than or equal c2 are replaced with 0.0.</p>
+
+<p>$d missinginter(var, c1, c2), where <strong>var</strong> is the data being checked.
+Values less than or equal c1 or greater than or equal c2 are replaced with a linearly
+interpolated value calculated from the&nbsp;'good' value before and the&nbsp;'good' value
+after the missing values.&nbsp; If first line of data is not 'good' data,&nbsp; warning is
+issued. &nbsp; Data replacement does not begin until after the interval with the 'good'
+data value. &nbsp; Missing data at the end of the file is left unchanged.</p>
+
+<p>$d missingrepl(var, c1, c2, var2), where <strong>var</strong> is the data being
+checked. Values less than or equal c1 or greater than or equal c2 are replaced with the
+value from var2.</p>
+
+<p>&nbsp;&nbsp;&nbsp; There are also two boolean filters which identify 'bad' data. &nbsp;
+These variables can be used to flag bad data periods.&nbsp; They could also be used to
+flag to a macro module data periods of interest.&nbsp; The position of the 'missingFlag'
+filter in the observation file is important as it checks every time step. However, in the
+case of the 'missingFlagAfter' filter, the position in the observation file is unimportant
+as it always executes after all time interval data have been read and processed.</p>
+
+<p>$d missingFlag(var, c1, c2), where <strong>var</strong> is the data being checked.
+Output is 0.0 except when the value is less than or equal c1 or greater than or equal c2,
+when the output is 1.0.&nbsp; Values are checked <em><strong>before</strong></em> any
+replacement <font style="BACKGROUND-COLOR: #335ea8" color="#ffffff">filters</font> are
+executed.</p>
+
+<p>$d missingFlagAfter(var, c1, c2), where <strong>var</strong> is the data being checked.
+Output is 0.0 except when the value is less than or equal c1 or greater than or equal c2,
+when the output is 1.0.&nbsp; Values are checked <em><strong>after</strong></em> any
+replacement <font style="BACKGROUND-COLOR: #335ea8" color="#ffffff">filters</font> are
+executed.</p>
+
+<h3>Example.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; The following observation file was prepared to illustrate the
+different 'missing' filters.&nbsp; CRHM was used to generate the incoming short wave
+radiation for one day.&nbsp; Then a second column data was generated with missing data
+during the latter part of the day.&nbsp; Then filters representing the different kinds of
+recovery were added. When this observation file is opened in CRHM, a comaprison of the
+different methods is possible.</p>
+
+<h3>Observation file.</h3>
+
+<p>Test missing filters</p>
+
+<p>Qdflat_org 1 (W/m^2)</p>
+
+<p>Qdflat_err 1 (W/m^2)</p>
+
+<p>$Before missingFlag(Qdflat_err -9999 9999) ()</p>
+
+<p>$Qdflat_missingC missingC(Qdflat_err -9999 9999 500) (W/m^2)</p>
+
+<p>$Qdflat_missing0 missing0(Qdflat_err -9999 9999) (W/m^2)</p>
+
+<p>$Qdflat_missing missing(Qdflat_err -9999 9999) (W/m^2)</p>
+
+<p>$Qdflat_missinginter missinginter(Qdflat_err -9999 9999) (W/m^2)</p>
+
+<p>$Qdflat_missingrepl missingrepl(Qdflat_err -9999 9999 Qdflat_org) (W/m^2)</p>
+
+<p>$After missingFlagAfter(Qdflat_missing -9999 9999) ()</p>
+
+<p>######</p>
+
+<p>2008 4 30 0 30 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 1 0 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 1 30 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 2 0 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 2 30 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 3 0 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 3 30 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 4 0 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 4 30 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 5 0 5.9755&nbsp;&nbsp;&nbsp; 5.9755</p>
+
+<p>2008 4 30 5 30 54.9657&nbsp;&nbsp;&nbsp; 54.9657</p>
+
+<p>2008 4 30 6 0 129.563&nbsp;&nbsp;&nbsp; 129.563</p>
+
+<p>2008 4 30 6 30 216.805&nbsp;&nbsp;&nbsp; 216.805</p>
+
+<p>2008 4 30 7 0 308.932&nbsp;&nbsp;&nbsp; 308.932</p>
+
+<p>2008 4 30 7 30 399.569&nbsp;&nbsp;&nbsp; 399.569</p>
+
+<p>2008 4 30 8 0 490.06&nbsp;&nbsp;&nbsp; 490.06</p>
+
+<p>2008 4 30 8 30 575.837&nbsp;&nbsp;&nbsp; 575.837</p>
+
+<p>2008 4 30 9 0 655.051&nbsp;&nbsp;&nbsp; 655.051</p>
+
+<p>2008 4 30 9 30 726.113&nbsp;&nbsp;&nbsp; 726.113</p>
+
+<p>2008 4 30 10 0 787.659&nbsp;&nbsp;&nbsp; 787.659</p>
+
+<p>2008 4 30 10 30 838.538&nbsp;&nbsp;&nbsp; 838.538</p>
+
+<p>2008 4 30 11 0 877.814&nbsp;&nbsp;&nbsp; 877.814</p>
+
+<p>2008 4 30 11 30 904.772&nbsp;&nbsp;&nbsp; 904.772</p>
+
+<p>2008 4 30 12 0 918.924&nbsp;&nbsp;&nbsp; 918.924</p>
+
+<p>2008 4 30 12 30 920.016&nbsp;&nbsp;&nbsp; 920.016</p>
+
+<p>2008 4 30 13 0 908.028&nbsp;&nbsp;&nbsp; 908.028</p>
+
+<p>2008 4 30 13 30 883.176&nbsp;&nbsp;&nbsp; 883.176</p>
+
+<p>2008 4 30 14 0 845.908&nbsp;&nbsp;&nbsp; 845.908</p>
+
+<p>2008 4 30 14 30 796.903&nbsp;&nbsp;&nbsp; -9999</p>
+
+<p>2008 4 30 15 0 737.06&nbsp;&nbsp;&nbsp; -9999</p>
+
+<p>2008 4 30 15 30 667.494&nbsp;&nbsp;&nbsp; -9999</p>
+
+<p>2008 4 30 16 0 589.534&nbsp;&nbsp;&nbsp; -9999</p>
+
+<p>2008 4 30 16 30 504.729&nbsp;&nbsp;&nbsp; -9999</p>
+
+<p>2008 4 30 17 0 414.882&nbsp;&nbsp;&nbsp; -9999</p>
+
+<p>2008 4 30 17 30 324.064&nbsp;&nbsp;&nbsp; -9999</p>
+
+<p>2008 4 30 18 0 231.959&nbsp;&nbsp;&nbsp; 231.959</p>
+
+<p>2008 4 30 18 30 143.487&nbsp;&nbsp;&nbsp; 143.487</p>
+
+<p>2008 4 30 19 0 66.0849&nbsp;&nbsp;&nbsp; 66.0849</p>
+
+<p>2008 4 30 19 30 10.7886&nbsp;&nbsp;&nbsp; 10.7886</p>
+
+<p>2008 4 30 20 0 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 20 30 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 21 0 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 21 30 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 22 0 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 22 30 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 23 0 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 4 30 23 30 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>2008 5 1 0 0 0&nbsp;&nbsp;&nbsp; 0</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

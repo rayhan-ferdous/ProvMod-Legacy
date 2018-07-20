@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1343751596 source:c:\crhm_blocks\src\common.cpp
+	"Common.h"
+	<math.h>
+	<algorithm>
+	<limits>
+
+1343937104 c:\crhm_blocks\src\common.h
+	<string>
+	<list>
+	<cmath>
+
+1343857397 source:c:\crhm_blocks\prj\org_parameter_parser\main.cpp
+	<string>
+	<string.h>
+	<stdlib.h>
+	"Common.h"
+	<iostream>
+

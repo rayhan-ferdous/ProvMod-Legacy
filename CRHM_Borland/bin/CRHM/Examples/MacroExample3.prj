@@ -1,0 +1,128 @@
+Description - Showing where comments may be added to macros
+###### Version: CRHM 05/25/16  Creation: 5/26/2016 14:17
+Dimensions:
+######
+nhru 2
+nlay 1
+nobs 1
+######
+Macros:
+######
+'Macro1// comment'
+'declparam, param, NHRU, 0.2, 0.0, 1.0, description, () // comment'
+'// comment'
+'declreadobs, t, NOBS, description, (°C) // comment'
+'// comment'
+'declvar, OutVar, NHRU, description, () // comment'
+'// comment'
+'declvar, XOutVar, NHRU, description, () // comment'
+'// comment'
+'declgetvar, obs, hru_t, (°C)   // comment'
+'command // comment'
+'// comment'
+'OutVar[1]=param[1]*t[1]  OutVar[2]=param[2]*t[1]  // comment'
+'// comment'
+'var i i=i+1 XOutVar= sin(i) var j j=i+180 XOutVar[2] = sin(j) // comment'
+'end // comment'
+'Macro2 // comment'
+'declparam, param2, NHRU, 0.2, 0.0, 1.0, description, ()'
+'declreadobs, t, NOBS, description, (°C) // comment'
+'declvar, Z, NHRU, description, () // comment'
+'declvar, Y, NHRU, description, () // comment'
+'declgetvar, Macro1, OutVar, () // comment'
+'command // comment '
+'  Z[hh]=param2[hh]*t[1] Y[hh] = param2[hh]*OutVar[hh] // comment'
+'end // comment'
+######
+Observations:
+######
+Winter1974.obs
+######
+Dates:
+######
+1973 10 1
+1973 12 31
+######
+Modules:
+######
+obs CRHM 03/24/16
+Macro1 Macro 04/20/06
+Macro2 Macro 04/20/06
+######
+Parameters:
+###### 'basin' parameters always first
+Macro1 param <0 to 1>
+0.2 0.21 
+Macro2 param2 <0 to 1>
+0.3 0.31 
+obs basin_area <1E-6 to 1E9>
+1 
+obs catchadjust <0 to 3>
+1 1 
+obs ClimChng_flag <0 to 1>
+0 0 
+obs ClimChng_precip <0 to 10>
+1 1 
+obs ClimChng_t <-50 to 50>
+0 0 
+obs ElevChng_flag <0 to 1>
+0 0 
+obs hru_area <1E-6 to 1E9>
+1 1 
+obs hru_elev <0 to 1E5>
+637 637 
+obs HRU_OBS <1 to 100>
+1 1 
+1 1 
+1 1 
+1 1 
+1 1 
+obs lapse_rate <0 to 2>
+0.75 0.75 
+obs obs_elev <0 to 1E5>
+637 637 
+obs ppt_daily_distrib <0 to 1>
+1 1 
+obs precip_elev_adj <-0.1 to 0.1>
+0 0 
+obs snow_rain_determination <0 to 2>
+0 0 
+obs tmax_allrain <-10 to 10>
+0 0 
+obs tmax_allsnow <-10 to 10>
+0 0 
+######
+Initial_State
+######
+######
+Final_State
+######
+######
+Summary_period
+######
+Daily
+######
+Display_Variable:
+######
+Macro1 XOutVar 1 2
+Macro2 Y 1 2
+Macro2 Z 1 2
+######
+Display_Observation:
+######
+######
+Auto_Run
+######
+Auto_Exit
+######
+TChart:
+######
+The Cold Regions Hydrological Model Platform 2004
+ 
+junk.prj
+ 
+()
+ 
+ 
+ 
+######

@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Classfilter (08/27/02)</title>
+</head>
+
+<body>
+
+<h3>ClassFilter - observation file object.</h3>
+
+<p>class __declspec(dllexport) Classfilter {</p>
+
+<p>public:</p>
+
+<blockquote>
+  <p>Classfilter(ClassData *MyObs, String ToVar, String args, String argtypes =
+  &quot;&quot;); // constructor</p>
+  <p>virtual ~Classfilter(); // destructor</p>
+  <p>ClassData *MyObs; // parent observation file object class.</p>
+  <p>String ToVar;&nbsp; // variable name to store output from filter.</p>
+  <p>String argtypes; // initialise by filter constructor to combination of &quot;V&quot;
+  and &quot;C&quot; defining input parameters.</p>
+  <p>String args; // </p>
+  <p>long Vs; // number of filter variable inputs.</p>
+  <p>long Cs;// number of filter constant inputs.</p>
+  <p>bool Error; // set by&nbsp; <em>Classfilter::error()</em> on detection of error</p>
+  <p>long ObsCnt; // dimension of observation variable. Normally one.</p>
+  <p>long *DataIndx; // array of offsets of observation variables [# of Vs].</p>
+  <p>long *DataObsCnt; // maximum number of observations of this observation variable</p>
+  <p>ClassData **ObsFile; // array of pointers to parent observation files of variables used
+  by filter [# of Vs].</p>
+  <p>float ***Data; // array of pointers to variable data areas [# of Vs].</p>
+  <p>double *Constants; // array of constants used by filter [# of Cs].</p>
+  <p>virtual void readargs(void); // interprets filter parameters.</p>
+  <p>virtual void error(String Mess); // Calls exception handling.</p>
+  <p>void fixup(void); // after data allocation, it is called by Classmacro::fixup() to </p>
+  <p>virtual void doFunc(long Obs, long Line){Data [0] [Obs] [Line] = 0.0;} // Execute
+  filter for every observation variable dimensioned.</p>
+  <p>virtual void doFunctions(long Line); // Executes after every observation file line is
+  read calling <em>doFunc(...)</em>.</p>
+</blockquote>
+
+<p>};</p>
+
+<p>&nbsp;</p>
+
+<h3>Member Functions.</h3>
+
+<h3>Constructor.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; From filter <em>argtypes</em> allocates memory for constant and
+variable storage and processing then calls Classfilter::readargs() to process parameters.</p>
+
+<h3>Destructor</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Deletes memory allocated for constant and variable storage and
+processing.</p>
+
+<h3>virtual void readargs(void);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Processes parameter list of filter.&nbsp; Then instantiates the
+filter class and adds the object to the FilterList. If there is an error generates a
+CHMException.</p>
+
+<h3>void fixup(void);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Memory is not allocated until after all header lines in observation
+file are read. The parent Classmacro object calls all the filter *-&gt;fixup() routines
+which calculate the actual pointers for observation variables used by the filter after
+allocation.</p>
+
+<h3>virtual void doFunc(long Obs, long Line){Data [0] [Obs] [Line] = 0.0;} </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Executes after every observation line is read. Using the FilterList
+it is able to call the doFunction() of every filter.&nbsp; Parameters include Line and
+using ObsCnt multiple calls are made to handle observations dimensioned greater than 1.</p>
+
+<h3>virtual void doFunctions(long Line);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; The parent Classmacro object calls all the filter
+*-&gt;doFunctions(..) routines which calls its doFunc(...) for all the variables
+dimensions.</p>
+
+<h3>void error(String Mess);</h3>
+
+<p>&nbsp;&nbsp; Generates a CHMException stopping model execution and reports error. </p>
+</body>
+</html>

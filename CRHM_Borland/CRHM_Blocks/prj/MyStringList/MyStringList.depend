@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1345842982 source:c:\crhm_blocks\prj\mystringlist\main.cpp
+	<iostream>
+	<sstream>
+	<iomanip>
+	<vector>
+	<string>
+

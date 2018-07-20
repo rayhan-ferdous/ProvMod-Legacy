@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="C:\CRHM_Borland\bin\CodeGear\CodeGear.exe"/>
+    <OBJFILES value="..\tmp2\CodeGear.obj ..\tmp2\ClassCRHM.obj ..\tmp2\GlobalDll.obj 
+      ..\tmp2\GlobalCommon.obj ..\tmp2\Common.obj 
+      ..\tmp2\CodeGear_ClassModule.obj ..\tmp2\Main_CodeGear.obj 
+      ..\tmp2\CodeGear_Modules.obj"/>
+    <RESFILES value="CodeGear.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) ..\src\Shared\Main_CodeGear.dfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value="vcl.lib rtl.lib"/>
+    <PACKAGES value="vcl.bpi rtl.bpi vclx.bpi dbrtl.bpi bdertl.bpi TeeDB7C6.bpi vcldb.bpi 
+      Tee7C6.bpi TeeUI7C6.bpi TeeLanguage7C6.bpi TeePro7C6.bpi"/>
+    <PATHCPP value=".;..\src\Shared"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT;USEPACKAGES"/>
+    <MAINSOURCE value="CodeGear.cpp"/>
+    <INCLUDEPATH value="..\src\Shared;..;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="..\src\Shared;..;&quot;..\..\..\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib&quot;;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-vGc -vGt -vGd -Od -w- -Vx -Ve -X- -r- -a8 -6 -b- -k -y -v -vi- -c -tW -tWM"/>
+    <PFLAGS value="-N2C:\CRHM_Borland\tmp2 -N0C:\CRHM_Borland\tmp2 -$YD -$W -$O- -$A8 -v 
+      -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-lC:\CRHM_Borland\lib2 -IC:\CRHM_Borland\tmp2 -D&quot;&quot; -aa -Tpe -x -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj $(PACKAGES) sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="cg32.lib $(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="CodeGear.res" FORMNAME="" UNITNAME="CodeGear.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CodeGear.cpp" FORMNAME="" UNITNAME="CodeGear" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\ClassCRHM.cpp" FORMNAME="" UNITNAME="ClassCRHM" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\GlobalDll.cpp" FORMNAME="" UNITNAME="GlobalDll" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\GlobalCommon.cpp" FORMNAME="" UNITNAME="GlobalCommon" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Common.cpp" FORMNAME="" UNITNAME="Common" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\CodeGear_ClassModule.cpp" FORMNAME="" UNITNAME="CodeGear_ClassModule" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\Main_CodeGear.cpp" FORMNAME="Form1" UNITNAME="Main_CodeGear" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\src\Shared\CodeGear_Modules.cpp" FORMNAME="" UNITNAME="CodeGear_Modules" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=4105
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=5
+Item0=..\src\Shared;..;$(BCB)\include;$(BCB)\include\vcl
+Item1=..\src\Shared;..;src\Shared;C:\Program Files\Borland\CBuilder6\Bin;$(BCB)\include;$(BCB)\include\vcl
+Item2=..\src\Shared;..\;src\Shared;C:\Program Files\Borland\CBuilder6\Bin;C:\CRHM_Borland;$(BCB)\include;$(BCB)\include\vcl
+Item3=src\Shared;C:\Program Files\Borland\CBuilder6\Bin;C:\CRHM_Borland;$(BCB)\include;$(BCB)\include\vcl
+Item4=C:\Program Files\Borland\CBuilder6\Bin;C:\CRHM_Borland;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=6
+Item0=..\src\Shared;..;..\..\..\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item1=..;..\..\..\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item2=..\src\Shared;..;src\Shared;C:\Program Files\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib;C:\Program Files\Borland\CBuilder6\Bin;..\..\..\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item3=..\src\Shared;..\;src\Shared;C:\Program Files\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib;C:\Program Files\Borland\CBuilder6\Bin;C:\CRHM_Borland;..\..\..\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item4=src\Shared;C:\Program Files\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib;C:\Program Files\Borland\CBuilder6\Bin;C:\CRHM_Borland;..\..\..\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item5=C:\Program Files\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib;C:\Program Files\Borland\CBuilder6\Bin;C:\CRHM_Borland;..\..\..\Steema Software\TeeChart 706 for Builder 6\Builder6\Lib;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=C:\CRHM_Borland\tmp2
+Item1=C:\CRHM_Borland\tmp
+
+[HistoryLists\hlFinalOutputDir]
+Count=4
+Item0=C:\CRHM_Borland\bin\CodeGear\
+Item1=C:\CRHM_Borland\bin\CodeGear
+Item2=C:\CRHM_Borland\bin\
+Item3=C:\CRHM_Borland\bin
+
+[HistoryLists\hIBPIOutputDir]
+Count=3
+Item0=C:\CRHM_Borland\lib2
+Item1=C:\CRHM_Borland\lib
+Item2=C:\CRHM_Borland\tmp
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=1
+LinkCGLIB=1
+  </IDEOPTIONS>
+</PROJECT>

@@ -1,0 +1,45 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>declread (09/03/02)</title>
+</head>
+
+<body>
+
+<h3>declread - process observation variable defined in header of Observation file.</h3>
+
+<p>void declread(string module, string name, long cnt, long offset, ClassData * FileData,
+string Comment)</p>
+
+<p>where</p>
+
+<blockquote>
+  <p>string module - hard coded as &quot;obs&quot; in ClassData::DataReadFile.</p>
+  <p>string name - name used in observation file header.</p>
+  <p>long cnt - size of variable, usually one.</p>
+  <p>long offset - order of definition starting at 0.&nbsp; Same as order in file data line.</p>
+  <p><a href="file:///C:/Crhm/Code%20Help/classdata.htm">ClassData</a> * FileData // object
+  handling file</p>
+  <p>string Comment // balance of line.</p>
+</blockquote>
+
+<h3>Operations</h3>
+
+<ol>
+  <li>If cnt is greater than current Global::maxobs update NOBS to allow the observation
+    variable to display properly.</li>
+  <li>Check if observation variable exists in Global::MapVars.&nbsp;If the variable already
+    exists and has a varType &gt;= Read then throw 'duplicate observation variable error'
+    otherwise assign parameter values to this variable and return.</li>
+  <li>Otherwise create a new 'Read' variable with these qualities and insert it into
+    Global::MapVars.</li>
+</ol>
+
+<h3>Notes</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Observation variables are instantiated by either <em>declread</em>
+or by <a href="file:///C:/Crhm/Code%20Help/classvar.htm">ClassModule::declvar</a>
+depending upon whether the observation file or the model modules are loaded first.</p>
+</body>
+</html>

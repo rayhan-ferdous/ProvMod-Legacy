@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>ClassClark (09/04/02)</title>
+</head>
+
+<body>
+
+<h3>ClassClark</h3>
+
+<p>&nbsp;</p>
+
+<p>class __declspec(dllexport) ClassClark{ </p>
+
+<p>public:</p>
+
+<blockquote>
+  <p>ClassClark(const float* inVar, float* outVar, const float* kstorage, const float* lag);</p>
+  <p>~ClassClark();</p>
+  <p>void DoClark();&nbsp; // update output entered every interval</p>
+  <p>float Left(int hh, const float kstorage); // determine residual storage in instance.</p>
+</blockquote>
+
+<p>private:</p>
+
+<blockquote>
+  <p>const float* inVar; // input variable to be processed.</p>
+  <p>float* outVar; // the delayed output variable</p>
+  <p>float** LagArray; // working array used to hold <em>ilag</em> previous inputs.</p>
+  <p>float* LastIn; // holds input values from the last interval.</p>
+  <p>float* c01; // storage constant calculated from K</p>
+  <p>float* c2; // storage constant calculated from K </p>
+  <p>long nhru; // number of HRUs</p>
+  <p>long* ilag; // LagArray dimension in intervals.</p>
+  <p>long* ulag; // index to next storage location.</p>
+</blockquote>
+
+<p>};</p>
+
+<h3>Member Functions.</h3>
+
+<h3>Constructor.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Creates a&nbsp; ClassClark object.&nbsp; Allocates storage for
+working arrays and the values of constants used for subsequent entry through <em>DoClark()</em>.</p>
+
+<h3>Destructor.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Deletes allocated storage.</p>
+
+<h3>void DoClark();</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Loops through HRUs saving current variable input values and
+generates output variable values from parameters and previous variable inputs.</p>
+
+<h3>float Left(int hh, const float kstorage); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Determines amount still held in storage.&nbsp; Required for mass
+balances.</p>
+</body>
+</html>

@@ -1,0 +1,115 @@
+Build
+  [C++ Warning] CRHM_parse.h(1204): W8070 Function should return a value
+  [C++ Warning] NewModules.cpp(4769): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(4784): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(4872): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(10864): W8004 'YY' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(12214): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(12755): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(13504): W8004 'Pe' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(15336): W8004 'M' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(15336): W8004 'R' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(15973): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(15988): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(16075): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(18994): W8004 'nstep' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(20771): W8004 'Unfrozen_fraction' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(22697): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(22725): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(22728): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(22818): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] CRHMmain.cpp(2416): W8004 'cnt' is assigned a value that is never used
+  [C++ Warning] CRHMmain.cpp(3374): W8004 'Wild2' is assigned a value that is never used
+  [C++ Warning] CRHMmain.cpp(3481): W8004 'count' is assigned a value that is never used
+  [C++ Warning] CRHMmain.cpp(3611): W8004 'SharedPar' is assigned a value that is never used
+  [C++ Warning] CRHMmain.cpp(3611): W8004 'first' is assigned a value that is never used
+  [C++ Warning] CRHMmain.cpp(5996): W8004 'thisVar' is assigned a value that is never used
+  [C++ Warning] CRHMmain.cpp(6068): W8004 'thisVar' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(4769): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(4784): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(4872): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(10864): W8004 'YY' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(12214): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(12755): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(13504): W8004 'Pe' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(15336): W8004 'M' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(15336): W8004 'R' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(15973): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(15988): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(16075): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(18994): W8004 'nstep' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(20771): W8004 'Unfrozen_fraction' is assigned a value that is never used
+  [C++ Warning] NewModules.cpp(22697): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(22725): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(22728): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [C++ Warning] NewModules.cpp(22818): W8030 Temporary used for parameter 'hh' in call to 'ClassModule::chkStruct(long &)'
+  [Linker Warning] Public symbol '_LVLStrings' defined in both module C:\CRHM_BORLAND\TMP\BLD.OBJ and C:\CRHM_BORLAND\TMP\REPORT.OBJ
+  [Linker Warning] Public symbol '_soilproperties' defined in both module C:\CRHM_BORLAND\TMP\CRHMMAIN.OBJ and C:\CRHM_BORLAND\TMP\NEWMODULES.OBJ
+  [Linker Warning] Public symbol '_SetSoilproperties' defined in both module C:\CRHM_BORLAND\TMP\CRHMMAIN.OBJ and C:\CRHM_BORLAND\TMP\NEWMODULES.OBJ
+  [Linker Warning] Public symbol '_Evap_names' defined in both module C:\CRHM_BORLAND\TMP\CRHMMAIN.OBJ and C:\CRHM_BORLAND\TMP\NEWMODULES.OBJ
+  [Linker Warning] Public symbol '_soilevapproperties' defined in both module C:\CRHM_BORLAND\TMP\CRHMMAIN.OBJ and C:\CRHM_BORLAND\TMP\NEWMODULES.OBJ
+  [Linker Warning] Public symbol '_textureproperties' defined in both module C:\CRHM_BORLAND\TMP\CRHMMAIN.OBJ and C:\CRHM_BORLAND\TMP\NEWMODULES.OBJ
+  [Linker Warning] Public symbol '_Evap_Resist_names' defined in both module C:\CRHM_BORLAND\TMP\CRHMMAIN.OBJ and C:\CRHM_BORLAND\TMP\NEWMODULES.OBJ
+  [Linker Warning] Public symbol '_DLLModules' defined in both module C:\CRHM_BORLAND\TMP\CRHMMAIN.OBJ and C:\CRHM_BORLAND\TMP\NEWMODULES.OBJ
+Search for 'h2o'
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5914):     declstatvar("h2o", NHRU, "liquid h2o content as specific mass", "(kg/m^2)", &h2o);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5914):     declstatvar("h2o", NHRU, "liquid h2o content as specific mass", "(kg/m^2)", &h2o);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5914):     declstatvar("h2o", NHRU, "liquid h2o content as specific mass", "(kg/m^2)", &h2o);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5922):     declvar("h2o_total", NHRU, "total liquid h2o: includes h2o in snowcover, melt, and rainfall", "(kg/m^2)", &h2o_total);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5922):     declvar("h2o_total", NHRU, "total liquid h2o: includes h2o in snowcover, melt, and rainfall", "(kg/m^2)", &h2o_total);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5948):     declvar("h2o_sat", NHRU, "fraction of liquid H2O saturation (0 to 1.0)", "()", &h2o_sat);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5949):     declvar("h2o_vol", NHRU, "liquid h2o content as volume ratio: V_water/(V_snow - V_ice)", "()", &h2o_vol);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5950):     declvar("h2o_max", NHRU, "max liquid h2o content as specific mass", "(kg/m^2)", &h2o_max);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5953):     declvar("h2o_sat_snow", NHRU, "snowfall's % of liquid H2O saturation", "()", &h2o_sat_snow);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5994):     declparam("max_h2o_vol", NHRU, "[0.01]", "0.0", "0.2", "max liquid h2o content as volume ratio: V_water/(V_snow - V_ice)", "()", &max_h2o_vol);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6059):     h2o[hh] = 0.0;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6302):     declstatvar("h2o", NHRU, "liquid h2o content as specific mass", "(kg/m^2)", &h2o);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6302):     declstatvar("h2o", NHRU, "liquid h2o content as specific mass", "(kg/m^2)", &h2o);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6302):     declstatvar("h2o", NHRU, "liquid h2o content as specific mass", "(kg/m^2)", &h2o);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6310):     declvar("h2o_total", NHRU, "total liquid h2o: includes h2o in snowcover, melt, and rainfall", "(kg/m^2)", &h2o_total);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6310):     declvar("h2o_total", NHRU, "total liquid h2o: includes h2o in snowcover, melt, and rainfall", "(kg/m^2)", &h2o_total);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6338):     declvar("h2o_sat", NHRU, "fraction of liquid H2O saturation (0 to 1.0)", "()", &h2o_sat);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6339):     declvar("h2o_vol", NHRU, "liquid h2o content as volume ratio: V_water/(V_snow - V_ice)", "()", &h2o_vol);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6340):     declvar("h2o_max", NHRU, "max liquid h2o content as specific mass", "(kg/m^2)", &h2o_max);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6343):     declvar("h2o_sat_snow", NHRU, "snowfall's % of liquid H2O saturation", "()", &h2o_sat_snow);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6386):     declparam("max_h2o_vol", NHRU, "[0.01]", "0.0", "0.2", "max liquid h2o content as volume ratio: V_water/(V_snow - V_ice)", "()", &max_h2o_vol);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6654): **		h2o_sat	% of liquid h2o saturation (0 to 1.0)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6656): **		max_h2o_vol	maximum liquid h2o[hh] content as volume ratio:
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6675): **	h2o
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6691): 	float	rho_dry;	// snow density without H2O
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6714): 		h2o_vol[hh] = h2o[hh] = h2o_max[hh] = h2o_sat[hh] = 0.0;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6741): 		h2o[hh] = h2o_sat[hh] * h2o_max[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7548): // compact snow due to H2O generated (melt & rain)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7669): **	h2o
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7695):     h2o[hh] += H2O_LEFT(z_snow[hh], rho_snow[hh], h2o_vol_snow);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7720):     h2o_total[hh] += h2o[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7757):         float  h2o_refrozen;   // amount of liquid H2O that was refrozen
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7818): // if liquid h2o present, calc refreezing and adj cc_s_0
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7837): // if liquid h2o, calc re-freezing and adj cc_s_l[hh]
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7986): **      Also adjusts the liq h2o, mass and depth of the snow layer;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7987): **      Assumes that liq h2o is favored in evap as the ratio of
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8038): //  Adjust total h2o for evaporative losses
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8092): **      void _h2o_compact(void) -- compact snowcover due to liquid H2O that was added
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8096): **	amount of liquid H2O that was added to the snowcover from melting
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8103): **	    the maximum density due to compaction by liquid H2O
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8106): **	    (h2o_added = ratio of mass of liquid h2o added by melting and
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8140): 	 *  Maximum density due to compaction by liquid H2O added (kg/m^2).
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8153):   float	h2o_added;	// ratio of mass of liquid H2O added from melting and rain to mass of snowcover
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8155): // If the snow is already at or above the maximum density due compaction by liquid H2O, then just leave.
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8203): **	h2o
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8263):     h2o_vol[hh] = h2o[hh] = h2o_max[hh] = h2o_sat[hh] = 0.0;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8302): **	h2o
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8312): 	float	m_s_dry;	/* snowcover's mass without liquid H2O */
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8313): 	float	rho_dry;	/* snow density without liquid H2O */
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8334):                 h2o[hh] = h2o_max[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8344): 		h2o[hh] = h2o_total[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8345): 		h2o_sat[hh] = h2o[hh] / h2o_max[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.h(1445):     float*  h2o_sat;        // % of liquid H2O saturation (relative water content, i.e., ratio of water in snowcover
+  C:\CRHM_Borland\src\Shared\NewModules.h(1447):     float*  h2o_vol;        // liquid h2o content as volume ratio: V_water/(V_snow - V_ice) (unitless).init_snow
+  C:\CRHM_Borland\src\Shared\NewModules.h(1448):     float*  h2o;            // liquid h2o content as specific mass(kg/m^2)
+  C:\CRHM_Borland\src\Shared\NewModules.h(1448):     float*  h2o;            // liquid h2o content as specific mass(kg/m^2)
+  C:\CRHM_Borland\src\Shared\NewModules.h(1449):     float*  h2o_max;        // max liquid h2o content as specific mass(kg/m^2)
+  C:\CRHM_Borland\src\Shared\NewModules.h(1450):     float*  h2o_total;      // total liquid h2o: includes h2o in snowcover, melt, and rainfall (kg/m^2)
+  C:\CRHM_Borland\src\Shared\NewModules.h(1450):     float*  h2o_total;      // total liquid h2o: includes h2o in snowcover, melt, and rainfall (kg/m^2)
+  C:\CRHM_Borland\src\Shared\NewModules.h(1504):     float  *h2o_sat_snow; // snowfall's % of liquid H2O saturation
+  C:\CRHM_Borland\src\Shared\NewModules.h(1561):     const float *max_h2o_vol; // max liquid h2o content as volume ratio: V_water/(V_snow - V_ice) (unitless)

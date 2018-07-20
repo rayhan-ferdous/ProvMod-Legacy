@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TParameter (09/05/02)</title>
+</head>
+
+<body>
+
+<h3>TParameter - Window to change parameters.</h3>
+
+<p>class TParameter : public TForm {</p>
+
+<p>__published: // IDE-managed Components<br>
+TStringGrid *StringGrid1;</p>
+
+<p>TListBox *ListBox1; // modules available</p>
+
+<p>TLabel *Label1; // &quot;Modules&quot;</p>
+
+<p>TLabel *LabelHelp; // Holds help string.</p>
+
+<p>TLabel *LabelUnits; // Holds units string.</p>
+
+<p>TLabel *Label3; // &quot;Help&quot;</p>
+
+<p>TLabel *Label4; // &quot;Units&quot;</p>
+
+<p>TOpenDialog *OpenDialogPar;TSaveDialog *SaveDialogPar;</p>
+
+<p>TMainMenu *MainMenu1;</p>
+
+<p>TMenuItem *File;</p>
+
+<p>TMenuItem *FileSave;</p>
+
+<p>TMenuItem *FileSaveAs;</p>
+
+<p>TMenuItem *N1;</p>
+
+<p>TMenuItem *FileExit;</p>
+
+<p>TMenuItem *FileOpen;</p>
+
+<p>TMenuItem *N2;</p>
+
+<p>TLabel *LabelMAXLAY; // Maximum # of layers.</p>
+
+<p>TUpDown *UpDownMAXLAY; // Control to set Maximum # of layers.</p>
+
+<p>TUpDown *UpDownMAXHRU; // Control to set Maximum # of HRUs.</p>
+
+<p>TLabel *LabelMAXHRU; // Maximum # of HRUs.</p>
+
+<p>void __fastcall FormActivate(TObject *Sender);</p>
+
+<p>void __fastcall FormClose(TObject *Sender, TCloseAction &amp;Action);</p>
+
+<p>void __fastcall ListBox1Click(TObject *Sender);</p>
+
+<p>void __fastcall StringGrid1GetEditText(TObject *Sender, int ACol,</p>
+
+<p>int ARow, AnsiString &amp;Value);</p>
+
+<p>void __fastcall StringGrid1SelectCell(TObject *Sender, int ACol,</p>
+
+<p>int ARow, bool &amp;CanSelect);</p>
+
+<p>void __fastcall FileExitClick(TObject *Sender);</p>
+
+<p>void __fastcall FileSaveClick(TObject *Sender);</p>
+
+<p>void __fastcall FileSaveAsClick(TObject *Sender);</p>
+
+<p>void __fastcall SaveParameters(TObject *Sender);</p>
+
+<p>void __fastcall FileOpenClick(TObject *Sender);</p>
+
+<p>void __fastcall FindParaCount(TObject *Sender, int Indx);</p>
+
+<p>void __fastcall DisplayBasin(TObject *Sender, int Indx, int Rows);</p>
+
+<p>void __fastcall StringGrid1KeyPress(TObject *Sender, char &amp;Key);</p>
+
+<p>void __fastcall StringGrid1SetEditText(TObject *Sender, int ACol,</p>
+
+<p>int ARow, const AnsiString Value);</p>
+
+<p>void __fastcall UpDownMAXLAYClick(TObject *Sender, TUDBtnType Button);</p>
+
+<p>void __fastcall UpDownMAXHRUClick(TObject *Sender, TUDBtnType Button);</p>
+
+<p>void __fastcall FormDeactivate(TObject *Sender);</p>
+
+<p>private: // User declarations</p>
+
+<p>public: // User declarations</p>
+
+<p>__fastcall TParameter(TComponent* Owner);</p>
+
+<p>long ParaCount;</p>
+
+<p>long LocalParaCount;</p>
+
+<p>TStringList *BasinParams;</p>
+
+<p>};</p>
+
+<h3>Member Functions.</h3>
+
+<h3>void __fastcall FormActivate(TObject *Sender);</h3>
+
+<h3>void __fastcall FormClose(TObject *Sender, TCloseAction &amp;Action);</h3>
+
+<h3>void __fastcall ListBox1Click(TObject *Sender);</h3>
+
+<h3>void __fastcall StringGrid1GetEditText(TObject *Sender, int ACol, int ARow, AnsiString
+&amp;Value);</h3>
+
+<h3>void __fastcall StringGrid1SelectCell(TObject *Sender, int ACol,</h3>
+
+<h3>void __fastcall FileExitClick(TObject *Sender);</h3>
+
+<h3>void __fastcall FileSaveClick(TObject *Sender);</h3>
+
+<h3>void __fastcall FileSaveAsClick(TObject *Sender);</h3>
+
+<h3>void __fastcall SaveParameters(TObject *Sender);</h3>
+
+<h3>void __fastcall FileOpenClick(TObject *Sender);</h3>
+
+<h3>void __fastcall FindParaCount(TObject *Sender, int Indx);</h3>
+
+<h3>void __fastcall DisplayBasin(TObject *Sender, int Indx, int Rows);</h3>
+
+<h3>void __fastcall StringGrid1KeyPress(TObject *Sender, char &amp;Key);</h3>
+
+<h3>void __fastcall StringGrid1SetEditText(TObject *Sender, int ACol,</h3>
+
+<h3>void __fastcall UpDownMAXLAYClick(TObject *Sender, TUDBtnType Button);</h3>
+
+<h3>void __fastcall UpDownMAXHRUClick(TObject *Sender, TUDBtnType Button);</h3>
+
+<h3>void __fastcall FormDeactivate(TObject *Sender);</h3>
+
+<h3>public: // User declarations</h3>
+
+<h3>__fastcall TParameter(TComponent* Owner);</h3>
+</body>
+</html>

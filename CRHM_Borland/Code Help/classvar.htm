@@ -1,0 +1,191 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>ClassVar (08/27/02)</title>
+</head>
+
+<body>
+
+<h3>ClassVar - observation or module variable object.</h3>
+
+<blockquote>
+  <p>class __declspec(dllexport) ClassVar { </p>
+  <p>typedef void (ClassVar:: *SomeFunct) (void); </p>
+  <p>public: </p>
+  <p>string module; // module creating variable</p>
+  <p>string name; // variable name</p>
+  <p>string help; // description given in call</p>
+  <p>string units; // units given in call</p>
+  <p>TVar varType; // enum TVar {none, Int, Float, notused, Read, ReadI, ReadF}</p>
+  <p>long dim; // number of HRUs</p>
+  <p>long lay; // layer dimension, 0 - no layers else the number of layers</p>
+  <p>bool local; // inhibits display in ListBox1</p>
+  <p>bool optional; // when an observation indicates that they variable is not mandatory.</p>
+  <p>bool PointPlot; // normal plotting mode is line.&nbsp; Used for sparse data.</p>
+  <p>float * values; // simple floating point variable</p>
+  <p>long * ivalues; // simple long variable</p>
+  <p>float ** layvalues; // multi-layer floating point variable</p>
+  <p>long **ilayvalues; // multi-layer long variable</p>
+  <p>long offset; // when an observation variable gives data column.</p>
+  <p>long cnt; //&nbsp; when an observation variable gives dimension of observation.</p>
+  <p>ClassData *FileData; // when an observation points to file.</p>
+  <p>ClassVar *FunctVar; // pointer to variable used by UserFunct</p>
+  <p>SomeFunct UserFunct; // pointer to variable function.&nbsp; typedef void (ClassVar::
+  *SomeFunct) (void); </p>
+  <p>ClassVar(string module = &quot;none&quot;, string name = &quot;none&quot;):
+  module(module), name(name), varType(none), dim(0), lay(0), optional(false),values(NULL),
+  ivalues(NULL), layvalues(NULL), ilayvalues(NULL), local(false),offset(0), cnt(0),
+  FileData(NULL), UserFunct(NULL), FunctVar(NULL), PointPlot(false) {}; </p>
+  <p>ClassVar(string module, string name, TDim dimen,string help, string units, TVar
+  varType, bool PointPlot = false); </p>
+  <p>ClassVar(string module, string name, long dim,string help, string units, TVar varType,
+  bool PointPlot = false); </p>
+  <p>ClassVar(string module, string name, long cnt, long offset, ClassData * FileData):
+  module(module), name(name), varType(Read), dim(cnt), lay(0), optional(false),
+  local(false), offset(offset), cnt(cnt), FileData(FileData), UserFunct(NULL),
+  FunctVar(NULL), values(NULL), ivalues(NULL), layvalues(NULL), ilayvalues(NULL),
+  PointPlot(false) {}; </p>
+  <p>virtual __fastcall ~ClassVar(); </p>
+  <p>ClassVar(const ClassVar &amp; Cl);</p>
+  <p>ClassVar &amp; operator=(const ClassVar &amp; Cl); </p>
+  <p>float &amp;operator[](int ii) {return values[ii];} </p>
+  <p>virtual void ClassVarData(); // reads current interval values from observation file
+  data buffer into variable.</p>
+  <p>virtual void ReadVar(void); </p>
+  <p>virtual string UserName(void){return module + ' ' + name;}; </p>
+  <p>virtual void Avg(void); // function handling average value.</p>
+  <p>virtual void Min(void); // function handling minimum value.</p>
+  <p>virtual void Max(void); // function handling maximum value.</p>
+  <p>virtual void Dtot(void); // function handling daily sum of value.</p>
+  <p>virtual void Tot(void); // function handling sum of value.</p>
+  <p>virtual void First(void); // function handling first value of day.</p>
+  <p>virtual void Last(void); // function handling last value of day.</p>
+</blockquote>
+
+<p>};</p>
+
+<p>&nbsp;</p>
+
+<h3>General.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Ways of creating variables are:</p>
+
+<blockquote>
+  <ol>
+    <li>Modules can create module variables by calling <em>declvar(...)</em> in their <em>*.dec</em>
+      routine.</li>
+    <li>Observation variables are created by a call to <em>declread(...)</em> in <em>ClassData::DataReadFile(...)</em>.</li>
+    <li><em>Tmain::AddObsPlot(...)</em> calls the ClassVar copy constructor when displaying
+      observation functions.</li>
+    <li>&nbsp;</li>
+  </ol>
+</blockquote>
+
+<h3>Data Members.</h3>
+
+<h3>TVar varType.</h3>
+
+<blockquote>
+  <p>// enum TVar {none, Int, Float, notused, Read, ReadI, ReadF};</p>
+  <p>The variable is created as long or floating point depending on the value of varType.</p>
+  <p>When observation files are loaded before the model modules,&nbsp; the observation
+  variables have initial values of varType equal to <strong>Read</strong> as the data type
+  is indeterminate until a module using the observation is opened.</p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<h3>TDim dimen.</h3>
+
+<blockquote>
+  <p>// enum TDim {ONE=1, TWO, THREE, FOUR, FIVE, SIX, NHRU, NOBS, NLAY, NDEF};</p>
+  <p>For variables only NHRU and NLAY are permissible for values for <strong>dimen</strong>.</p>
+  <p>The following variables are set as follows depending upon the value of TDim in the call
+  to <em>declvar(...)</em>.</p>
+  <p>long dim; // NHRU dimension.</p>
+  <p>long lay; // secondary array dimension.</p>
+  <p>// dim = getdim(NHRU);</p>
+  <p>// if (dimen == NLAY)&nbsp; lay = getdim(dimen); else lay = 0;</p>
+</blockquote>
+
+<h3>N.B.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Only one of the following 4 pointers (values, ivalues, layvalues and
+ilayvalues) is allocated storage and the remainder are left as NULL.&nbsp; This is
+different from how they are handled for ClassPar.</p>
+
+<h3>float * values.</h3>
+
+<blockquote>
+  <p>Pointer to allocated one dimensional floating point array.&nbsp; NULL if long
+  parameter.</p>
+</blockquote>
+
+<h3>long *ivalues; </h3>
+
+<blockquote>
+  <p>Pointer to allocated long array one dimensional.&nbsp; NULL if floating point
+  parameter.</p>
+</blockquote>
+
+<h3>float ** layvalues; </h3>
+
+<blockquote>
+  <p>Two dimensional pointer array to which storage is assigned when the parameter is
+  floating point, otherwise is NULL.&nbsp; The first dimension is <em>lay</em> and the
+  second is <em>dim</em>.</p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<h3>long **ilayvalues; </h3>
+
+<blockquote>
+  <p>Two dimensional pointer array to which storage is assigned when the parameter is long,
+  otherwise is NULL.&nbsp; The first dimension is <em>lay</em> and the second is <em>dim</em>.</p>
+</blockquote>
+
+<h3>Member Functions.</h3>
+
+<h3>Constructors.</h3>
+
+<ol>
+  <li>default<p>ClassPar(string module = &quot;none&quot;, string param = &quot;none&quot;) :
+    module(module), param(param), dim(0), values(NULL), ivalues(NULL), layvalues(NULL),
+    ilayvalues(NULL)&nbsp; {}; </p>
+  </li>
+  <li>used</li>
+</ol>
+
+<blockquote>
+  <p>ClassPar(string module, string param, TDim dimen, string valstr, float minVal, float
+  maxVal, string help, string units, TVar varType, int defdim); </p>
+</blockquote>
+
+<h3>Destructor</h3>
+
+<blockquote>
+  <p>virtual __fastcall ~ClassVar(); </p>
+</blockquote>
+
+<h3>Copy constructor</h3>
+
+<blockquote>
+  <p>ClassVar(ClassVar &amp;p);</p>
+  <p>Create copy allocating new storage for data members.</p>
+</blockquote>
+
+<h3>Operator =</h3>
+
+<blockquote>
+  <p>float &amp;operator=(ClassVar &amp;p);</p>
+</blockquote>
+
+<h3>Operator [ ]</h3>
+
+<blockquote>
+  <p>float &amp;operator[](int ii) {return values[ii];} </p>
+</blockquote>
+</body>
+</html>
