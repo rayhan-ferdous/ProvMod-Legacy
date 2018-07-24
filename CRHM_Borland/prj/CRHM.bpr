@@ -4,15 +4,19 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="C:\CRHM_Borland\bin\CRHM\CRHM.exe"/>
-    <OBJFILES value="..\tmp\CRHM.obj ..\tmp\About.obj ..\tmp\AKAform.obj ..\tmp\Analy.obj 
-      ..\tmp\Bld.obj ..\tmp\ClassCRHM.obj ..\tmp\ClassModule.obj 
-      ..\tmp\Common.obj ..\tmp\CRHM_parse.obj ..\tmp\CRHMmain.obj 
-      ..\tmp\EntryForm.obj ..\tmp\Export.obj ..\tmp\Flow.obj 
-      ..\tmp\GlobalCommon.obj ..\tmp\GlobalDll.obj ..\tmp\Log.obj 
-      ..\tmp\MacroUnit.obj ..\tmp\Numerical.obj ..\tmp\Para.obj 
-      ..\tmp\report.obj ..\tmp\UpdateForm.obj ..\tmp\NewModules.obj 
-      ..\tmp\Hype_routines.obj ..\tmp\Hype_river.obj ..\tmp\Hype_CRHM.obj 
-      ..\tmp\Hype_lake.obj"/>
+    <OBJFILES value="C:\CRHM_Borland\tmp\CRHM.obj C:\CRHM_Borland\tmp\About.obj 
+      C:\CRHM_Borland\tmp\AKAform.obj C:\CRHM_Borland\tmp\Analy.obj 
+      C:\CRHM_Borland\tmp\Bld.obj C:\CRHM_Borland\tmp\ClassCRHM.obj 
+      C:\CRHM_Borland\tmp\ClassModule.obj C:\CRHM_Borland\tmp\Common.obj 
+      C:\CRHM_Borland\tmp\CRHM_parse.obj C:\CRHM_Borland\tmp\CRHMmain.obj 
+      C:\CRHM_Borland\tmp\EntryForm.obj C:\CRHM_Borland\tmp\Export.obj 
+      C:\CRHM_Borland\tmp\Flow.obj C:\CRHM_Borland\tmp\GlobalCommon.obj 
+      C:\CRHM_Borland\tmp\GlobalDll.obj C:\CRHM_Borland\tmp\Log.obj 
+      C:\CRHM_Borland\tmp\MacroUnit.obj C:\CRHM_Borland\tmp\Numerical.obj 
+      C:\CRHM_Borland\tmp\Para.obj C:\CRHM_Borland\tmp\report.obj 
+      C:\CRHM_Borland\tmp\UpdateForm.obj C:\CRHM_Borland\tmp\NewModules.obj 
+      C:\CRHM_Borland\tmp\Hype_routines.obj C:\CRHM_Borland\tmp\Hype_river.obj 
+      C:\CRHM_Borland\tmp\Hype_CRHM.obj C:\CRHM_Borland\tmp\Hype_lake.obj"/>
     <RESFILES value="CRHM.res"/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) ..\src\Shared\About.dfm ..\src\Shared\AKAform.dfm 

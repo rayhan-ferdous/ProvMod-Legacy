@@ -1,0 +1,19 @@
+crhmmain
+========
+TLineSeries //hand engineered this occurrence
+TMouseButton //hand engineered
+void //modified
+String //modified
+long //modified
+: // modified
+int //modified
+bool //modified
+ClassVar // omit class declaration
+
+newmodules
+==========
+void
+double
+float
+long
+int
