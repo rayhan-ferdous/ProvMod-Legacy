@@ -1,4 +1,4 @@
-#injection
+#injection at function start
 from data import newmodules as st
 
 def found_any(st, prevline):
@@ -22,7 +22,7 @@ for line in mdf2:
                 #print '//raf835:injection'
 
                 #injection
-                x = line
+                x = line.strip()
                 y = '//raf835:injection\n'
                 z1 = 'freopen(\"d:\\\\injection.log\", \"a\", stdout);  '
                 z2 = 'printf(\"newmodules sign# ' + str(k) + ' @ ' + prevline.strip() + '\\n\");  '

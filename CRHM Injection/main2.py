@@ -1,4 +1,4 @@
-#shift all scope opening braces to the next line
+#shift all trailing scope opening braces to the next line
 
 mdf = open('CRHMmain.cpp.mdf')
 mdf2 = open('CRHMmain.cpp.mdf2', 'w')
@@ -21,3 +21,5 @@ for line in mdf:
 
     except:
         pass
+
+
