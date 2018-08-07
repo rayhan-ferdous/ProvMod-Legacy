@@ -6,6 +6,7 @@ graph.delete_all()
 
 xml = open('injection.xml')
 stack = []
+edges = set()
 nodes = set()
 
 for line in xml:
@@ -36,10 +37,12 @@ for line in xml:
             q1 = 'create(n:Fn{name:"' + child + '"})'
             graph.run(q1)
 
-            # to remove multiple calls indent this scope inside if
+        if ( (parent, child) ) not in edges:
+            edges.add((parent, child))
             q2 = 'match (p), (c) where p.name ="' + parent + '" and c.name ="' + child + '" create (p)-[r:calls]->(c)'
             graph.run(q2)
-            # to remove multiple calls indent this scope inside if
+
+
     else:
         stack.pop()
         #print stack
