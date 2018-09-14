@@ -115,7 +115,7 @@
  *  Stefan-Boltzmann constant (W / m^2 / deg^4)
  */
 #define STEF_BOLTZ      5.67032e-8
- 
+
 /*
  *  Convert calories to Joules
  */
@@ -136,17 +136,17 @@
  */
 
 /*
- *  equation of state, to give density of a gas (kg/m^3) 
+ *  equation of state, to give density of a gas (kg/m^3)
  *
  *	p = pressure (Pa)
  *	m = molecular weight (kg/kmole)
- *	t = temperature (K)	
+ *	t = temperature (K)
  *
  *  or, inversely, to give pressure (Pa)
  *
  *      rho = density (kg/m^3)
  *	m   = molecular weight (kg/kmole)
- *	t   = temperature (K)	
+ *	t   = temperature (K)
  */
 #define GAS_DEN(p,m,t)          ((p)*(m)/(RGAS*(t)))
 #define EQ_STATE(rho,m,t)       ((rho)*(RGAS)*(t)/(m))
@@ -217,12 +217,12 @@
 #define DRY_SNO_RHO(rhos,sat)    \
 	( ((rhos) - (sat) * RHO_W0) / (1 - (sat) * RHO_W0 / RHO_ICE) )
 
-	/*
-	 *  Minimum valid snow temperature (C).  This is also what temperatures
-	 *  are set to when there's no snow (instead of 0 K).  This yields a
-	 *  smaller quantization range in the output image: -75 C to 0 C
-	 *  (instead of -273.16 C to 0 C).
-	 */
+/*
+ *  Minimum valid snow temperature (C).  This is also what temperatures
+ *  are set to when there's no snow (instead of 0 K).  This yields a
+ *  smaller quantization range in the output image: -75 C to 0 C
+ *  (instead of -273.16 C to 0 C).
+ */
 
 /*
  *  latent heat of sublimination (J/kg)
@@ -276,4 +276,4 @@
 #define MIN_SNOW_TEMP	-75
 
 #endif
- 
+

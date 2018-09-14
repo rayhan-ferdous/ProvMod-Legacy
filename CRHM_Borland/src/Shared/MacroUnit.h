@@ -13,14 +13,15 @@ typedef boost::shared_ptr<DefCRHM> DefCRHMPtr;
 
 typedef boost::shared_ptr<ClassModule> ModulePtr;
 
-class ClassMacro : public ClassModule {
+class ClassMacro : public ClassModule
+{
 
-    public:
+public:
 
     class ClassMacro(string Name, int ThisBegin = 0, String Version = "undefined", string Desc = "not available") ;  // , string Desc = "not available"
-    
+
     ~ClassMacro();
-    
+
     long declobs(string module, string name, CRHM::TDim dimen, string help, string units, float **value);
 
     symtab_t::iterator FP;
@@ -45,192 +46,209 @@ class ClassMacro : public ClassModule {
     int End;   // index to MacroModulesList 'end'
 
     ClassModule *ObsModule;
-    
+
 // declared parameters
-   const float *HRU_group;
+    const float *HRU_group;
 
-   virtual void decl(void);
+    virtual void decl(void);
 
-   virtual void init(void);
+    virtual void init(void);
 
-   virtual void run(void);
+    virtual void run(void);
 
-   virtual void finish(bool good);
+    virtual void finish(bool good);
 
-   ClassMacro* klone(string name) const;
+    ClassMacro* klone(string name) const;
 };
 
-class DefCRHM {
+class DefCRHM
+{
 public:
-  DefCRHM(ClassMacro *Macro_) : Macro(Macro_), fix(NULL), fix2(NULL), fix_long(NULL), Int(false)
-      {if(!DefStringList) DefStringList = new TStringList;};
+    DefCRHM(ClassMacro *Macro_) : Macro(Macro_), fix(NULL), fix2(NULL), fix_long(NULL), Int(false)
+    {
+        if(!DefStringList)
+            DefStringList = new TStringList;
+    };
 
-  static TStringList *DefStringList;
-  virtual void CallDecl(){};
-  virtual void CallInit(long nhru, long nlay){};
+    static TStringList *DefStringList;
+    virtual void CallDecl() {};
+    virtual void CallInit(long nhru, long nlay) {};
 
 protected:
-  CRHM::TDim getTDim(String D);
-  CRHM::TFun getTFunc(String D);
-  ClassMacro *Macro;
-  symtab_t::iterator FP;
-  float *fix;
-  long *fix_long;
-  float **fix2;
-  const float *fix_const;
-  const float **fix2_const;
-  const long *fix_long_const;
-  const long **fix2_long_const;
-  bool Int;
+    CRHM::TDim getTDim(String D);
+    CRHM::TFun getTFunc(String D);
+    ClassMacro *Macro;
+    symtab_t::iterator FP;
+    float *fix;
+    long *fix_long;
+    float **fix2;
+    const float *fix_const;
+    const float **fix2_const;
+    const long *fix_long_const;
+    const long **fix2_long_const;
+    bool Int;
 };
 
-class Defcommand : public DefCRHM {
+class Defcommand : public DefCRHM
+{
 public:
-  Defcommand(ClassMacro *Macro_) : DefCRHM(Macro_) {}
+    Defcommand(ClassMacro *Macro_) : DefCRHM(Macro_) {}
 };
 
-class Defdeclparam : public DefCRHM {
+class Defdeclparam : public DefCRHM
+{
 public:
-  Defdeclparam(ClassMacro *Macro_);
-  void CallDecl();
-  void CallInit(long nhru, long nlay);
+    Defdeclparam(ClassMacro *Macro_);
+    void CallDecl();
+    void CallInit(long nhru, long nlay);
 
-  string name;
-  CRHM::TDim Dim;
-  string Default;
-  string Min;
-  string Max;
-  string Description;
-  string Units;
-  int nlay;
-  CRHM::TVISIBLE visibility;
+    string name;
+    CRHM::TDim Dim;
+    string Default;
+    string Min;
+    string Max;
+    string Description;
+    string Units;
+    int nlay;
+    CRHM::TVISIBLE visibility;
 };
 
-class Defdeclvar : public DefCRHM {
+class Defdeclvar : public DefCRHM
+{
 public:
-  Defdeclvar(ClassMacro *Macro_);
-  void CallDecl();
-  void CallInit(long nhru, long nlay);
+    Defdeclvar(ClassMacro *Macro_);
+    void CallDecl();
+    void CallInit(long nhru, long nlay);
 
-  string name;
-  CRHM::TDim Dim;
-  string Description;
-  string Units;
+    string name;
+    CRHM::TDim Dim;
+    string Description;
+    string Units;
 };
 
-class Defdecldiag : public DefCRHM {
+class Defdecldiag : public DefCRHM
+{
 public:
-  Defdecldiag(ClassMacro *Macro_);
-  void CallDecl();
-  void CallInit(long nhru, long nlay);
+    Defdecldiag(ClassMacro *Macro_);
+    void CallDecl();
+    void CallInit(long nhru, long nlay);
 
-  string name;
-  CRHM::TDim Dim;
-  string Description;
-  string Units;
+    string name;
+    CRHM::TDim Dim;
+    string Description;
+    string Units;
 };
 
-class Defdeclstatvar : public DefCRHM {
+class Defdeclstatvar : public DefCRHM
+{
 public:
-  Defdeclstatvar(ClassMacro *Macro_);
-  void CallDecl();
-  void CallInit(long nhru, long nlay);
+    Defdeclstatvar(ClassMacro *Macro_);
+    void CallDecl();
+    void CallInit(long nhru, long nlay);
 
-  string name;
-  CRHM::TDim Dim;
-  string Description;
-  string Units;
+    string name;
+    CRHM::TDim Dim;
+    string Description;
+    string Units;
 };
 
-class Defdecllocal : public DefCRHM {
+class Defdecllocal : public DefCRHM
+{
 public:
-  Defdecllocal(ClassMacro *Macro_);
-  void CallDecl();
-  void CallInit(long nhru, long nlay);
+    Defdecllocal(ClassMacro *Macro_);
+    void CallDecl();
+    void CallInit(long nhru, long nlay);
 
-  string name;
-  CRHM::TDim Dim;
-  string Description;
-  string Units;
+    string name;
+    CRHM::TDim Dim;
+    string Description;
+    string Units;
 };
 
-class Defdeclobs : public DefCRHM {
+class Defdeclobs : public DefCRHM
+{
 public:
-  Defdeclobs(ClassMacro *Macro_);
-  void CallDecl();
-  void CallInit(long nhru, long nlay);
+    Defdeclobs(ClassMacro *Macro_);
+    void CallDecl();
+    void CallInit(long nhru, long nlay);
 
-  string name;
-  CRHM::TDim Dim;
-  string Description;
-  string Units;
+    string name;
+    CRHM::TDim Dim;
+    string Description;
+    string Units;
 };
 
-class Defdeclgetvar : public DefCRHM {
+class Defdeclgetvar : public DefCRHM
+{
 public:
-  Defdeclgetvar(ClassMacro *Macro_);
-  void CallDecl();
-  void CallInit(long nhru, long nlay);
+    Defdeclgetvar(ClassMacro *Macro_);
+    void CallDecl();
+    void CallInit(long nhru, long nlay);
 
-  string module;
-  string name;
-  string Units;
+    string module;
+    string name;
+    string Units;
 };
 
-class Defdeclputvar : public DefCRHM {
+class Defdeclputvar : public DefCRHM
+{
 public:
-  Defdeclputvar(ClassMacro *Macro_);
-  void CallDecl();
-  void CallInit(long nhru, long nlay);
+    Defdeclputvar(ClassMacro *Macro_);
+    void CallDecl();
+    void CallInit(long nhru, long nlay);
 
-  string module;
-  string name;
-  string Units;
+    string module;
+    string name;
+    string Units;
 };
 
-class Defdeclputparam : public DefCRHM {
+class Defdeclputparam : public DefCRHM
+{
 public:
-  Defdeclputparam(ClassMacro *Macro_);
-  void CallDecl();
-  void CallInit(long nhru, long nlay);
+    Defdeclputparam(ClassMacro *Macro_);
+    void CallDecl();
+    void CallInit(long nhru, long nlay);
 
-  string module;
-  string name;
-  string Units;
+    string module;
+    string name;
+    string Units;
 };
 
-class Defdeclgetparam : public DefCRHM {
+class Defdeclgetparam : public DefCRHM
+{
 public:
-  Defdeclgetparam(ClassMacro *Macro_);
-  void CallDecl();
-  void CallInit(long nhru, long nlay);
+    Defdeclgetparam(ClassMacro *Macro_);
+    void CallDecl();
+    void CallInit(long nhru, long nlay);
 
-  string module;
-  string name;
-  string Units;
+    string module;
+    string name;
+    string Units;
 };
 
-class Defdeclreadobs : public DefCRHM {
+class Defdeclreadobs : public DefCRHM
+{
 public:
-  Defdeclreadobs(ClassMacro *Macro_);
-  void CallDecl();
+    Defdeclreadobs(ClassMacro *Macro_);
+    void CallDecl();
 
-  string name;
-  CRHM::TDim Dim;
-  string Description;
-  string Units;
-  long HRU_OBS_indexed;
+    string name;
+    CRHM::TDim Dim;
+    string Description;
+    string Units;
+    long HRU_OBS_indexed;
 };
 
-class Defdeclobsfunc : public DefCRHM {
+class Defdeclobsfunc : public DefCRHM
+{
 public:
-  Defdeclobsfunc(ClassMacro *Macro_);
-  void CallDecl();
+    Defdeclobsfunc(ClassMacro *Macro_);
+    void CallDecl();
 
-  string obs;
-  string name;
-  CRHM::TFun typeFun;
+    string obs;
+    string name;
+    CRHM::TFun typeFun;
 };
 
 #endif
- 
+
