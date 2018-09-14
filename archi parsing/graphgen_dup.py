@@ -4,7 +4,7 @@ graph = pn.Graph(password = 'password')
 graph.delete_all()
 
 
-xml = open('injection.xml')
+xml = open('injection.log')
 stack = []
 nodes = set()
 
@@ -16,7 +16,7 @@ for line in xml:
         graph.run(q)
         #print stack
 
-    elif '<\crhm>' in line:
+    elif '</crhm>' in line:
         stack.pop()
         #print stack
 

@@ -4,7 +4,7 @@ graph = pn.Graph(password = 'password')
 graph.delete_all()
 
 
-xml = open('injection.xml')
+xml = open('injection.log')
 stack = []
 edges = set()
 nodes = set()
@@ -17,7 +17,7 @@ for line in xml:
         graph.run(q)
         #print stack
 
-    elif '<\crhm>' in line:
+    elif '</crhm>' in line:
         stack.pop()
         #print stack
 
@@ -29,12 +29,15 @@ for line in xml:
 
 
         #print stack
+        #print parent
+        print child
 
-        #print child
+        childfnameindex = child.find('@@@')
+        childfname = child[childfnameindex+4:len(child)-6]
 
         if child not in nodes:
             nodes.add(child)
-            q1 = 'create(n:Fn{name:"' + child + '"})'
+            q1 = 'create(n:Fn{name:"' + child + '", origin:"' + childfname + '"})'
             graph.run(q1)
 
         if ( (parent, child) ) not in edges:
