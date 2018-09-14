@@ -35,7 +35,8 @@ using namespace Numerical;
 // series, including adjusting for the shifted data done in TransformPoly
 //
 //-----------------------------------------------------------------------
-void Poly::Transform(void) {
+void Poly::Transform(void)
+{
 
 //-------------------------------------------------------------
 // Input : NumPoints, XData, YData,
@@ -46,35 +47,40 @@ void Poly::Transform(void) {
 // is passed to ZData unchanged.
 //-------------------------------------------------------------
 
-  float XDataMin, XDataMax;
+    float XDataMin, XDataMax;
 
-  Off = XData[0];
-  if(OffsetTime)
+    Off = XData[0];
+    if(OffsetTime)
+        for (int ii = 0; ii < NumPoints; ++ii)
+            XData[ii] = XData[ii] - Off;
+
+    XDataMax = XData[0];
+    XDataMin = XData[0];
+
     for (int ii = 0; ii < NumPoints; ++ii)
-      XData[ii] = XData[ii] - Off;
+    {
+        if(XDataMin > XData[ii])
+            XDataMin = XData[ii];
+        if(XDataMax < XData[ii])
+            XDataMax = XData[ii];
+    }
 
-  XDataMax = XData[0];
-  XDataMin = XData[0];
+    Multiplier = 2.0 / (XDataMax - XDataMin);
 
-  for (int ii = 0; ii < NumPoints; ++ii) {
-    if(XDataMin > XData[ii]) XDataMin = XData[ii];
-    if(XDataMax < XData[ii]) XDataMax = XData[ii];
-  }
+    Constant = - Multiplier * (XDataMax + XDataMin) / 2.0;
 
-  Multiplier = 2.0 / (XDataMax - XDataMin);
+    for (int ii = 0; ii < NumPoints; ++ii)
+    {
+        WData[ii] = Multiplier * XData[ii] + Constant;
+        ZData[ii] = YData[ii];
+    }
 
-  Constant = - Multiplier * (XDataMax + XDataMin) / 2.0;
-
-  for (int ii = 0; ii < NumPoints; ++ii) {
-    WData[ii] = Multiplier * XData[ii] + Constant;
-    ZData[ii] = YData[ii];
-  }
-
-  Y << YData;
+    Y << YData;
 
 } // void PolyTransform
 
-void Poly::InverseTransform(int Index) {
+void Poly::InverseTransform(int Index)
+{
 
 //-------------------------------------------------
 // Input: Multiplier, Constant, YFit
@@ -86,12 +92,13 @@ void Poly::InverseTransform(int Index) {
 // transformation of Y values in void
 // PolyTransform.
 //-------------------------------------------------
-  if(OffsetTime)
-    XData[Index] = XData[Index] + Off;
+    if(OffsetTime)
+        XData[Index] = XData[Index] + Off;
 
 } // void PolyInverseTransform
 
-void Poly::CreateBasisFunctions(void) {
+void Poly::CreateBasisFunctions(void)
+{
 
 //-------------------------------------------------------
 // Input: NumPoints, NumTerms, WData
@@ -120,16 +127,18 @@ void Poly::CreateBasisFunctions(void) {
 //-------------------------------------------------------
 
 
-  for(int Row = 0; Row < NumPoints; ++Row){
-    X(Row+1, 1) = 1.0;
-    X(Row+1, 2) = WData[Row];
-    for(int Column = 2; Column < NumTerms; ++Column)
-      X(Row+1, Column+1) = 2 * WData[Row] * X(Row+1, Column)
-                            - X(Row+1, Column-1);
-  }
+    for(int Row = 0; Row < NumPoints; ++Row)
+    {
+        X(Row+1, 1) = 1.0;
+        X(Row+1, 2) = WData[Row];
+        for(int Column = 2; Column < NumTerms; ++Column)
+            X(Row+1, Column+1) = 2 * WData[Row] * X(Row+1, Column)
+                                 - X(Row+1, Column-1);
+    }
 } // void PolyCreateBasisFunctions
 
-void Poly::TransformSolution(void) {
+void Poly::TransformSolution(void)
+{
 
 //------------------------------------------------------------
 // Input: NumTerms, OldSolution, Multiplier, Constant
@@ -150,47 +159,52 @@ void Poly::TransformSolution(void) {
 // finding the polynomial coefficients.
 //------------------------------------------------------------
 
-  float Sum;
+    float Sum;
 
-  float *ConversionVec = new float [NumTerms];
-  float *OldConversionVec = new float [NumTerms];
-  float *OldSolution = new float [NumTerms];
-
-  for(int ii = 0; ii < NumTerms; ++ii){
-    OldConversionVec[ii] = 0.0;
-    OldSolution[ii] = Solution[ii];
-  }
-
-  for(int Index = 0; Index < NumTerms; ++Index){
-    Sum = 0;
-    if(Index > 0)
-      ConversionVec[Index - 1] = 0;
-    for(int Term = Index; Term < NumTerms; ++Term){
-      if(Term == 0)
-        ConversionVec[Term] = 1.0;
-      else{
-        if(Term == 1){
-          if(Index == 0)
-            ConversionVec[Term] = Constant;
-          else
-            ConversionVec[Term] = Multiplier;
-        }
-        else
-          ConversionVec[Term] = 2*Multiplier*OldConversionVec[Term - 1] + 2*Constant*ConversionVec[Term - 1] - ConversionVec[Term - 2];
-      }
-
-      Sum = Sum + ConversionVec[Term] * OldSolution[Term];
-    }
-
-    Solution[Index] = Sum;
+    float *ConversionVec = new float [NumTerms];
+    float *OldConversionVec = new float [NumTerms];
+    float *OldSolution = new float [NumTerms];
 
     for(int ii = 0; ii < NumTerms; ++ii)
-      OldConversionVec[ii] = ConversionVec[ii];
-  }
+    {
+        OldConversionVec[ii] = 0.0;
+        OldSolution[ii] = Solution[ii];
+    }
 
-  delete[] ConversionVec;
-  delete[] OldConversionVec;
-  delete[] OldSolution;
+    for(int Index = 0; Index < NumTerms; ++Index)
+    {
+        Sum = 0;
+        if(Index > 0)
+            ConversionVec[Index - 1] = 0;
+        for(int Term = Index; Term < NumTerms; ++Term)
+        {
+            if(Term == 0)
+                ConversionVec[Term] = 1.0;
+            else
+            {
+                if(Term == 1)
+                {
+                    if(Index == 0)
+                        ConversionVec[Term] = Constant;
+                    else
+                        ConversionVec[Term] = Multiplier;
+                }
+                else
+                    ConversionVec[Term] = 2*Multiplier*OldConversionVec[Term - 1] + 2*Constant*ConversionVec[Term - 1] - ConversionVec[Term - 2];
+            }
+
+            Sum = Sum + ConversionVec[Term] * OldSolution[Term];
+        }
+
+        Solution[Index] = Sum;
+
+        for(int ii = 0; ii < NumTerms; ++ii)
+            OldConversionVec[ii] = ConversionVec[ii];
+    }
+
+    delete[] ConversionVec;
+    delete[] OldConversionVec;
+    delete[] OldSolution;
 } // void PolyTransformSolution
 
 //-----------------------------------------------------------------------
@@ -213,7 +227,8 @@ void Poly::TransformSolution(void) {
 //
 //-----------------------------------------------------------------------
 
-void Fourier::Transform(void) {
+void Fourier::Transform(void)
+{
 
 //-------------------------------------------------------------
 // Input : NumPoints, XData, YData, DummyMultiplier,
@@ -223,21 +238,23 @@ void Fourier::Transform(void) {
 // No transformations are needed for Fourier Series                      NumPoints/Global::Freq
 //-------------------------------------------------------------
 
-  if(NumPoints/Global::Freq > 366)
-    Period = 2*M_PI/365.0; // yearly
-  else
-    Period = 2*M_PI; // daily
+    if(NumPoints/Global::Freq > 366)
+        Period = 2*M_PI/365.0; // yearly
+    else
+        Period = 2*M_PI; // daily
 
-  for(int ii = 0; ii < NumPoints; ++ii) {
-    WData[ii] = (XData[ii] - XData[0])*Period;
-    ZData[ii] = YData[ii];
-  }
+    for(int ii = 0; ii < NumPoints; ++ii)
+    {
+        WData[ii] = (XData[ii] - XData[0])*Period;
+        ZData[ii] = YData[ii];
+    }
 
-  Y << YData;
+    Y << YData;
 
 } // void FourierTransform
 
-void Fourier::InverseTransform(int Index) {
+void Fourier::InverseTransform(int Index)
+{
 
 //-------------------------------------------------
 // Input: DummyMultiplier, DummyConstant, YFit
@@ -251,7 +268,8 @@ void Fourier::InverseTransform(int Index) {
 
 } // void FourierInverseTransform
 
-void Fourier::CreateBasisFunctions(void) {
+void Fourier::CreateBasisFunctions(void)
+{
 
 //-----------------------------------------------------------
 // Input: NumPoints, NumTerms, WData
@@ -281,24 +299,27 @@ void Fourier::CreateBasisFunctions(void) {
 //      F[j] = F[3] - F[j - 3] + F[2] - F[j - 2]  for odd j
 //-----------------------------------------------------------
 
-  for(int ii = 0; ii < NumPoints; ++ii){
+    for(int ii = 0; ii < NumPoints; ++ii)
+    {
 
-    X(ii+1, 1) = 1;                                  // odd
-    X(ii+1, 2) = cos(WData[ii]);                     // even
-    X(ii+1, 3) = sin(WData[ii]);                     // odd
+        X(ii+1, 1) = 1;                                  // odd
+        X(ii+1, 2) = cos(WData[ii]);                     // even
+        X(ii+1, 3) = sin(WData[ii]);                     // odd
 
-    for(int Column = 3; Column < NumTerms; ++Column) {
-      float M = floor((float) (Column+1)/2);
-      if(Column%2 != 0) // mathematical even
-        X(ii+1, Column+1) = cos(M*WData[ii]);          // even
-      else // odd
-        X(ii+1, Column+1) = sin(M*WData[ii]);          // odd
+        for(int Column = 3; Column < NumTerms; ++Column)
+        {
+            float M = floor((float) (Column+1)/2);
+            if(Column%2 != 0) // mathematical even
+                X(ii+1, Column+1) = cos(M*WData[ii]);          // even
+            else // odd
+                X(ii+1, Column+1) = sin(M*WData[ii]);          // odd
+        }
     }
-  }
 } // void FourierCreateBasisFunctions
 
 
-void Fourier::TransformSolution(void) {
+void Fourier::TransformSolution(void)
+{
 
 //--------------------------------------------------
 // Input: NumTerms, OldSolution, DummyMultiplier,
@@ -330,7 +351,8 @@ void Fourier::TransformSolution(void) {
 //
 //--------------------------------------------------------------------------
 
-void Power::Transform(void) {
+void Power::Transform(void)
+{
 
 //-------------------------------------------------------------
 // Input : NumPoints, XData, YData, Multiplier, DummyConstant
@@ -342,41 +364,45 @@ void Power::Transform(void) {
 // differing sign, Error = 3 is returned.
 //-------------------------------------------------------------
 
-  float YPoint;
+    float YPoint;
 
-  Off = floor(XData[0]);
-  if(OffsetTime)
-    for (int ii = 0; ii < NumPoints; ++ii)
-      XData[ii] = XData[ii] - Off;
+    Off = floor(XData[0]);
+    if(OffsetTime)
+        for (int ii = 0; ii < NumPoints; ++ii)
+            XData[ii] = XData[ii] - Off;
 
-  if (YData[0] < 0)
-    Multiplier = -1;
-  else
-    Multiplier = 1;
+    if (YData[0] < 0)
+        Multiplier = -1;
+    else
+        Multiplier = 1;
 
-  for(int ii = 0; ii < NumPoints; ++ii) {
+    for(int ii = 0; ii < NumPoints; ++ii)
+    {
 
-    if (XData[ii] <= 0) {
-      Error = 5;    // x-values must be positive
-      break;
-    }
+        if (XData[ii] <= 0)
+        {
+            Error = 5;    // x-values must be positive
+            break;
+        }
 
-    YPoint = Multiplier * YData[ii];
+        YPoint = Multiplier * YData[ii];
 
-    if (YPoint <= 0) {  // The data must all have the same sign
-      Error = 6;
-      break;
-    }
+        if (YPoint <= 0)    // The data must all have the same sign
+        {
+            Error = 6;
+            break;
+        }
 
-    WData[ii] = log(XData[ii]);
-    ZData[ii] = log(YPoint);
-  } // for
+        WData[ii] = log(XData[ii]);
+        ZData[ii] = log(YPoint);
+    } // for
 
-  Y << ZData;
+    Y << ZData;
 
 } // void PowerTransform
 
-void Power::InverseTransform(int Index) {
+void Power::InverseTransform(int Index)
+{
 
 //-----------------------------------------------
 // Input: Multiplier, DummyConstant, YFit
@@ -388,13 +414,14 @@ void Power::InverseTransform(int Index) {
 // log transformation in void Transform.
 //-----------------------------------------------
 
-  if(OffsetTime)
-    XData[Index] = XData[Index] + Off;
+    if(OffsetTime)
+        XData[Index] = XData[Index] + Off;
 
-  YFit[Index] = Multiplier * exp(YFit[Index]);
+    YFit[Index] = Multiplier * exp(YFit[Index]);
 } // PowerInverseTransform
 
-void Power::CreateBasisFunctions(void) {
+void Power::CreateBasisFunctions(void)
+{
 
 //-------------------------------------------------------
 // Input: NumPoints, NumTerms, WData
@@ -419,7 +446,8 @@ void Power::CreateBasisFunctions(void) {
 
 } // void PowerCreateBasisFunctions
 
-void Power::TransformSolution(void) {
+void Power::TransformSolution(void)
+{
 
 //------------------------------------------------------------
 // Input: NumTerms, OldSolution, Multiplier, DummyConstant
@@ -430,7 +458,7 @@ void Power::TransformSolution(void) {
 // of log(Y) = B * log(X) + log(A).
 //------------------------------------------------------------
 
-  Solution[0] = Multiplier * exp(Solution[0]);
+    Solution[0] = Multiplier * exp(Solution[0]);
 
 } // void PowerTransformSolution
 
@@ -453,7 +481,8 @@ void Power::TransformSolution(void) {
 //
 //-----------------------------------------------------------------------
 
-void Expo::Transform(void) {
+void Expo::Transform(void)
+{
 
 //-------------------------------------------------------------
 // Input : NumPoints, XData, YData, Multiplier, DummyConstant
@@ -465,34 +494,37 @@ void Expo::Transform(void) {
 // sign,  Error = 3 is returned.
 //-------------------------------------------------------------
 
-  Off = XData[0];
-  if(OffsetTime)
-    for (int ii = 0; ii < NumPoints; ++ii)
-      XData[ii] = XData[ii] - Off;
+    Off = XData[0];
+    if(OffsetTime)
+        for (int ii = 0; ii < NumPoints; ++ii)
+            XData[ii] = XData[ii] - Off;
 
-  if (YData[0] < 0)
-    Multiplier = -1;
-  else
-    Multiplier = 1;
+    if (YData[0] < 0)
+        Multiplier = -1;
+    else
+        Multiplier = 1;
 
-  for(int ii = 0; ii < NumPoints; ++ii) {
+    for(int ii = 0; ii < NumPoints; ++ii)
+    {
 
-    float YPoint = Multiplier * YData[ii];
+        float YPoint = Multiplier * YData[ii];
 
-    if (YPoint <= 0) {
-      Error = 6;   // The Y values must all have the same sign }
-      break;
+        if (YPoint <= 0)
+        {
+            Error = 6;   // The Y values must all have the same sign }
+            break;
+        }
+
+        WData[ii] = XData[ii];
+        ZData[ii] = log(YPoint);
     }
 
-    WData[ii] = XData[ii];
-    ZData[ii] = log(YPoint);
-  }
-
-  Y << ZData;
+    Y << ZData;
 
 } // void ExpoTransform
 
-void Expo::InverseTransform(int Index) {
+void Expo::InverseTransform(int Index)
+{
 
 //-----------------------------------------------
 // Input: Multiplier, DummyConstant, YFit
@@ -504,14 +536,15 @@ void Expo::InverseTransform(int Index) {
 // log transformation in void Transform.
 //-----------------------------------------------
 
-  if(OffsetTime)
-    XData[Index] = XData[Index] + Off;
+    if(OffsetTime)
+        XData[Index] = XData[Index] + Off;
 
-  YFit[Index] = Multiplier * exp(YFit[Index]) ;
+    YFit[Index] = Multiplier * exp(YFit[Index]) ;
 
 } // ExpoInverseTransform
 
-void Expo::CreateBasisFunctions(void) {
+void Expo::CreateBasisFunctions(void)
+{
 
 //-------------------------------------------------------
 // Input: NumPoints, NumTerms, WData
@@ -531,12 +564,13 @@ void Expo::CreateBasisFunctions(void) {
 
 // This is only a straight line least squares
 
-  X.Column(1) = 1;
-  X.Column(2) << WData;
+    X.Column(1) = 1;
+    X.Column(2) << WData;
 
 } // void ExpoCreateBasisFunctions
 
-void Expo::TransformSolution(void) {
+void Expo::TransformSolution(void)
+{
 
 //------------------------------------------------------------
 // Input: NumTerms, OldSolution, Multiplier, DummyConstant
@@ -547,7 +581,7 @@ void Expo::TransformSolution(void) {
 // terms of log(Y) = B - X + log(A).
 //------------------------------------------------------------
 
-  Solution[0] = Multiplier * exp(Solution[0]);
+    Solution[0] = Multiplier * exp(Solution[0]);
 
 } // ExpoTransformSolution
 
@@ -571,7 +605,8 @@ void Expo::TransformSolution(void) {
 //
 //------------------------------------------------------------------------
 
-void Log::Transform(void) {
+void Log::Transform(void)
+{
 
 //-------------------------------------------------------------
 // Input : NumPoints, XData, YData, Multiplier, DummyConstant
@@ -583,35 +618,39 @@ void Log::Transform(void) {
 // sign,  Error = 3 is returned.
 //-------------------------------------------------------------
 
-  if(OffsetTime){
-    Off = floor(XData[0]);
-    for (int ii = 0; ii < NumPoints; ++ii)
-      XData[ii] = (XData[ii] - Off)*Global::Freq;
-  }
-
-  if (XData[NumPoints/2] < 0)
-    Multiplier = -1;
-  else
-    Multiplier = 1;
-  double NU;
-  for(int ii = 0; ii < NumPoints; ++ii) {
-
-    float XPoint = Multiplier * (ii+1)/Global::Freq;
-
-    if (XPoint <= 0) {
-      Error = 7;   // The X values must all have the same sign
-      break;
+    if(OffsetTime)
+    {
+        Off = floor(XData[0]);
+        for (int ii = 0; ii < NumPoints; ++ii)
+            XData[ii] = (XData[ii] - Off)*Global::Freq;
     }
 
-    WData[ii] = log(Multiplier *XData[ii]);
-    ZData[ii] = YData[ii];
-  }
-  Y << ZData;
+    if (XData[NumPoints/2] < 0)
+        Multiplier = -1;
+    else
+        Multiplier = 1;
+    double NU;
+    for(int ii = 0; ii < NumPoints; ++ii)
+    {
+
+        float XPoint = Multiplier * (ii+1)/Global::Freq;
+
+        if (XPoint <= 0)
+        {
+            Error = 7;   // The X values must all have the same sign
+            break;
+        }
+
+        WData[ii] = log(Multiplier *XData[ii]);
+        ZData[ii] = YData[ii];
+    }
+    Y << ZData;
 
 
 } // LogTransform
 
-void Log::InverseTransform(int Index) {
+void Log::InverseTransform(int Index)
+{
 
 //-------------------------------------------------
 // Input: Multiplier, DummyConstant, YFit
@@ -623,12 +662,13 @@ void Log::InverseTransform(int Index) {
 // in void Transform.
 //-------------------------------------------------
 
-  if(OffsetTime)
-    XData[Index] = XData[Index]/Global::Freq + Off;
+    if(OffsetTime)
+        XData[Index] = XData[Index]/Global::Freq + Off;
 
 }// LogInverseTransform
 
-void Log::CreateBasisFunctions(void) {
+void Log::CreateBasisFunctions(void)
+{
 
 //-------------------------------------------------------
 // Input: NumPoints, NumTerms, WData
@@ -648,12 +688,13 @@ void Log::CreateBasisFunctions(void) {
 
 // This is only a straight line least squares
 
-  X.Column(1) = 1;
-  X.Column(2) << WData;
+    X.Column(1) = 1;
+    X.Column(2) << WData;
 
 } // LogCreateBasisFunctions
 
-void Log::TransformSolution(void) {
+void Log::TransformSolution(void)
+{
 
 //------------------------------------------------------------
 // Input: NumTerms, OldSolution, Multiplier, DummyConstant
@@ -664,7 +705,7 @@ void Log::TransformSolution(void) {
 // terms of Y = ALn(X) + ALn(B).
 //------------------------------------------------------------
 
-  Solution[1] = Multiplier * exp(Solution[1]/Solution[0]);
+    Solution[1] = Multiplier * exp(Solution[1]/Solution[0]);
 
 } // LogTransformSolution
 
@@ -694,7 +735,8 @@ void Log::TransformSolution(void) {
 //
 //-----------------------------------------------------------------------
 
-void MLinReg::Transform(void) {
+void MLinReg::Transform(void)
+{
 
 //-------------------------------------------------------------
 // Input : NumPoints, XData, YData, DummyMultiplier,
@@ -706,16 +748,18 @@ void MLinReg::Transform(void) {
 // returned in WData, ZData.
 //-------------------------------------------------------------
 
-  for(int ii = 0; ii < NumPoints; ++ii) {
-    WData[ii] = XData[ii];
-    ZData[ii] = YData[ii];
-  }
+    for(int ii = 0; ii < NumPoints; ++ii)
+    {
+        WData[ii] = XData[ii];
+        ZData[ii] = YData[ii];
+    }
 
-  Y << YData;
+    Y << YData;
 
 } // MLRTransform
 
-void MLinReg::InverseTransform(int Index) {
+void MLinReg::InverseTransform(int Index)
+{
 
 //-------------------------------------------------
 // Input: DummyMultiplier, DummyConstant, YFit
@@ -728,7 +772,8 @@ void MLinReg::InverseTransform(int Index) {
 
 } // MLRInverseTransform
 
-void MLinReg::CreateBasisFunctions(void) {
+void MLinReg::CreateBasisFunctions(void)
+{
 
 //-------------------------------------------------------
 // Input: NumPoints, NumTerms, WData
@@ -756,7 +801,8 @@ void MLinReg::CreateBasisFunctions(void) {
 
 } // MLRCreateBasisFunctions
 
-void MLinReg::TransformSolution(void) {
+void MLinReg::TransformSolution(void)
+{
 
 //------------------------------------------------------------
 // Input: NumTerms, OldSolution, DummyMultiplier,
@@ -768,28 +814,32 @@ void MLinReg::TransformSolution(void) {
 // is returned in NewSoluition.
 //------------------------------------------------------------
 
-  for(int ii = 0; ii < NumPoints; ++ii){
-    YFit[ii] = 0.0;
-    for(int jj = 0; jj < NumTerms; ++jj)
-      YFit[ii] += Basis[ii][jj] * Solution[jj];
-  }
+    for(int ii = 0; ii < NumPoints; ++ii)
+    {
+        YFit[ii] = 0.0;
+        for(int jj = 0; jj < NumTerms; ++jj)
+            YFit[ii] += Basis[ii][jj] * Solution[jj];
+    }
 
-  for(int ii = 0; ii < NumPoints; ii++)
-    delete[] Basis[ii];
+    for(int ii = 0; ii < NumPoints; ii++)
+        delete[] Basis[ii];
 
-  delete[] Basis;
+    delete[] Basis;
 
 } // MLRTransformSolution
 
-void MLinReg::CopyAndDelete(void){
+void MLinReg::CopyAndDelete(void)
+{
 
-  for(int ii = 0; ii < NumPoints; ++ii){
-    for(int jj = 0; jj < NumTerms; ++jj)
-      X(ii+1, jj+1) = Basis[ii][jj];
-  }
+    for(int ii = 0; ii < NumPoints; ++ii)
+    {
+        for(int jj = 0; jj < NumTerms; ++jj)
+            X(ii+1, jj+1) = Basis[ii][jj];
+    }
 }
 
-void LeastSquares::InitializeAndFormBasisVectors(void) {
+void LeastSquares::InitializeAndFormBasisVectors(void)
+{
 
 //-----------------------------------------------------
 // Input: NumPoints, XData, NumTerms
@@ -799,43 +849,45 @@ void LeastSquares::InitializeAndFormBasisVectors(void) {
 // to zero.  It also checks the data for errors.
 //-----------------------------------------------------
 
-  if(NumPoints < 2)
-    Error = 1;   // Less than 2 data points  }
-  if(NumTerms < 1)
-    Error = 2;   // Less than 1 coefficient in the fit
-  if(NumTerms > NumPoints)
-    Error = 3;   // Number of data points less than number of terms in Least Squares fit!
-  else
-    Error = 0;
+    if(NumPoints < 2)
+        Error = 1;   // Less than 2 data points  }
+    if(NumTerms < 1)
+        Error = 2;   // Less than 1 coefficient in the fit
+    if(NumTerms > NumPoints)
+        Error = 3;   // Number of data points less than number of terms in Least Squares fit!
+    else
+        Error = 0;
 
-  if(Error == 0){
-    // The next two procedures are particular to each
-    // basis.  Consequently, they are included in each
-    // module, not in this include file.
+    if(Error == 0)
+    {
+        // The next two procedures are particular to each
+        // basis.  Consequently, they are included in each
+        // module, not in this include file.
 
-    // The Transform void transforms the input data to
-    // fit the particular basis.  This may mean taking the
-    // logarithm, or linearly tranforming the data to a
-    // particular interval. XData is transformed to WData
-    // and YData is transformed to ZData.  For some of the
-    // modules, Multiplier and Constant are used to pass
-    // information, for others they are dummy variables.
-    // See the code listing of the appropriate module for
-    // more information.
+        // The Transform void transforms the input data to
+        // fit the particular basis.  This may mean taking the
+        // logarithm, or linearly tranforming the data to a
+        // particular interval. XData is transformed to WData
+        // and YData is transformed to ZData.  For some of the
+        // modules, Multiplier and Constant are used to pass
+        // information, for others they are dummy variables.
+        // See the code listing of the appropriate module for
+        // more information.
 
-    Transform();
+        Transform();
 
-    // The CreateBasis void creates the matrix of
-    // basis vectors, Basis.  The elements of Basis are:
-    // Basis[i, j] = Tj(w[i]) where Tj is the jth basis
-    // and w[i] is the ith data element of WData.
+        // The CreateBasis void creates the matrix of
+        // basis vectors, Basis.  The elements of Basis are:
+        // Basis[i, j] = Tj(w[i]) where Tj is the jth basis
+        // and w[i] is the ith data element of WData.
 
-    CreateBasisFunctions();
+        CreateBasisFunctions();
 
-  }
+    }
 } // InitializeAndFormBasisVectors
 
-void LeastSquares::ComputeYFitAndResiduals(void) {
+void LeastSquares::ComputeYFitAndResiduals(void)
+{
 
 //-------------------------------------------------------------
 // Input: NumPoints, NumTerms,
@@ -858,29 +910,31 @@ void LeastSquares::ComputeYFitAndResiduals(void) {
 //
 //-------------------------------------------------------------
 
-  float SumExp = 0;
-  float SumTot = 0;
+    float SumExp = 0;
+    float SumTot = 0;
 
-  for(int Index = 0; Index < NumPoints; ++Index){
+    for(int Index = 0; Index < NumPoints; ++Index)
+    {
 
-    // The next void undoes the transformation of
-    // the YFit values.  For example, if ZData = log(YData)
-    //  InverseTransform performs the function
-    // YFit[Index] = Exp(YFit[Index]) so that YFit may
-    // be compared to YData.
+        // The next void undoes the transformation of
+        // the YFit values.  For example, if ZData = log(YData)
+        //  InverseTransform performs the function
+        // YFit[Index] = Exp(YFit[Index]) so that YFit may
+        // be compared to YData.
 
-    InverseTransform(Index);
+        InverseTransform(Index);
 
-    SumExp += sqr(YFit[Index] - Ymean);
-    SumTot += sqr(YData[Index] - Ymean);
+        SumExp += sqr(YFit[Index] - Ymean);
+        SumTot += sqr(YData[Index] - Ymean);
 
-  }
+    }
 
-  R2 = SumExp/SumTot;
+    R2 = SumExp/SumTot;
 
 } // ComputeYFitAndResiduals
 
-void LeastSquares::TransformSolutionAndFindResiduals(void) {
+void LeastSquares::TransformSolutionAndFindResiduals(void)
+{
 
 //-----------------------------------------------------------------
 // Input: NumPoints, NumTerms, YData, Solution, Multiplier,
@@ -894,13 +948,14 @@ void LeastSquares::TransformSolutionAndFindResiduals(void) {
 // transformation.
 //-----------------------------------------------------------------
 
-  ComputeYFitAndResiduals();
+    ComputeYFitAndResiduals();
 
-  TransformSolution();
+    TransformSolution();
 
 }  // TransformSolutionAndFindResiduals
 
-void LeastSquares::CreateAndSolveEquations(void) {
+void LeastSquares::CreateAndSolveEquations(void)
+{
 
 //----------------------------------------------------------
 // Input: NumPoints, NumTerms, Basis, ZData
@@ -913,33 +968,36 @@ void LeastSquares::CreateAndSolveEquations(void) {
 // If no solution exists, Error 3 is returned.
 //----------------------------------------------------------
 
-   // form sum of squares and product matrix
-   //    [use << rather than = for copying Matrix into SymmetricMatrix]
-   SymmetricMatrix SSQ; SSQ << X.t() * X;
+    // form sum of squares and product matrix
+    //    [use << rather than = for copying Matrix into SymmetricMatrix]
+    SymmetricMatrix SSQ;
+    SSQ << X.t() * X;
 
-   // calculate estimate
-   //    [bracket last two terms to force this multiplication first]
-   //    [ .i() means inverse, but inverse is not explicity calculated]
-   ColumnVector A = SSQ.i() * (X.t() * Y);
+    // calculate estimate
+    //    [bracket last two terms to force this multiplication first]
+    //    [ .i() means inverse, but inverse is not explicity calculated]
+    ColumnVector A = SSQ.i() * (X.t() * Y);
 
-   // Get variances of estimates from diagonal elements of inverse of SSQ
-   // get inverse of SSQ - we need it for finding D
-   DiagonalMatrix D; D << SSQ.i();
-   ColumnVector V = D.AsColumn();
+    // Get variances of estimates from diagonal elements of inverse of SSQ
+    // get inverse of SSQ - we need it for finding D
+    DiagonalMatrix D;
+    D << SSQ.i();
+    ColumnVector V = D.AsColumn();
 
-   // Calculate fitted values and residuals
-   ColumnVector Fitted = X * A;
-   ColumnVector Residual = Y - Fitted;
+    // Calculate fitted values and residuals
+    ColumnVector Fitted = X * A;
+    ColumnVector Residual = Y - Fitted;
 //   Real ResVar = Residual.SumSquare() / (NumPoints - NumTerms);
 
-   // Get diagonals of Hat matrix (an expensive way of doing this)
-   DiagonalMatrix Hat;  Hat << X * (X.t() * X).i() * X.t();
+    // Get diagonals of Hat matrix (an expensive way of doing this)
+    DiagonalMatrix Hat;
+    Hat << X * (X.t() * X).i() * X.t();
 
-  for(int Index = 0; Index < NumPoints; ++Index)
-    YFit[Index] = Fitted(Index+1);
+    for(int Index = 0; Index < NumPoints; ++Index)
+        YFit[Index] = Fitted(Index+1);
 
-  for(int Index = 0; Index < NumTerms; ++Index)
-    Solution[Index] = A(Index+1);
+    for(int Index = 0; Index < NumTerms; ++Index)
+        Solution[Index] = A(Index+1);
 
 } // CreateAndSolveEquations
 
@@ -947,109 +1005,117 @@ void LeastSquares::CreateAndSolveEquations(void) {
 
 LeastSquares::LeastSquares(int NumPoints, float x[], float y[],
                            int NumTerms, String Type, String Desc) :
-  NumPoints(NumPoints), NumTerms(NumTerms), Type(Type), Desc(Desc) {
+    NumPoints(NumPoints), NumTerms(NumTerms), Type(Type), Desc(Desc)
+{
 
-  XData = new double [NumPoints];
-  YData = new double [NumPoints];
+    XData = new double [NumPoints];
+    YData = new double [NumPoints];
 
-  float SumX = 0;
-  float SumY = 0;
+    float SumX = 0;
+    float SumY = 0;
 
-  for(int ii = 0; ii < NumPoints; ++ii) {
-    XData[ii] = x[ii];
-    SumX += x[ii];
-    YData[ii] = y[ii];
-    SumY += y[ii];
-  }
+    for(int ii = 0; ii < NumPoints; ++ii)
+    {
+        XData[ii] = x[ii];
+        SumX += x[ii];
+        YData[ii] = y[ii];
+        SumY += y[ii];
+    }
 
-  Xmean = SumX/NumPoints;
-  Ymean = SumY/NumPoints;
+    Xmean = SumX/NumPoints;
+    Ymean = SumY/NumPoints;
 
-  WData = new double [NumPoints];
-  ZData = new double [NumPoints];
-  YFit = new float [NumPoints];
+    WData = new double [NumPoints];
+    ZData = new double [NumPoints];
+    YFit = new float [NumPoints];
 
-  Solution = new float [NumTerms];
+    Solution = new float [NumTerms];
 
-  for(int ii = 0; ii < NumTerms; ++ii)
-    Solution[ii] = 0.0;
+    for(int ii = 0; ii < NumTerms; ++ii)
+        Solution[ii] = 0.0;
 
 } // LeastSquares
 
 LeastSquares::LeastSquares(int NumTerms, String Type, String Desc, TLineSeries *Data, bool OffsetTime) :
-                    NumPoints(Data->Count()), NumTerms(NumTerms), Type(Type), Desc(Desc), OffsetTime(OffsetTime) {
+    NumPoints(Data->Count()), NumTerms(NumTerms), Type(Type), Desc(Desc), OffsetTime(OffsetTime)
+{
 
-  XData = new double [NumPoints];
-  YData = new double [NumPoints];
+    XData = new double [NumPoints];
+    YData = new double [NumPoints];
 
-  float SumX = 0;
-  float SumY = 0;
+    float SumX = 0;
+    float SumY = 0;
 
-  for(int ii = 0; ii < NumPoints; ++ii) {
+    for(int ii = 0; ii < NumPoints; ++ii)
+    {
 
-    XData[ii] = Data->XValue[ii];
-    SumX += XData[ii];
+        XData[ii] = Data->XValue[ii];
+        SumX += XData[ii];
 
-    YData[ii] = Data->YValue[ii];
-    SumY += YData[ii];
-  }
+        YData[ii] = Data->YValue[ii];
+        SumY += YData[ii];
+    }
 
-  Xmean = SumX/NumPoints;
-  Ymean = SumY/NumPoints;
+    Xmean = SumX/NumPoints;
+    Ymean = SumY/NumPoints;
 
-  WData = new double [NumPoints];
-  ZData = new double [NumPoints];
-  YFit = new float [NumPoints];
+    WData = new double [NumPoints];
+    ZData = new double [NumPoints];
+    YFit = new float [NumPoints];
 
-  Solution = new float [NumTerms];
+    Solution = new float [NumTerms];
 
-  for(int ii = 0; ii < NumTerms; ++ii)
-    Solution[ii] = 0.0;
+    for(int ii = 0; ii < NumTerms; ++ii)
+        Solution[ii] = 0.0;
 
-  X.ReSize(NumPoints, NumTerms);
-  Y.ReSize(NumPoints);
-  SE.ReSize(NumTerms);
+    X.ReSize(NumPoints, NumTerms);
+    Y.ReSize(NumPoints);
+    SE.ReSize(NumTerms);
 
 } // LeastSquares
 
-LeastSquares::~LeastSquares() {
+LeastSquares::~LeastSquares()
+{
 
-  delete[] XData;
-  delete[] YData;
-  delete[] WData;
-  delete[] ZData;
-  delete[] YFit;
-  delete[] Solution;
+    delete[] XData;
+    delete[] YData;
+    delete[] WData;
+    delete[] ZData;
+    delete[] YFit;
+    delete[] Solution;
 
-  SSQ.CleanUp();
-  D.CleanUp();
-  Hat.CleanUp();
-  X.CleanUp();
-  Y.CleanUp();
-  A.CleanUp();
-  V.CleanUp();
-  Fitted.CleanUp();
-  Residual.CleanUp();
-  SE.CleanUp();
+    SSQ.CleanUp();
+    D.CleanUp();
+    Hat.CleanUp();
+    X.CleanUp();
+    Y.CleanUp();
+    A.CleanUp();
+    V.CleanUp();
+    Fitted.CleanUp();
+    Residual.CleanUp();
+    SE.CleanUp();
 
 }  // ~LeastSquares
 
-void LeastSquares::DoIt(void) {
+void LeastSquares::DoIt(void)
+{
 
-  try {
+    try
+    {
 
-    InitializeAndFormBasisVectors();
+        InitializeAndFormBasisVectors();
 
-    CreateAndSolveEquations();
+        CreateAndSolveEquations();
 
-    TransformSolutionAndFindResiduals();
-  }
+        TransformSolutionAndFindResiduals();
+    }
 
-  catch(const Sysutils::Exception &E) {
+    catch(const Sysutils::Exception &E)
+    {
 
-    ShowMessage(AnsiString(E.Message));
-    Error = 8;
-  }
+        ShowMessage(AnsiString(E.Message));
+        Error = 8;
+    }
 } // DoIt
 
 
