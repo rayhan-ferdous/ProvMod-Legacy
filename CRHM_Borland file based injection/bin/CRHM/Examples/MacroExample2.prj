@@ -1,0 +1,154 @@
+Description - to be added
+###### Version: CRHM 4.12_18  Creation: 12/18/2013 13:49
+Dimensions:
+######
+nhru 1
+nlay 1
+nobs 1
+######
+Macros:
+######
+'Evaporation'
+'declparam, A, NHRU, 0.023, 0.0, 1.0, description, (mm/d)'
+'declparam, B, NHRU,17.8, 0.0, 100.0, description, (°C)'
+'declparam, Zref, NHRU,1.5, 0.001, 100.0, Zref, (m)'
+'declparam, Zwind, NHRU,10,  0.001, 100.0, Zwinf, (m)'
+'declparam, Z0, NHRU,0.001,  0.001, 100.0, Zo, (m)'
+'declvar, EvapAlg, NHRU, evaporation_algorithm, (MJ/(m^2*d))'
+'declvar,cumAlg, NHRU, cum_evaporation_algorithm, (mm)'
+'declvar,Ra, NHRU,Ra, (s/m)'
+'declgetvar, obs, hru_tmean, (°C)'
+'declgetvar, obs, hru_tmin, (°C)'
+'declgetvar, obs, hru_tmax, (°C)'
+'declgetvar, obs, hru_u, (m/s)'
+'command'
+'var U U=max(hru_u[0],  0.2)'
+'Ra[hh] = log(Zref[hh]/Z0[hh])* log(Zwind[hh]/Z0[hh])/0.4^2*U'
+'EvapAlg[hh] =-A[hh]*( hru_tmean[1] - B[hh])*Ra[hh]*( hru_tmax[1] - hru_tmin[1])^0.5*1/(245*2.501)'
+'cumAlg[hh] =   cumAlg[hh]  +   EvapAlg[hh]/FREQ'
+'end'
+######
+Observations:
+######
+Winter1974.obs
+######
+Dates:
+######
+1974 5 1
+1974 6 1
+######
+Modules:
+######
+albedo_param CRHM 11/22/05
+global CRHM 04/19/13
+obs CRHM 11/19/13
+calcsun CRHM 10/01/13
+Evaporation Macro 04/20/06
+netall CRHM 04/25/12
+evap CRHM 09/26/13
+######
+Parameters:
+###### 'basin' parameters always first
+Shared basin_area <1E-6 to 1E9>
+3 
+Shared hru_area <1E-6 to 1E9>
+1 
+Shared hru_elev <0 to 1E5>
+637 
+Shared Zwind <0.01 to 100>
+10 
+albedo_param Albedo_Value <0 to 1>
+0.17 
+evap evap_type <0 to 2>
+0 
+evap F_Qg <0 to 1>
+0.2 
+evap Ht <0.001 to 100>
+0.1 
+evap inhibit_evap <0 to 1>
+0 
+evap rs <0 to 0.01>
+0 
+Evaporation A <0 to 1>
+0.023 
+Evaporation B <0 to 100>
+17.8 
+Evaporation Z0 <0.001 to 100>
+0.001 
+Evaporation Zref <0.001 to 100>
+1.5 
+global hru_ASL <-360 to 360>
+0 
+global hru_GSL <-90 to 90>
+0 
+global hru_lat <-90 to 90>
+51.32 
+global Time_Offset <-12 to 12>
+0 
+obs catchadjust <0 to 2>
+1 
+obs ClimChng_flag <0 to 1>
+0 
+obs ClimChng_precip <0 to 10>
+1 
+obs ClimChng_t <-50 to 50>
+0 
+obs ElevChng_flag <0 to 1>
+0 
+obs HRU_OBS <1 to 100>
+1 
+1 
+1 
+1 
+1 
+obs lapse_rate <0 to 2>
+0.75 
+obs obs_elev <0 to 1E5>
+637 
+obs ppt_daily_distrib <0 to 1>
+1 
+obs precip_elev_adj <-0.1 to 0.1>
+0 
+obs snow_rain_determination <0 to 2>
+0 
+obs tmax_allrain <-10 to 10>
+0 
+obs tmax_allsnow <-10 to 10>
+0 
+obs Use_Observations_As_Supplied <0 to 1>
+0 
+######
+Initial_State
+######
+######
+Final_State
+######
+######
+Display_Variable:
+######
+Evaporation cumAlg 1
+Evaporation EvapAlg 1
+evap hru_cum_evap 1
+######
+Display_Observation:
+######
+######
+Auto_Run
+######
+Auto_Exit
+######
+Summary_period
+######
+Water_year 10
+######
+TChart:
+######
+The Cold Regions Hydrological Model Platform 2005
+ 
+MacroExample2.prj
+ 
+(mm)
+ 
+ 
+ 
+######

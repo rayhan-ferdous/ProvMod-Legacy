@@ -1,0 +1,300 @@
+Description - to be added
+###### Version: CRHM 4.10_07  Creation: 10/9/2013 14:22
+Dimensions:
+######
+nhru 3
+nlay 1
+nobs 3
+######
+Macros:
+######
+'Convert_Qnsn_QnD'
+'declreadobs, Qnsn, NOBS, description, (W/m^2)'
+'declobs,QnD#, NHRU, description, (MJ/m^2.day)'
+'command'
+'if(STEP%FREQ == 1) QnD#[hh] = Qnsn[hh]*0.0864/FREQ else QnD#[hh] = QnD#[hh] + Qnsn[hh]*0.0864/FREQ endif'
+'end'
+######
+Observations:
+######
+Wolf Creek_Hourly_3Station_t rh, u, Qsi, F_g_1Oct1993-31Dec2011.obs
+Wolf Creek_Daily_3Station_ppt_1Oct1993-31Dec2011.obs
+######
+Dates:
+######
+1993 10 1
+2011 12 31
+######
+Modules:
+######
+basin CRHM 02/24/12
+global CRHM 04/19/13
+obs CRHM 07/15/13
+Slope_Qsi#1 CRHM 07/14/11
+calcsun CRHM 10/01/13
+walmsley_wind CRHM 07/30/08
+netall CRHM 04/25/12
+longVt CRHM 07/14/11
+evap CRHM 09/26/13
+CanopyClearing#3 CRHM 04/16/13
+pbsmSnobal CRHM 06/17/13
+albedo CRHM 08/11/11
+SnobalCRHM#1 CRHM 11/21/12
+frozenAyers CRHM 07/15/13
+Soil CRHM 05/09/13
+Netroute CRHM 09/10/13
+######
+Parameters:
+###### 'basin' parameters always first
+Shared basin_area <1E-6 to 1E9>
+195 
+Shared hru_area <1E-6 to 1E9>
+39 113 43 
+Shared hru_ASL <0 to 360>
+196 179 162 
+Shared hru_elev <0 to 1E5>
+1601 1323 912 
+Shared hru_GSL <0 to 90>
+18 15 11 
+Shared hru_lat <-90 to 90>
+60.55 60.55 60.55 
+Shared Ht <0.001 to 100>
+0.2 1.5 15 
+Shared inhibit_evap <0 to 1>
+0 0 0 
+Shared Sdmax <0 to 1000>
+5 25 10 
+Shared soil_moist_max <0 to 5000>
+230 230 230 
+Shared soil_rechr_max <0 to 250>
+25 25 25 
+Shared Zwind <0.01 to 100>
+10 10 10 
+albedo Albedo_bare <0 to 1>
+0.17 0.17 0.17 
+albedo Albedo_snow <0 to 1>
+0.85 0.85 0.85 
+basin basin_name
+'WolfCreek' 
+basin hru_names
+'Alpine_Tundra' 'Buckbrush_taiga' 'Spruce_Forest' 
+basin INIT_STATE
+'' 
+basin Loop_to
+'' '' 
+basin RapidAdvance_to
+'' 
+basin RUN_END <0 to 1E5>
+0 
+basin RUN_ID <-1E8 to 1E8>
+1 
+basin RUN_START <0 to 1E5>
+0 
+basin StateVars_to_Update
+'' '' '' '' '' '' '' '' '' '' 
+basin TraceVars
+'' '' '' '' '' '' '' '' '' '' 
+CanopyClearing CanopyClearing <0 to 1>
+1 1 0 
+CanopyClearing LAI <0.1 to 20>
+0.1 0.1 2.2 
+CanopyClearing Sbar <0 to 100>
+0.5 0.5 6.6 
+CanopyClearing unload_t <-10 to 20>
+0 0 5 
+CanopyClearing unload_t_water <-10 to 20>
+4 4 4 
+CanopyClearing Z0snow <0.0001 to 0.01>
+0.01 0.01 0.01 
+CanopyClearing Zref <0.01 to 100>
+2.05 2.6 2.08 
+CanopyClearing Zvent <0 to 1>
+0.75 0.75 0.75 
+evap evap_type <0 to 2>
+0 0 0 
+evap F_Qg <0 to 1>
+0.1 0.1 0.1 
+evap rs <0 to 0.01>
+0 0 0 
+frozenAyers C <0 to 3>
+2.1 2.1 2.1 
+frozenAyers groundcover <1 to 6>
+1 1 6 
+frozenAyers hru_tsoil <223 to 273.1>
+272.5 271.2 271.2 
+frozenAyers S0 <0 to 1>
+1 1 1 
+frozenAyers Si <0 to 1>
+0.17 0.22 0.29 
+frozenAyers t0 <0 to 1000>
+0 0 0 
+frozenAyers t0_Julian <0 to 366>
+30 
+frozenAyers texture <1 to 4>
+1 1 1 
+frozenAyers t_ice_lens <-50 to 0>
+-20 -20 -20 
+global Time_Offset <-12 to 12>
+0 0 0 
+longVt epsilon_s <0 to 1>
+0.98 0.98 0.98 
+longVt Vt <0 to 1>
+0.05 0.15 0.2 
+Netroute gwKstorage <0 to 200>
+0 0 0 
+Netroute gwLag <0 to 1E4>
+0 0 0 
+Netroute gwwhereto <-1000 to 1000>
+0 0 0 
+Netroute Kstorage <0 to 200>
+0 0 0 
+Netroute Lag <0 to 1E4>
+48 48 96 
+Netroute order <1 to 1000>
+1 2 3 
+Netroute runKstorage <0 to 200>
+0 0 0 
+Netroute runLag <0 to 1E4>
+0 0 0 
+Netroute Sd_ByPass <0 to 1>
+0 0 0 
+Netroute soil_rechr_ByPass <0 to 1>
+1 1 1 
+Netroute ssrKstorage <0 to 200>
+0 0 0 
+Netroute ssrLag <0 to 1E4>
+0 0 0 
+Netroute whereto <0 to 1000>
+2 3 0 
+obs catchadjust <0 to 2>
+1 1 1 
+obs ClimChng_flag <0 to 1>
+0 0 0 
+obs ClimChng_precip <0 to 10>
+1 1 1 
+obs ClimChng_t <-50 to 50>
+0 0 0 
+obs ElevChng_flag <0 to 1>
+0 0 0 
+obs HRU_OBS <1 to 100>
+1 2 3 
+1 2 3 
+1 2 3 
+1 2 3 
+1 2 3 
+obs lapse_rate <0 to 2>
+0.75 0.75 0.75 
+obs obs_elev <0 to 1E5>
+1676 1250 750 
+obs ppt_daily_distrib <0 to 1>
+1 1 1 
+obs precip_elev_adj <-0.1 to 0.1>
+0 0 0 
+obs snow_rain_determination <0 to 1>
+0 0 0 
+obs tmax_allrain <-10 to 10>
+0 0 0 
+obs tmax_allsnow <-10 to 10>
+0 0 0 
+obs Use_Observations_As_Supplied <0 to 1>
+0 
+pbsmSnobal A_S <0 to 2>
+0.1 0.3 0.8 
+pbsmSnobal distrib <-10 to 10>
+2 5 0 
+pbsmSnobal fetch <300 to 1E4>
+1000 1000 300 
+pbsmSnobal inhibit_bs <0 to 1>
+0 0 1 
+pbsmSnobal inhibit_subl <0 to 1>
+0 0 0 
+pbsmSnobal N_S <1 to 500>
+2 10 1 
+SnobalCRHM hru_F_g <-50 to 50>
+0 0 0 
+SnobalCRHM hru_rho_snow <50 to 1000>
+100 100 100 
+SnobalCRHM hru_T_g <-50 to 50>
+-4 -4 -4 
+SnobalCRHM KT_sand <0.01 to 3>
+1.65 1.65 1.65 
+SnobalCRHM max_h2o_vol <0 to 0.2>
+0.01 0.01 0.01 
+SnobalCRHM max_z_s_0 <0 to 0.35>
+0.1 0.1 0.1 
+SnobalCRHM rain_soil_snow <0 to 1>
+0 0 0 
+SnobalCRHM relative_hts <0 to 1>
+0 0 0 
+SnobalCRHM T_g_or_G_flux <0 to 1>
+1 1 1 
+SnobalCRHM z_0 <0.0001 to 0.1>
+0.001 0.001 0.001 
+SnobalCRHM z_g <0.1 to 1>
+0.1 0.1 0.1 
+SnobalCRHM z_T <0 to 10>
+2.05 2.6 2.08 
+SnobalCRHM z_u <0 to 10>
+2.3 2.3 4.8 
+Soil cov_type <0 to 2>
+2 2 2 
+Soil gw_init <0 to 5000>
+187 187 187 
+Soil gw_K <0 to 100>
+0 0 0 
+Soil gw_max <0 to 5000>
+375 375 375 
+Soil lower_ssr_K <0 to 100>
+20 20 20 
+Soil rechr_ssr_K <0 to 100>
+20 20 20 
+Soil Sdinit <0 to 5000>
+2 12 5 
+Soil Sd_gw_K <0 to 100>
+20 20 20 
+Soil Sd_ssr_K <0 to 100>
+20 20 20 
+Soil soil_gw_K <0 to 100>
+20 20 20 
+Soil soil_moist_init <0 to 5000>
+115 115 115 
+Soil soil_rechr_init <0 to 250>
+25 25 25 
+Soil soil_ssr_runoff <0 to 1>
+0 0 0 
+Soil soil_withdrawal <1 to 4>
+3 3 3 
+Soil transp_limited <0 to 1>
+0 0 0 
+walmsley_wind A <0 to 4.4>
+3 3 0 
+walmsley_wind B <0 to 2>
+2 2 0 
+walmsley_wind L <40 to 1E6>
+1000 1000 1000 
+walmsley_wind Walmsley_Ht <-1000 to 1000>
+0 0 0 
+######
+Initial_State
+######
+######
+Final_State
+######
+######
+Display_Variable:
+######
+SnobalCRHM SWE 1 2 3
+######
+Display_Observation:
+######
+######
+TChart:
+######
+The Cold Regions Hydrological Model Platform 2009
+ 
+ 
+(kg/m^2)
+ 
+ 
+ 
+######

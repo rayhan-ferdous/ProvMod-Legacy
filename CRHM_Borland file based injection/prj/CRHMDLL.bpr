@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="CRHMDLL.dll"/>
+    <OBJFILES value="CRHMDLL.obj CRHMUserModules.obj Common.obj"/>
+    <RESFILES value="CRHMDLL.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value="&quot;C:\Program Files\Borland\CBuilder6\Lib\memmgr.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\cp32mti.lib&quot; CRHMGlobal.lib"/>
+    <LIBRARIES value="bdertl.lib vclx.lib dbrtl.lib vcldb.lib vcldbx.lib rtl.lib vcl.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib vcldbx.lib vcldb.lib dbrtl.lib vclx.lib bdertl.lib"/>
+    <PACKAGES value="vcl.bpi rtl.bpi vclx.bpi bcbsmp.bpi dbrtl.bpi adortl.bpi vcldb.bpi 
+      qrpt.bpi bdertl.bpi vcldbx.bpi dsnap.bpi cds.bpi bdecds.bpi ibxpress.bpi 
+      visualclx.bpi visualdbclx.bpi vclie.bpi xmlrtl.bpi inet.bpi inetdbbde.bpi 
+      inetdbxpress.bpi inetdb.bpi nmfast.bpi bcbie.bpi soaprtl.bpi dclocx.bpi 
+      dbexpress.bpi dbxcds.bpi indy.bpi bcb97axserver.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value=""/>
+    <SYSDEFINES value="NO_STRICT;_RTLDLL"/>
+    <MAINSOURCE value="CRHMDLL.bpf"/>
+    <INCLUDEPATH value="$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-WD -Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -a8 -6 -b- -k- -vi -tWD 
+      -tWM -c"/>
+    <PFLAGS value="-$Y- -$L- -$D- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zn"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpd -x -Gn -Gi"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0d32.obj Memmgr.Lib sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="CRHMDLL.res" FORMNAME="" UNITNAME="CRHMDLL.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CRHMDLL.bpf" FORMNAME="" UNITNAME="CRHMDLL" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CRHMDLL.cpp" FORMNAME="" UNITNAME="CRHMDLL" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\memmgr.lib" FORMNAME="" UNITNAME="memmgr.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\cp32mti.lib" FORMNAME="" UNITNAME="cp32mti.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CRHMGlobal.lib" FORMNAME="" UNITNAME="CRHMGlobal.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CRHMUserModules.cpp" FORMNAME="" UNITNAME="CRHMUserModules" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Common.cpp" FORMNAME="" UNITNAME="Common" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=4
+Item0=$(BCB)\include;$(BCB)\include\vcl
+Item1=C:\CRHM;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl
+Item2=$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl
+Item3=C:\Program Files\Borland\CBuilder6\Bin;C:\CRHM;$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=6
+Item0=$(BCB)\lib\obj;$(BCB)\lib
+Item1=C:\Program Files\Steema Software\TeeChart 6.01 for C++ Builder 6\CBuilder6\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item2=C:\CRHM;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib
+Item3=$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib
+Item4=C:\Program Files\Steema Software\TeeChart 6.01 for C++ Builder 6\CBuilder6\Lib;C:\Program Files\Borland\CBuilder6\Bin;..\..\..\Steema Software\TeeChart 6.01 for C++ Builder 6\CBuilder6\Lib;C:\CRHM;$(BCB)\lib\obj;$(BCB)\lib
+Item5=..\..\..\Steema Software\TeeChart 6.01 for C++ Builder 6\CBuilder6\Lib;C:\CRHM;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=3
+Item0=_DEBUG
+Item1=CRHM_DLL
+Item2=_DEBUG;CRHM_DLL
+
+[HistoryLists\hlIntOutputDir]
+Count=1
+Item0=C:\CRHM
+
+[HistoryLists\hlFinalOutputDir]
+Count=2
+Item0=C:\CRHM\
+Item1=C:\CRHM
+
+[HistoryLists\hIBPIOutputDir]
+Count=1
+Item0=C:\CRHM
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[Linker]
+LibPrefix=
+LibSuffix=
+LibVersion=
+  </IDEOPTIONS>
+</PROJECT>

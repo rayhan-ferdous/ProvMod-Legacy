@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1346774004 source:c:\crhm_blocks\prj\prj_time\main.cpp
+	<iostream>
+	<time.h>
+

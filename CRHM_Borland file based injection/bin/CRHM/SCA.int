@@ -1,0 +1,104 @@
+Description of State File - to be added
+######
+Time:
+2008 3 1
+######
+Dimension:
+2 1
+######
+Snobal SWE
+100 0 0
+######
+Snobal T_s
+0.01001 0.01001 0.01001 
+######
+Snobal T_s_0
+0.01001 0.01001 0.01001 
+######
+Snobal T_s_l
+0.01001 0.01001 0.01001 
+######
+Snobal cc_s
+0 0 0 
+######
+Snobal cc_s_0
+0 0 0 
+######
+Snobal cc_s_l
+0 0 0 
+######
+Snobal h2o
+1.225 1.225 1.513 
+######
+Snobal isothermal
+1 1 1 
+######
+Snobal layer_count
+2 2 2 
+######
+Snobal m_s_0
+157.8 157.8 155.3 
+######
+Snobal m_s_l
+87.8 87.8 133 
+######
+Snobal rho
+631.3 631.3 621.2 
+######
+Snobal snowcover
+1 1 1 
+######
+Snobal z_s
+0.3891 0.3891 0.4641 
+######
+Snobal z_s_0
+0.25 0.25 0.25 
+######
+Snobal z_s_l
+0.1391 0.1391 0.2141 
+######
+basin run_ID
+1 0 0 
+######
+ChrisTop cumnet_rain
+170 170 170 
+######
+long tau
+0.2364 0.2364 0.2364 
+######
+obs cumhru_rain
+170 170 170 
+######
+obs cumhru_snow
+414.3 414.3 414.3 
+######
+pbsmSnobal DrySnow
+0 0 0 
+######
+pbsmSnobal Prob
+0 0 0 
+######
+pbsmSnobal SnowAge
+0 0 0 
+######
+pbsmSnobal cumBasinSnowGain
+0 0 0 
+######
+pbsmSnobal cumBasinSnowLoss
+0 0 0 
+######
+pbsmSnobal cumDrift
+3.496 3.496 0 
+######
+pbsmSnobal cumDriftIn
+0 0 6.993 
+######
+pbsmSnobal cumSno
+0 0 0 
+######
+pbsmSnobal cumSubl
+24.4 24.4 0 
+######
+pbsmSnobal snowdepth
+0.8196 0.8196 0.9131 
+######

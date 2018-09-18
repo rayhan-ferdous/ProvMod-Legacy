@@ -1,0 +1,48 @@
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5922):     declvar("h2o_total", NHRU, "total liquid h2o: includes h2o in snowcover, melt, and rainfall", "(kg/m^2)", &h2o_total);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(5922):     declvar("h2o_total", NHRU, "total liquid h2o: includes h2o in snowcover, melt, and rainfall", "(kg/m^2)", &h2o_total);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6061):     h2o_total[hh] = 0.0;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6310):     declvar("h2o_total", NHRU, "total liquid h2o: includes h2o in snowcover, melt, and rainfall", "(kg/m^2)", &h2o_total);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6310):     declvar("h2o_total", NHRU, "total liquid h2o: includes h2o in snowcover, melt, and rainfall", "(kg/m^2)", &h2o_total);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6677): **	h2o_total
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6702):       h2o_total[hh] += m_s[hh]; **** init_snow(void)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7185): **	h2o_total
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7213):     h2o_total[hh] = 0.0;  **** _do_tstep(TSTEP_REC *tstep)
+  
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7671): **	h2o_total
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7715):     h2o_total[hh] += m_rain[hh]; **** _precip(void)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7720):     h2o_total[hh] += h2o[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7809): 	h2o_total[hh] += melt[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7819):             if (h2o_total[hh] > 0.0) {
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7820):                     Q_freeze = h2o_total[hh] * (z_s_0[hh]/z_s[hh]) * LH_FUS(FREEZE);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7824):                             h2o_refrozen = h2o_total[hh] * (z_s_0[hh]/z_s[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7828):         h2o_refrozen = (h2o_total[hh] * (z_s_0[hh]/z_s[hh])) - MELT(Q_left);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7838):       if (h2o_total[hh] > 0.0) {
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7839):         Q_freeze = h2o_total[hh] * (z_s_l[hh]/z_s[hh]) * LH_FUS(FREEZE);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7843):                 h2o_refrozen += h2o_total[hh] * (z_s_l[hh]/z_s[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7847):                 h2o_refrozen += ((h2o_total[hh]* (z_s_l[hh]/z_s[hh])) - MELT(Q_left));
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7854): //   be exactly the same as h2o_total.  Check for this case, and if so, then just zero out h2o_total.
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7854): //   be exactly the same as h2o_total.  Check for this case, and if so, then just zero out h2o_total.
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7856):     if (fabs(h2o_total[hh] - h2o_refrozen) <= 1e-8) {
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7857):         h2o_total[hh] = 0.0;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7860):         h2o_total[hh] -= h2o_refrozen;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8003): **	E_s h2o_total
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8018):         float  prev_h2o_tot;   // previous value of h2o_total variable
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8040):   prev_h2o_tot = h2o_total[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8042):   if(h2o_total[hh] > 0.0) {
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8043):     h2o_total[hh] += (E_s_0[hh] * VAP_SUB);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8044):     if(h2o_total[hh] <= 0.0)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8045):       h2o_total[hh] = 0.0;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8074):     /** adjust h2o_total for evaporative losses **/
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8075):     if (h2o_total[hh] > 0.0) {
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8076):       h2o_total[hh] += (E_s_l[hh] * VAP_SUB);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8077):       if (h2o_total[hh] <= 0.0)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8078):         h2o_total[hh] = 0.0;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8087):     _adj_snow( ((E_s[hh] + (prev_h2o_tot - h2o_total[hh])) / rho[hh]) / 2.0, E_s[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8205): **	h2o_total
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8295): **	h2o_total
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8320): 		ro_predict[hh] = h2o_total[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8326): 	m_s_dry = m_s[hh] - h2o_total[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8333):         if (h2o_total[hh] > h2o_max[hh]) {
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8334):                 ro_predict[hh] = h2o_total[hh] - h2o_max[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8345): 		h2o[hh] = h2o_total[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.h(1450):     float*  h2o_total;      // total liquid h2o: includes h2o in snowcover, melt, and rainfall (kg/m^2)

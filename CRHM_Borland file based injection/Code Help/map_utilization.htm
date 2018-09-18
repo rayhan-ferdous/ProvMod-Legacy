@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Map Utilization (09/05/02)</title>
+</head>
+
+<body>
+
+<h3>Map Utilization.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; The STL container classes <strong>map</strong> and <strong>multimap</strong>
+are used extensively in CHRM for assembling the CRHM model and keeping track of module
+names and object addresses.&nbsp; See <a
+href="file:///C:/Crhm/Code%20Help/globalcommon.htm">GlobalCommon.h</a> for the definitions
+of the <strong>typedef</strong>s&nbsp; used by the program.</p>
+
+<p>&nbsp;&nbsp;&nbsp; When linking modules together a multimap is used to hold module and
+variable/parameter names.&nbsp; It is defined as follows.</p>
+
+<blockquote>
+  <p>typedef String KeyType2;</p>
+  <p>typedef pair&lt;KeyType2, KeyType2&gt; Pairstr;</p>
+  <p>typedef multimap&lt;KeyType2, KeyType2&gt; Mapstr;</p>
+</blockquote>
+
+<ol>
+  <li>The first item of the pair is the name of the module using the variable from another
+    module.</li>
+  <li>The second item of the pair is the name of the source module concatenated with the
+    variable name.</li>
+</ol>
+
+<p>An example is pair&lt;&quot;pbsm&quot;, &quot;obs hru_t&quot;&gt;.&nbsp; Note that a
+single space is used as the separator in the second item.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp; When keeping track of module object addresses a map is used to hold
+the source module name concatenated with the variable name and the address of the object.
+&nbsp; It is defined as follows.</p>
+
+<blockquote>
+  <p>typedef string KeyType;</p>
+  <p>typedef ClassVar *Var;</p>
+  <p>typedef ClassPar *Par;</p>
+  <p>typedef pair&lt;KeyType, Var&gt; PairVar;</p>
+  <p>typedef pair&lt;KeyType, Par&gt; PairPar;</p>
+</blockquote>
+
+<blockquote>
+  <p>typedef map&lt;KeyType, Var&gt; MapVar;</p>
+  <p>typedef map&lt;KeyType, Par, Classless&lt;KeyType&gt; &gt; MapPar;</p>
+  <p>&nbsp;<ol>
+    <li>The first item of the pair is the source module name concatenated with the variable
+      name.</li>
+    <li>The second item of the pair is the address of the object.</li>
+  </ol>
+  <p>An example is pair&lt; &quot;obs hru_t&quot;, hru_t&gt;.&nbsp; Note that a single space
+  is used as the separator in the first item.</p>
+</blockquote>
+
+<p>&nbsp;&nbsp;&nbsp; When keeping track of dimensions a map is used to hold the dimension
+name and its size.&nbsp; It is defined as follows.</p>
+
+<blockquote>
+  <p>typedef long Dim;</p>
+  <p>typedef pair&lt;KeyType, Dim&gt; PairDim;</p>
+  <p>typedef map&lt;KeyType, Dim&gt; MapDim; </p>
+</blockquote>
+
+<ol>
+  <li>The first item of the pair is the name of the dimension.</li>
+  <li>The second item of the pair is the size of the dimension.</li>
+</ol>
+
+<p>An example is pair&lt; &quot;NHRU&quot;, 5&gt;.</p>
+</body>
+</html>

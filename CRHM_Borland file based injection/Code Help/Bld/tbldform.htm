@@ -1,0 +1,187 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TBldForm (09/05/02)</title>
+</head>
+
+<body>
+
+<h3>TBldForm - Window to assemble models.</h3>
+
+<p>class TBldForm : public TForm{</p>
+
+<p>__published: // IDE-managed Components</p>
+
+<blockquote>
+  <p>TListBox *ListBox1; // modules available.</p>
+  <p>TListBox *ListBox2; // modules selected</p>
+  <p>TLabel *Label1; // &quot;modules available&quot;.</p>
+  <p>TLabel *Label2; //&nbsp; &quot;modules selected&quot;.</p>
+  <p>TBitBtn *BitBtn1; // &quot;Build&quot;.</p>
+  <p>TBitBtn *BitBtn2; // &quot;Cancel&quot;.</p>
+  <p>TStringGrid *StringGrid1;</p>
+  <p>TButton *Check; // &quot;check&quot;.</p>
+  <p>TStatusBar *StatusBar1;</p>
+  <p>void __fastcall FormActivate(TObject *Sender);</p>
+  <p>void __fastcall ListBox2Click(TObject *Sender);</p>
+  <p>void __fastcall BitBtn1Click(TObject *Sender);</p>
+  <p>void __fastcall BitBtn2Click(TObject *Sender);</p>
+  <p>void __fastcall ListBox1MouseDown(TObject *Sender, TMouseButton Button, TShiftState
+  Shift, int X, int Y);</p>
+  <p>void __fastcall CheckClick(TObject *Sender);</p>
+  <p>void __fastcall FormClose(TObject *Sender, TCloseAction &amp;Action);</p>
+  <p>void __fastcall FormDeactivate(TObject *Sender);</p>
+</blockquote>
+
+<p>private: // User declarations </p>
+
+<blockquote>
+  <p>TStringList *List;</p>
+  <p>TStringList *ListNotFound; </p>
+  <p>public: // User declarations</p>
+  <p>__fastcall TBldForm(TComponent* Owner);</p>
+  <p>void __fastcall DisplayModule(String S);</p>
+  <p>long __fastcall CheckModel();</p>
+  <p>bool Execute;</p>
+</blockquote>
+
+<p>}; </p>
+
+<p>typedef String KeyType2; // </p>
+
+<p>typedef pair&lt;KeyType2, KeyType2&gt; Pairstr; // </p>
+
+<p>typedef multimap&lt;KeyType2, KeyType2&gt; Mapstr; // </p>
+
+<h3>Member Functions.</h3>
+
+<h3>void __fastcall FormActivate(TObject *Sender);</h3>
+
+<ol>
+  <li>Clears status bar.</li>
+  <li>Clears Mapgetvar, Mapreadvar, Mapdeclvar and Mapdeclpar.</li>
+  <li>Sets Global::BuildFlag = BUILD.</li>
+  <li>Traverses Global::AllModulesList calling each modules <em>decl()</em> function thus
+    populating the MAPs.</li>
+  <li>Sets Global::BuildFlag = DECL.</li>
+  <li>Traverses Global::AllModulesList copying module names and pointers to ListBox1.</li>
+  <li>Clears ListBox2.</li>
+  <li>Sets <strong>GiveWarning</strong> if Global::OurModulesList is not empty.</li>
+  <li>Traverses Global::OurModulesListcopying module names and pointers to ListBox2.</li>
+  <li>Sets <strong>Execute</strong> to false.</li>
+</ol>
+
+<h3>void __fastcall ListBox2Click(TObject *Sender);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Calls <em>DisplayModule(S)</em> where S is item selected in
+ListBox2.</p>
+
+<h3>void __fastcall BitBtn1Click(TObject *Sender); // Build</h3>
+
+<ol>
+  <li>Calls <em>CheckModel()</em></li>
+  <li>Calls <em>return</em> if any errors reported and displays an informational MessageBox.</li>
+  <li>If existing model <strong>(GiveWarning</strong> true) displays an informational
+    MessageBox asking if parameter values should be saved first.</li>
+  <li>Call <em>Main-&gt;ClearModulesClick(Sender)</em>.</li>
+  <li>If </li>
+</ol>
+
+<h3>void __fastcall BitBtn2Click(TObject *Sender);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Closes the <strong>BldForm</strong> form.</p>
+
+<h3>void __fastcall ListBox1MouseDown(TObject *Sender, TMouseButton Button, TShiftState
+Shift, int X, int Y);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; If mbRight then Add/Delete module from ListBox2, otherwise call <em>DisplayModule()</em>.</p>
+
+<h3>void __fastcall CheckClick(TObject *Sender);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Calls <em>CheckModel()</em>.</p>
+
+<h3>void __fastcall FormClose(TObject *Sender, TCloseAction &amp;Action);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Clears ListBox1 and ListBox2.</p>
+
+<h3>void __fastcall FormDeactivate(TObject *Sender);</h3>
+
+<h3>CRHM variables and routines.</h3>
+
+<h3>TStringList *List;</h3>
+
+<h3>TStringList *ListNotFound; </h3>
+
+<h3>bool Execute;</h3>
+
+<h3>void __fastcall DisplayModule(String S);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; S is the name of module to be displayed. 
+
+<ol>
+  <li>Set TStringGrid options.</li>
+  <li>Reset all TStringGrid cells to &quot;&quot;.</li>
+  <li>Set <strong>ColCount</strong> = 5 and <strong>RowCount</strong> = 1 and insert titles.</li>
+  <li>Insert Observations used by module.</li>
+  <li>Insert Variables used by module.</li>
+  <li>Insert Variables declared by module.</li>
+  <li>Inser Parameters declared by module.</li>
+</ol>
+
+<h3>long __fastcall CheckModel();</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Checks Model for errors.</p>
+
+<h3>Local Storage.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; TStringList *List - variables declared earlier &lt;srcName +
+varName, useage count&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp; TStringList *ListUsed - variables needed &lt;srcName + varName,
+index to ListBox2 of module using variable&gt;</p>
+
+<blockquote>
+  <p>index is made negative if&nbsp; &quot;srcName + varName&quot; is not found or wild '*'.
+  &nbsp; If the wild variable is determine the index is made positive again.</p>
+</blockquote>
+
+<p>&nbsp;&nbsp;&nbsp; Check that any module used exists in model. 
+
+<ol>
+  <li>Creates TStringList List and sets options todupAccept and Sorted = false.</li>
+  <li>Creates TStringList ListNotFound and sets options todupAccept and Sorted = false.</li>
+  <li>Clears status bar.</li>
+  <li>Traverses ListBox2 and check that the model modules 'declgetvar' modules are in the
+    ListBox2 module list.&nbsp;&nbsp; <ol>
+      <li>If not, if the module exists in ListBox1 add the module to ListBox2,</li>
+      <li>else if the module is not specified explicitly '*', then ignore,</li>
+      <li>else log error that required module does not exist.</li>
+    </ol>
+  </li>
+  <li>If any additional added to model repeat traverse of ListBox2.</li>
+</ol>
+
+<p>&nbsp;&nbsp; Check that any&nbsp; module 'declgetvar' exists as a modules 'declvar'. 
+
+<ol>
+  <li>Traverses ListBox2 and for each module do the following:</li>
+</ol>
+
+<blockquote>
+  <ol>
+    <li>Insert in TStringList List all the current modules 'declvar' variables.</li>
+    <li>Loop through current modules 'declgetvar' and verify they exist in List from earlier
+      modules.<ol>
+        <li>If not add to ListNotFound,</li>
+        <li>Else increment useage in List and .</li>
+      </ol>
+    </li>
+  </ol>
+</blockquote>
+
+<p>&nbsp;&nbsp;&nbsp; Check throw </p>
+
+<p>&nbsp;</p>
+</body>
+</html>

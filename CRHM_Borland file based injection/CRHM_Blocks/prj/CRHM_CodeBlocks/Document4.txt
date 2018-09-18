@@ -1,0 +1,147 @@
+      else if(S == "Display_Observation:") {
+        istringstream instr;
+        string::size_type pp, pp1;
+        string Kind;
+        long Index, lay;
+        bool comma, isVar;
+
+        while(!DataFile.eof()) {
+          getline(DataFile, S);
+          if(S[0] == '#') break;
+
+          pp = S.rfind('('); // read earlier versions
+          while(pp != string::npos){
+            pp1 = S.rfind(')'); // read earlier versions
+            if(pp1 != string::npos)
+              S.erase(pp, pp1-pp+1);
+            pp = S.rfind('(');
+          }
+
+          pp = S.rfind('_');
+          if(pp != string::npos){
+            Kind = S.substr(pp);
+            S.erase(pp-1);
+            if(Kind == "_obs")
+              Kind = "";
+          }
+
+          pp = S.rfind(',');
+          if(pp != string::npos){
+            comma = true;
+            while(pp != string::npos){
+              S[pp] = ' ';
+              pp = S.rfind(',');
+            }
+          }
+          else
+            comma = false;
+            
+          instr.clear();
+          instr.str(S);
+          instr  >> module;
+          instr  >> name;
+
+          string S1 = string(module) + ' ' +  string(name);
+
+          thisVar = ClassVarFind(S1);
+          
+          if(thisVar)
+            isVar = true;
+          else
+            isVar = false;
+
+          for( ; ; ) {
+            if(comma){
+              instr >> Index;
+              if(instr.fail()) break;
+              instr >> lay;
+              SS = String(name) + '(' + String(labs(Index)) + ',' + String(lay) + ')';
+              S1 = string(module) + ' ' + SS.c_str();
+              if(!isVar){
+                thisVar = ClassVarFind(S1);
+                SS += "(" + String(Index) + ")" + Kind.c_str();
+              }
+              else
+                SS += Kind.c_str();
+            }
+            else{
+              lay = 0;
+              instr >> Index;
+              if(instr.fail()) break;
+
+              if(Index < 0) { // right axis
+                Index = labs(Index);
+              }
+              SS = String(name) + '(' + String(labs(Index)) + ')';
+              S1 = string(module) + ' ' + SS.c_str();
+              if(!isVar){
+                thisVar = ClassVarFind(S1);
+                SS +=  String("(1)") + Kind.c_str(); // 
+              }
+              else
+                SS += Kind.c_str();
+            }
+
+            if(thisVar && IndexOf(ListBox4, SS) == -1 && (!isVar || lay <= thisVar->lay && Index <= thisVar->dim)){
+
+              if(thisVar->FileData){ // observation
+
+                TLineSeries *cdSeries;
+                if(!thisVar || !thisVar->FileData->Times)
+                  cdSeries = new TLineSeries(this);
+                else
+                  cdSeries = (TLineSeries *) new TPointSeries(this);
+
+                cdSeries->Tag = (int) thisVar;
+                cdSeries->VertAxis =  (Index < 0);
+
+                cdSeries->XValues->DateTime = TRUE;
+                CurrentColor = colours[ListBox4->Count-1 % ncolours];
+                cdSeries->Color = CurrentColor;
+                cdSeries->ParentChart = Chart;
+                cdSeries->Title = SS;
+
+                if(Index < 0)
+                   cdSeries->VertAxis = aRightAxis;
+
+                ListBox4->Items->AddObject(SS, (TObject *) cdSeries);
+                if(thisVar && thisVar->FileData) // observation
+                  AddObsPlot(Sender, (ClassVar *) thisVar, cdSeries, SS, FindObservationType(Kind.c_str()));
+                else  // VarObsFunct
+                  cdSeries->Tag = NULL;
+              }
+              else{ // VarObsFunct
+
+                TLineSeries *cdSeries;
+                cdSeries = new TLineSeries(this);
+
+                cdSeries->Tag = (int) thisVar;
+                cdSeries->VertAxis =  (Index < 0);
+
+                cdSeries->XValues->DateTime = TRUE;
+                CurrentColor = colours[ListBox4->Count % ncolours];
+                cdSeries->Color = CurrentColor;
+                cdSeries->ParentChart = Chart;
+                cdSeries->Title = SS;
+
+                if(Index < 0)
+                   cdSeries->VertAxis = aRightAxis;
+
+                ListBox4->Items->AddObject(SS, (TObject *) cdSeries);
+                cdSeries->Tag = NULL;
+              } // if
+            } // if
+            else {
+                CRHMException Except("Unknown Variable " + S +
+                       " in " + string(OpenDialogPrj->FileName.c_str()), ERR);
+                Application->MessageBox(Except.Message.c_str(),
+                                   "Unknown Variable in project file", MB_OK);
+                LogError(Except);
+
+                DataFile.ignore(256, '\n');
+            }
+          } // for
+          instr.clear();
+          DataFile.clear();
+        } // while
+      }

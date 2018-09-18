@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Parameter Operation (06/02/04)</title>
+</head>
+
+<body>
+
+<h3>Parameter Operation</h3>
+
+<h3>General</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Parameters use the names declared in the module
+&quot;declparam&quot; call.&nbsp; These names are combinations of upper/lower characters.
+&nbsp;&nbsp; All parameter names are saved in the parameter MAP object &quot;Global::
+MapPars&quot;.&nbsp; When names are compared they are raised to uppercase by
+&quot;Classless&quot; a binary_function defined in GlobalCommon.h.&nbsp; The name
+&quot;basin&quot; is always at the head of the list.&nbsp; This ensures that basin
+parameters always have a higher priority than any module.</p>
+
+<h3>Module Loading</h3>
+
+<p>&nbsp;&nbsp;&nbsp; The initial modules are&nbsp; loaded by opening a project or
+building from the Bld/construct screen.&nbsp; The only exception is when a database file (
+*.dbf ) is read.&nbsp; In this case if no modules have been loaded,&nbsp; the
+&quot;basin&quot; module will be automatically be loaded first allowing the basin
+parameters to be loaded and the number of HRUs set to the value of the database
+RecordCount.&nbsp; Any other module parameters will be rejected.</p>
+
+<p>&nbsp;&nbsp;&nbsp; When a module is loaded,&nbsp; the routine &quot;declparam&quot;
+first looks for the parameter as a &quot;module param&quot;.&nbsp; Next it looks for a
+&quot;basin param&quot; and if both searches are unsuccessful, implying that there is no
+&quot;basin&quot; module,&nbsp; the parameter is created as a&nbsp; &quot;module
+param&quot;.</p>
+
+<h3>Manipulation of Parameters.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; For the convenience of the user when a parameter appears in more
+than one module and holds the same values a pseudo &quot;basin&quot; parameter is created.
+&nbsp; The coded &quot;basin&quot; module parameters are fixed whereas the pseudo
+&nbsp; &quot;basin&quot; parameters are created and deleted as determined by the
+requirements of the model.&nbsp;&nbsp;&nbsp; </p>
+
+<h3>Parameter Map Objects.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; The structure Global::MapPars is referenced by &quot;module
+parameter&quot;.&nbsp; Where module is the module name and parameter is the parameter
+namr.&nbsp; There is an intervening space character.&nbsp; This object holds all the
+information about parameters and the pointers to the parameter object.</p>
+
+<p>&nbsp;&nbsp;&nbsp; The structure BasinMapPars holds the &quot;module parameter&quot; of
+the parameters that have been deleted so that the basin version is visible.&nbsp; A
+pointer to the parameter structure is saved allowing the original module parameter to be
+restored.</p>
+
+<h3>Routines</h3>
+
+<h3>SetBasinParameters(ClassPar *p).</h3>
+
+<p>&nbsp;&nbsp;&nbsp; All module parameters with the same name as *p are set to the values
+given in *p.</p>
+
+<h3>ClassParSet(ClassPar *p)</h3>
+
+<ol>
+  <li>If *p is identical to the &quot;basin&quot; version,&nbsp; *p is deleted.</li>
+  <li>If a module parameter of the same name is found it is changed to the values given in *p.
+    &nbsp; *p is then deleted.</li>
+  <li>If neither a &quot;basin&quot; or &quot;module&quot; parameter is found *p is inserted
+    into Global::MapPars.</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<h3>SqueezeBasinParams.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; The purpose of this routine is to convert identical module
+parametres to basin parameters.</p>
+
+<p>&nbsp;&nbsp;&nbsp; First a multimap, MapInfo is instantiated.&nbsp; This structure is
+indexed by parameter name and holds an info object which contains a pointer to the
+parameter, another pointer to the root parameter, i.e. the first occurrence of the
+identical parameter values. and lastly an integer which holds the number of occurences of
+the identical parameter.
+
+<ol>
+  <li>The multimap is traversed from the beginning and for each parameter name the number of
+    occurrences is found using the method. MapInfo.count(param). If equal to 1,&nbsp; proceed
+    to the next parameter.</li>
+  <li>If the count is greater than 1, the identical parameters are found using
+    MapInfo.equal_range(param).</li>
+  <li>Proceed through the range comparing parameter values</li>
+</ol>
+
+<h3>ClearBasinParameters.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; The parameter objects are deleted and the BasinMapPars MAP is
+cleared.</p>
+
+<h3>RemoveBasinParams.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; The function of this rouitine is to restore the original module
+parameters to the same as those defined in the module.&nbsp; Parameter values are kept.
+
+<ol>
+  <li>The BasinMapVars map is transversed and the original module parameters are restored.</li>
+  <li>The Global::MapVars map is transversed.&nbsp; When any basin parameter is found,
+    &nbsp; the Global::MapVars map is transversed looking for any modules having the same
+    parameter.&nbsp; If any are found the basin entry is removed.&nbsp; This eliminates both
+    pseudo and physical basin parameters???</li>
+</ol>
+
+<p>&nbsp;&nbsp;&nbsp; A call is now made to ClearBasinParameters to empty the BasinMapVars
+map.</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

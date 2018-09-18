@@ -1,0 +1,71 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Global (10/17/04)</title>
+</head>
+
+<body>
+
+<h3>Global</h3>
+
+<p>class __declspec(dllexport) Global {</p>
+
+<p>public:</p>
+
+<blockquote>
+  <p>static long Freq; - daily observation frequency, e.g. 24 for hourly data derived from
+  first observation file opened.</p>
+  <p>static long DTindx; - current observation index during model run.</p>
+  <p>static long DTmin; - minimum possible run index calculated from CRHM run start time.</p>
+  <p>static long DTmax; - maximum possible run index calculated from CRHM run end time.</p>
+  <p>static long IndxMin; - minimum possible observation index.</p>
+  <p>static long IndxMax; - maximum possible observation index.</p>
+  <p>static long maxobs; - maximum observation dimension.</p>
+  <p>static long maxlay; - maximum soil layer dimension.</p>
+  <p>static long maxhru; - maximum HRU dimension.</p>
+  <p>static double Interval; - run time step as fraction of day(1/Freq).</p>
+  <p>static double DTstart; - CRHM run start time from user.</p>
+  <p>static double DTend; - CRHM run end time from user.</p>
+  <p>static TDateTime DTnow; - CRHM absolute current time during run.</p>
+  <p>static TBuild BuildFlag; - BUILD/DECL/INIT.</p>
+  <p>static MapVar MapVars; - map object containing current variables instantiated in model
+  DECL phase. &lt;module name + varName, varAddress&gt;</p>
+  <p>static MapPar MapPars; - map object containing current parameters instantiated in model
+  DECL phase. &lt;module name+ parName, parAddress&gt;</p>
+  <p>static MapDim MapDims; - map object containing current dimensions instantiated in model
+  DECL phase. &lt;dimension name, value&gt;</p>
+  <p>static Mapstr Mapgetvar; - map object containing current getvar's instantiated in model
+  BUILD phase. &lt;module name, module + varName&gt;</p>
+  <p>static Mapstr Mapputvar; - map object containing current putvar's instantiated in model
+  BUILD phase. &lt;module name, module + varName&gt;</p>
+  <p>static Mapstr Mapreadvar; - map object containing current readvar's instantiated in
+  model BUILD phase. &lt;module name, varName&gt;</p>
+  <p>static Mapstr Mapdeclvar; - map object containing current declvar's instantiated in
+  model BUILD phase. &lt;module name, varName&gt;</p>
+  <p>static Mapstr Mapdeclpar; - map object containing current declpar's instantiated in
+  model BUILD phase. &lt;module name, varName&gt;</p>
+  <p>static TStringList *AllModulesList; - modules defined in current CRHM model
+  implementation.</p>
+  <p>static TStringList *OurModulesList; - modules used in current model project.</p>
+  <p>static TStringList *AllModelsList; - models defined in current CRHM model
+  implementation.</p>
+  <p>static TStringList *ModelModulesList; // modules used in above models in CommaText.</p>
+  <p>static TStringList *OurHelpListList; // list of help file names by DLL.</p>
+  <p>static HWND crhmMain; - handle to send messages to Main.</p>
+  <p>static HWND crhmLog; - handle to send messages to log and user screens.</p>
+</blockquote>
+
+<p>};</p>
+
+<h3>Formats for Maps.</h3>
+
+<blockquote>
+  <h3>MapVars, MapPars, Mapgetvar, Mapputvar, Mapreadvar, Mapdeclvar and Mapdeclpar.</h3>
+  <p>key - calling module name.</p>
+  <p>value - </p>
+</blockquote>
+
+<h3>MapDims</h3>
+</body>
+</html>

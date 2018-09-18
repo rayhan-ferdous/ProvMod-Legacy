@@ -1,0 +1,31 @@
+
+[OPTIONS]
+Auto Index=Yes
+Compatibility=1.1 or later
+Compiled file=CodeHelp.chm
+Contents file=CodeHelp.hhc
+Default topic=About.htm
+Display compile progress=No
+Error log file=_errorlog.txt
+Full-text search=Yes
+Index file=CodeHelp.hhk
+Language=0x409 English (United States)
+
+
+[FILES]
+About.htm
+classdata.htm
+classes.htm
+classpar.htm
+classvar.htm
+classfilter.htm
+classmacro.htm
+module_exception_class.htm
+declread.htm
+map_utilization.htm
+globalcommon.htm
+Bld\tbldform.htm
+TMain.htm
+
+[INFOTYPES]
+

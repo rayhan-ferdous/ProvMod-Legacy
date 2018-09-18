@@ -1,0 +1,69 @@
+      else if(S == "Display_Variable:") {
+        while(!DataFile.eof()) {
+        istringstream instr;
+        string::size_type pp;
+        long Index, lay;
+        bool comma;
+
+          getline(DataFile, S);
+          if(S[0] == '#') break;
+
+          pp = S.rfind(',');
+          if(pp != string::npos){
+            comma = true;
+            while(pp != string::npos){
+              S[pp] = ' ';
+              pp = S.rfind(',');
+            }
+          }
+          else
+            comma = false;
+            
+          instr.clear();
+          instr.str(S);
+          instr  >> module;
+          instr  >> name;
+
+          S = string(module) + ' ' +  string(name);
+          
+          thisVar = ClassVarFind(S);
+          
+          if(thisVar) {
+
+            for( ; ; ) {
+              DataFile >> Index;
+              if(comma){
+                instr >> Index;
+                if(instr.fail()) break;
+                instr >> lay;
+                SS = String(thisVar->name.c_str()) + "(" + String(Index) + ',' + String(lay) + ")";
+              }
+              else{
+                lay = 0;
+                instr >> Index;
+                if(instr.fail()) break;
+
+                if(Index < 0) { // right axis
+                  Index = labs(Index);
+                  thisVar->TchrtOpt = 1;
+                }
+                SS = String(thisVar->name.c_str()) + "(" + String(Index) + ")";
+              }
+
+              if(IndexOf(ListBox3, SS) == -1 && Index <= thisVar->dim)
+                ListBox3->Items->AddObject(SS, (TObject*) thisVar);
+            } // for
+          }
+          else {
+              CRHMException Except("Unknown Variable \"" + S +
+                     "\" in " + string(OpenDialogPrj->FileName.c_str()), ERR);
+              Application->MessageBox(Except.Message.c_str(),
+                                 "Unknown Variable in project file", MB_OK);
+              LogError(Except);
+
+              DataFile.ignore(256, '\n');
+          }
+          instr.clear();
+          DataFile.clear();
+        } // while
+      }

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1343924346 source:c:\crhm_blocks\prj\test_klone\main.cpp
+	<iostream>
+	<string>
+	<typeinfo>
+

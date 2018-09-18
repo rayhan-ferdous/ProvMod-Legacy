@@ -1,0 +1,77 @@
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6469):         rho[hh] = m_s[hh]/z_s[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6651): **		rho	density of snowcover (kg/m^3)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6666): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6683): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6694): 	m_s[hh] = rho[hh] * z_s[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6707): 		rho[hh] = 0.0;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6736): 		rho_dry = DRY_SNO_RHO(rho[hh], h2o_vol[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6765): **	rho[hh]
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6803):           if (z_s_l[hh] * rho[hh] < tstep_info[hh][SMALL_TSTEP].threshold) {
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6822): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6838):     m_s_0[hh] = rho[hh] * z_s_0[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(6840):             m_s_l[hh] = rho[hh] * z_s_l[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7300):         G[hh] = g_soil (rho[hh], T_s_0[hh], T_g[hh], z_s_0[hh], z_g[hh], P_a[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7309):         G[hh] = g_soil (rho[hh], T_s_l[hh], T_g[hh], z_s_l[hh], z_g[hh], P_a[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7311):     G_0[hh] = g_snow (rho[hh], rho[hh], T_s_0[hh], T_s_l[hh], z_s_0[hh], z_s_l[hh], P_a[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7311):     G_0[hh] = g_snow (rho[hh], rho[hh], T_s_0[hh], T_s_l[hh], z_s_0[hh], z_s_l[hh], P_a[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7421): 	float	rho,	// snow layer's density (kg/m^3)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7444): 	kcs = KTS(rho);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7587): **		rho(time) = A / (1 + B/time)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7598): **	rho		|	       *
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7615): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7631):   if (!snowcover[hh] || rho[hh] > A || m_s[hh] <= 0.0)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7636): if(rho[hh] > 349)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7637):    rho[hh] = 349;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7639): 	time = B / (A / rho[hh] - 1);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7643): 	rho[hh] = A / (1 + B/(time + time_step[hh]));
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7675): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7706):         rho[hh] = rho_snow[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7732):     _adj_snow((m_drift[hh] - m_subl[hh])/rho[hh], m_drift[hh] - m_subl[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7735):     _adj_snow((m_drift[hh] - m_subl[hh])/rho[hh], m_drift[hh] - m_subl[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7878):     if(rho[hh] <= 0.0)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7879):       rho[hh] = 750; // Maximum snow density (kg/m^3)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7881): //    _adj_snow( -(melt[hh]/rho[hh]), 0.0); // **** DANGER
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7901): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7911): 	z_s[hh] = m_s[hh] / rho[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7942): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7960):           rho[hh] = m_s[hh] / z_s[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7967): 	if (rho[hh] > MAX_SNOW_DENSITY){
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7968):           rho[hh] = MAX_SNOW_DENSITY;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7969):           z_s[hh] = m_s[hh] / rho[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(7998): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8090): //    _adj_snow( ((E_s[hh] + (prev_h2o_tot - h2o_total[hh])) / rho[hh]) / 2.0, E_s[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8136): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8160): 	if ((!snowcover[hh]) || (rho[hh] > MAX_DENSITY))
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8163): 	Alocal = MAX_DENSITY - rho[hh];
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8172): 	    rho[hh] += Alocal / (1 + BB/h2o_added);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8213): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8246):     rho[hh] = 0.0;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8310): **	rho
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8843):   declputvar("*", "rho", "(kg/m^3)", &rho);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8843):   declputvar("*", "rho", "(kg/m^3)", &rho);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(8978):           SWE_Max = SWE[hh] + rho[hh]*(Ht[hh]-z_s[hh]); // not filled
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(10271):   float rho;        // Air density (kg/m^3)
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(10272):   float rKh;        // rho*Ch*U1
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(10281):   rho = Pa[hh]*1000.0 /(CRHM_constants::Rgas*CRHM_constants::Tm);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(10282):   rKh = rho*Ch*U1;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(11674):       Nsalt = 2.0*PBSM_constants::rho/(PBSM_constants::C2*PBSM_constants::C3*Ustar)*(RauTerm - sqr(Usthr)/sqr(Ustar)); //{Eq. 4.14 updated}
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(11681):       TQsalt = PBSM_constants::C1*PBSM_constants::rho*Usthr/(PBSM_constants::g*PBSM_constants::C3*Ustar)*(sqr(Ustar)*RauTerm - sqr(Usthr)); // Eq. 4.20
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(14185):     float rho = Pa[hh]*1000/(CRHM_constants::Rgas*T1);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(14196):     Ts[hh] = T1 + (CRHM_constants::emiss*(Qli_ - CRHM_constants::sbc*pow(T1, 4.0f)) + CRHM_constants::Ls*(q - Qs(Pa[hh], T1))*rho/ra[hh])/
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(14197):              (4*CRHM_constants::emiss*CRHM_constants::sbc*pow(T1, 3.0f) + (CRHM_constants::Cp + CRHM_constants::Ls*deltaX)*rho/ra[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(14719):     float rho = Pa[hh]*1000/(CRHM_constants::Rgas*T1);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(14730):     Ts[hh] = T1 + (CRHM_constants::emiss*(Qli_ - CRHM_constants::sbc*pow(T1, 4.0f)) + CRHM_constants::Ls*(q - Qs(Pa[hh], T1))*rho/ra[hh])/
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(14731):              (4*CRHM_constants::emiss*CRHM_constants::sbc*pow(T1, 3.0f) + (CRHM_constants::Cp + CRHM_constants::Ls*deltaX)*rho/ra[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(16865):     float rho = Pa[hh]*1000/(CRHM_constants::Rgas*T1);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(16875):     Ts[hh] = T1 + (CRHM_constants::emiss*(Qli_ - CRHM_constants::sbc*pow(T1, 4.0f)) + CRHM_constants::Ls*(q - Qs(Pa[hh], T1))*rho/ra[hh])/
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(16876):              (4*CRHM_constants::emiss*CRHM_constants::sbc*pow(T1, 3.0f) + (CRHM_constants::Cp + CRHM_constants::Ls*deltaX)*rho/ra[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(19019):   declstatvar("rho", NHRU, "average snowcover density", "(kg/m^3)", &rho);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(19019):   declstatvar("rho", NHRU, "average snowcover density", "(kg/m^3)", &rho);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(19121):     rho[hh] = 100.0;
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(20967):     float rho = Pa[hh]*1000/(CRHM_constants::Rgas*T1);
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(20978):     Ts[hh] = T1 + (CRHM_constants::emiss*(Qli[Qlimax] - CRHM_constants::sbc*pow(T1, 4.0f)) + CRHM_constants::Ls*(q - Qs(Pa[hh], T1))*rho/ra[hh])/
+  C:\CRHM_Borland\src\Shared\NewModules.cpp(20979):              (4*CRHM_constants::emiss*CRHM_constants::sbc*pow(T1, 3.0f) + (CRHM_constants::Cp + CRHM_constants::Ls*delta)*rho/ra[hh]);
+  C:\CRHM_Borland\src\Shared\NewModules.h(1435):     float*  rho;            // average snowcover density (kg/m^3)
+  C:\CRHM_Borland\src\Shared\NewModules.h(1594):   float	rho,	// snow layer's density (kg/m^3)
+  C:\CRHM_Borland\src\Shared\NewModules.h(1757): float *rho;
+  C:\CRHM_Borland\src\Shared\NewModules.h(4081): float *rho;

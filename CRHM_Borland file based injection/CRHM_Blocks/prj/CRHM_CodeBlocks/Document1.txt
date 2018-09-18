@@ -1,0 +1,47 @@
+      else if(S == "Display_Variable:") {
+        while(!DataFile.eof()) {
+          DataFile >> module;
+          if(module[1] == '#') break;
+          
+          DataFile  >> name;
+          if(DataFile.eof()) return; // final exit
+
+          S = string(module) + ' ' +  string(name);
+          
+          long Index;
+          string comma;
+          thisVar = ClassVarFind(S);
+          
+          if(thisVar) {
+
+            for( ; ; ) {
+              DataFile >> Index;
+              if(DataFile.fail()) break;
+
+              if(Index < 0) {
+                Index = labs(Index);
+                thisVar->TchrtOpt = 1;
+              }
+              if(DataFile.peek() != ',')
+                SS = thisVar->name + "(" + longtoStr(Index) + ")";
+              else {
+                DataFile >> comma;
+                SS = thisVar->name + "(" + longtoStr(Index) + comma + ")";
+              }
+
+              if(IndexOf(ListBox3, SS) == -1 && Index <= thisVar->dim)
+                ListBox3->AddObject(SS, (TObject*) thisVar);
+            } // for
+          }
+          else {
+              CRHMException Except("Unknown Variable " + S +
+                     " in " + string(OpenNamePrj.c_str()), ERR);
+              Message(Except.Message.c_str(),
+                                 "Unknown Variable in project file");
+              LogError(Except);
+
+              DataFile.ignore(256, '\n');
+          }
+          DataFile.clear();
+        } // while
+      }

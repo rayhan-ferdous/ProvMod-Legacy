@@ -1,0 +1,315 @@
+/*
+** NAME
+**      void _new_density(void) -- adjust the snowcover's depth and layers for new density
+**
+** DESCRIPTION
+**      This routine adjusts the snowcover's depth for a new density.  The
+**	layers are also adjusted accordingly.
+**
+** GLOBAL VARIABLES READ
+**	m_s
+**	rho
+**
+** GLOBAL VARIABLES MODIFIED
+**	z_s
+**
+**	(and those variables modified by "_adj_layers")
+*/
+
+void ClassSnobalBase::_new_density(void){
+
+	z_s[hh] = m_s[hh] / rho[hh];
+
+	_adj_layers();
+}
+
+void ClassSnobalBase::_adj_layers(void){
+
+/*
+** NAME
+**      _adj_layers -- adjust the layers because of new snowcover depth
+**
+** SYNOPSIS
+**      #include "_snobal.h"
+**
+**      void
+**	_adj_layers(void);
+**
+** DESCRIPTION
+**      This routine adjusts the layers of the snowcover because the
+**	snowcover's depth has changed.  It is assumed that the snowcover's
+**	density has already been updated.  The # of layers are recomputed
+**	based on the overall snowcover depth.  Their depths and masses
+**	are updated as well.  If a layer has been created due to an
+**	increase in the snowcover's depth, its temperature and cold content
+**	are initialized.
+**
+** GLOBAL VARIABLES READ
+**	layer_count
+**
+** GLOBAL VARIABLES MODIFIED
+**	cc_s
+**	cc_s_0
+**	cc_s_l
+**	h2o
+**	h2o_max
+**	h2o_total
+**	h2o_vol
+**	m_s
+**	m_s_0
+**	m_s_l
+**	rho
+**	T_s
+**	T_s_0
+**	T_s_l
+**
+**	(and those variables modified by "_calc_layer" and "_layer_mass")
+*/
+
+	/*
+	 *  Recompute then number of layers and see if there's been
+	 *  a change in the # of layers.  Note:  since this routine
+	 *  is called to adjust an existing snowcover, the current # of
+	 *  layers must be either 1 or 2 while the new # of layers may
+	 *  either be 0, 1 or 2.
+	 *
+	 *	current #	new #
+	 *	of layers	of layers
+	 *
+	 *	   1	   -->	   0
+	 *	   1	   -->	   1	(no change)
+	 *	   1	   -->	   2
+	 *	   2	   -->	   0
+	 *	   2	   -->	   1
+	 *	   2	   -->	   2	(no change)
+	 */
+  int prev_layer_count;	// previous # of layers, if change in depth
+  prev_layer_count = layer_count[hh];  // must be > 0
+  _calc_layers();
+
+  if (layer_count[hh] == 0) {
+
+// 1 or 2 layers --> 0 layers
+
+    rho[hh] = 0.0;
+
+// If mass > 0, then it must be below threshold. So turn this little bit of mass into water.
+
+    if (m_s[hh] > 0.0){
+      snowmelt_int[hh] += m_s[hh];
+      melt_direct_int[hh] += m_s[hh];
+    }
+
+    m_s[hh]   = cc_s[hh]   = 0.0;
+    m_s_0[hh] = cc_s_0[hh] = 0.0;
+
+// Note: Snow temperatures are set to MIN_SNOW_TEMP (as degrees K) instead of 0 K to keep quantization range in output image smaller.
+
+    T_s[hh] = T_s_0[hh] = MIN_SNOW_TEMP + FREEZE;
+
+    if (prev_layer_count == 2) {
+            m_s_l[hh] = cc_s_l[hh] = 0.0;
+            T_s_l[hh] = MIN_SNOW_TEMP + FREEZE;
+    }
+    h2o_vol[hh] = h2o[hh] = h2o_max[hh] = h2o_sat[hh] = 0.0;
+  }
+
+  else {
+    _layer_mass();
+
+    if ((prev_layer_count == 1) && (layer_count[hh] == 2)) {
+
+// 1 layer --> 2 layers, add lower layer
+
+      T_s_l[hh] = T_s[hh];
+      cc_s_l[hh] = _cold_content(T_s_l[hh], m_s_l[hh]);
+    }
+
+    else if ((prev_layer_count == 2) && (layer_count[hh] == 1)) {
+
+// 2 layers --> 1 layer, remove lower layer
+
+      T_s_l[hh] = MIN_SNOW_TEMP + FREEZE;
+      cc_s_l[hh] = 0.0;
+    }
+  }
+}
+
+void ClassSnobalBase::_layer_mass(void)
+{
+  if (layer_count[hh] == 0) {
+    m_s_0[hh] = 0.0;
+    m_s_l[hh] = 0.0;
+  }
+  else {  // layer_count is 1 or 2
+    m_s_0[hh] = rho[hh] * z_s_0[hh];
+    if (layer_count[hh] == 2)
+            m_s_l[hh] = rho[hh] * z_s_l[hh];
+    else
+            m_s_l[hh] = 0.0;
+  }
+}
+
+/*
+** NAME
+**      _cold_content -- calculates cold content for a layer
+**
+**      float
+**	_cold_content(
+**	    float  temp,		|* temperature of layer *|
+**	    float  mass)		|* specific mass of layer *|
+**
+** DESCRIPTION
+**      This routine calculates the cold content for a layer (i.e., the
+**	energy required to bring its temperature to freezing) from the
+**	layer's temperature and specific mass.
+**
+** RETURN VALUE
+**	The layer's cold content.
+*/
+
+float ClassSnobalBase::_cold_content(
+	float	temp,		// temperature of layer
+	float	mass)		// specific mass of layer
+{
+  if (temp < FREEZE)
+    return heat_stor(CP_ICE(temp), mass, (temp - FREEZE));
+  else
+    return 0.0;
+}
+
+/*
+** NAME
+**      void _calc_layers(void) -- determine # of layers in snowcover and their depths
+**
+** DESCRIPTION
+**      This routine determines the # of layers in the snowcover based its
+**	depth and mass.  Usually, there are are 2 layers: the surface (active)
+**	and the lower layer.  The depth of the surface layer is set to the
+**	maximum depth for the surface layer (variable "max_z_s_0").  The
+**	remaining depth constitutes the lower layer.  The routine checks
+**	to see if the mass of this lower layer is above the minium threshold
+**	(i.e., the mass threshold for the small run timestep).  If not,
+**	the surface layer is the whole snowcover, and there's no lower
+**	layer.
+**
+** GLOBAL VARIABLES READ
+**	m_s
+**	max_z_s_0
+**	rho[hh]
+**	tstep_info
+**	z_s
+**
+** GLOBAL VARIABLES MODIFIED
+**	layer_count
+**	z_s
+**	z_s_0
+**	z_s_l
+*/
+
+void ClassSnobalBase::_calc_layers(void)
+{
+  if (m_s[hh] <= tstep_info[hh][SMALL_TSTEP].threshold) {
+
+// Less than minimum layer mass, so treat as no snowcover.
+
+          layer_count[hh] = 0;
+          z_s[hh] = z_s_0[hh] = z_s_l[hh] = 0.0;
+  }
+  else if (z_s[hh] < max_z_s_0[hh]) {
+
+// Not enough depth for surface layer and the lower layer, so just 1 layer: surface layer.
+
+          layer_count[hh] = 1;
+          z_s_0[hh] = z_s[hh];
+          z_s_l[hh] = 0.0;
+  }
+  else {
+
+// Enough depth for both layers.
+
+          layer_count[hh] = 2;
+          z_s_0[hh] = max_z_s_0[hh];
+          z_s_l[hh] = z_s[hh] - z_s_0[hh];
+
+// However, make sure there's enough MASS for the lower layer.  If not, then there's only 1 layer.
+
+          if (z_s_l[hh] * rho[hh] < tstep_info[hh][SMALL_TSTEP].threshold) {
+                  layer_count[hh] = 1;
+                  z_s_0[hh] = z_s[hh];
+                  z_s_l[hh] = 0.0;
+          }
+	}
+}
+
+/*
+** NAME
+**      void _time_compact(void) -- compact snowcover by gravity over time
+**
+** DESCRIPTION
+**	This routine "ages" the snowcover by accounting for the compaction
+**	or densification by gravity as time passes.  The snowcover's
+**	density is increased using the following "half-saturation" function:
+**
+**		rho(time) = A / (1 + B/time)
+**
+**	A = "saturation-level" or asymtope which is the maximum density
+**	    due to compaction by gravity (approximately 350 kg/m^2)
+**	B = the point for half of the saturation level is reached (10 days)
+**
+**			^
+**			|
+**		 A: 350 + = = = = = = = = = = = = = = = = = =
+**		  	|			*   *
+**			|		   *
+**	rho		|	       *
+**	(kg/m^2)	|	    *
+**			|	  *
+**	       A/2: 175 + . . . *
+**      		|     * .
+**      		|   *   .
+**      		|  * 	.
+**      		| * 	.
+**      		|*	.
+**      	      0 +-------+----------------------------->
+**      		0	B: 10 days		time
+**
+**
+** GLOBAL VARIABLES READ
+**	time_step
+**
+** GLOBAL VARIABLES MODIFIED
+**	rho
+**	(and those variables modified by "_new_density")
+**
+*/
+
+//  Time when half "saturation", i.e., maximum density is reached * (seconds).
+// *  (864000 = 10 days * 24 hours/day * 60 mins/hr * 60 secs/min)
+
+void ClassSnobalBase::_time_compact(void)
+{
+  const float A = 350; // Maximum density due to compaction by gravity (kg/m^2).
+  const float B = 86400;
+
+  float	time;	/* point on time axis corresponding to current density */
+// If the snow is already at or above the maximum density due compaction by gravity, then just leave.
+
+  if (!snowcover[hh] || rho[hh] > A || m_s[hh] <= 0.0)
+		return;
+
+// Given the current density, determine where on the time axis we are (i.e., solve the function above for "time").
+
+if(rho[hh] > 349)
+   rho[hh] = 349;
+
+	time = B / (A / rho[hh] - 1);
+
+// Move along the time axis by the time step, and calculate the density at this new time.
+
+	rho[hh] = A / (1 + B/(time + time_step[hh]));
+
+// Adjust the snowcover for this new density.
+
+	_new_density();
+}

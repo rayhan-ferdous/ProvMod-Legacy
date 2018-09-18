@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Module Exception Class (08/08/02)</title>
+</head>
+
+<body>
+
+<h3>Module Exception Class</h3>
+
+<p>&nbsp;&nbsp;&nbsp; This class is used to throw errors from CRHM modules.&nbsp; These
+exceptions can be thrown in module routines <em>decl</em>, <em>init</em> and <em>run</em>
+but not by <em>finish</em>.</p>
+
+<p>enum TExcept {NONE, ERR, DECLERR, WARNING, USER, TERMINATE};</p>
+
+<p>class CHMException {</p>
+
+<p>public:</p>
+
+<blockquote>
+  <p>string Message; // error message</p>
+  <p>TExcept Kind; // type of error</p>
+  <p>CHMException() : Message(&quot;&quot;), Kind(NONE) {}; // default constructor</p>
+  <p>CHMException(string Message, TExcept Kind) : Message(Message), Kind(Kind) {};</p>
+</blockquote>
+
+<p>};</p>
+
+<h3>Mathematical Errors</h3>
+
+<p>&nbsp;&nbsp; The mathematical errors:
+&quot;DOMAIN&quot;,&quot;SING&quot;,&quot;OVERFLOW&quot;,&quot;UNDERFLOW&quot;,&quot;TLOSS&quot;
+are handled by the C++ Exception class using </p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>throw Exception(String(&quot;error
+description&quot;))</code> or&nbsp; <code>throw Exception(&quot;error description&quot;)</code></p>
+
+<h3>Logging error messages.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; The following two routines use Window messaging to transmit text to
+the CRHM log window.&nbsp; The routine logging the error message has to throw an exception
+to change program flow.</p>
+
+<p>void __fastcall LogError(CHMException Except){</p>
+
+<blockquote>
+  <p>SendMessage(Global::crhmLog, WM_CRHM_LOG_EXCEPTION, (unsigned int) &amp;Except, 0);</p>
+</blockquote>
+
+<p>}</p>
+
+<p>void __fastcall LogError(String S, TExcept Kind){</p>
+
+<blockquote>
+  <p>SendMessage(Global::crhmLog, WM_CRHM_LOG_EXCEPTION1, (unsigned int) &amp;S, (unsigned
+  int) &amp;Kind);</p>
+</blockquote>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

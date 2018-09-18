@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="C:\CRHM\CRHM_DLL_NONE.exe"/>
+    <OBJFILES value="CRHM_DLL_NONE.obj Para.obj report.obj About.obj Bld.obj Common.obj 
+      CRHMmain.obj Export.obj GlobalCommon.obj Log.obj Shape.obj Numerical.obj 
+      Analy.obj Flow.obj CRHM_parse.obj EntryForm.obj MacroUnit.obj AKAform.obj"/>
+    <RESFILES value="CRHM_DLL_NONE.res"/>
+    <IDLFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) Para.dfm report.dfm About.dfm Bld.dfm CRHMmain.dfm Export.dfm 
+      Log.dfm Shape.dfm Analy.dfm Flow.dfm EntryForm.dfm AKAform.dfm"/>
+    <LIBFILES value="htmlhelp.lib CRHMGlobal.lib NewMat.lib 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\memmgr.lib&quot; &quot;C:\Program Files\Borland\CBuilder6\Lib\cp32mti.lib&quot;"/>
+    <LIBRARIES value="TeePro7C6.lib Tee7C6.lib TeeUI7C6.lib vcldbx.lib vcldb.lib dbrtl.lib 
+      bcbie.lib vclx.lib rtl.lib vcl.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib vclx.lib bcbie.lib dbrtl.lib vcldb.lib vcldbx.lib 
+      TeeUI7C6.lib Tee7C6.lib TeePro7C6.lib"/>
+    <PACKAGES value="rtl.bpi vcl.bpi vclx.bpi bcbsmp.bpi dbrtl.bpi vcldb.bpi bdertl.bpi 
+      vcldbx.bpi vcljpg.bpi qrpt.bpi vclie.bpi inetdb.bpi inet.bpi bcbie.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="CRHM_DLL;NO_MODULES"/>
+    <SYSDEFINES value="NO_STRICT;_VIS_NOLIB;_RTLDLL"/>
+    <MAINSOURCE value="CRHM_DLL_NONE.cpp"/>
+    <INCLUDEPATH value="$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj;$(Spirit);$(Boost)"/>
+    <LIBPATH value="$(TEELIBPATH);$(BCB)\Projects;$(BCB)\Lib;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj;$(BCB)\bin"/>
+    <WARNINGS value="-w-par -w-8027 -w-8026"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-I$(TEELIBPATH) -I$(TEEINCPATH) -I$(BCB)\lib -I$(BCB)\include 
+      -I$(BCB)\include\vcl -I$(BCB)\Lib\obj -src_suffix cpp"/>
+    <CFLAG1 value="-Od -Q -Vx -Ve -ff -X- -a8 -5 -b- -k- -vi -c -tW -tWM"/>
+    <PFLAGS value="-$Y- -$L- -$D- -$C- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zn"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj Memmgr.Lib sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="CRHM_DLL_NONE.res" FORMNAME="" UNITNAME="CRHM_DLL_NONE.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CRHM_DLL_NONE.cpp" FORMNAME="" UNITNAME="CRHM_DLL_NONE" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Para.cpp" FORMNAME="Parameter" UNITNAME="Para" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="report.cpp" FORMNAME="Rprt" UNITNAME="report" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="About.cpp" FORMNAME="AboutBox" UNITNAME="About" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Bld.cpp" FORMNAME="BldForm" UNITNAME="Bld" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Common.cpp" FORMNAME="" UNITNAME="Common.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CRHMmain.cpp" FORMNAME="Main" UNITNAME="CRHMmain" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Export.cpp" FORMNAME="FileOutput" UNITNAME="Export" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="GlobalCommon.cpp" FORMNAME="" UNITNAME="GlobalCommon.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Log.cpp" FORMNAME="LogForm" UNITNAME="Log" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="htmlhelp.lib" FORMNAME="" UNITNAME="htmlhelp.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CRHMGlobal.lib" FORMNAME="" UNITNAME="CRHMGlobal.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shape.cpp" FORMNAME="ShapeForm" UNITNAME="Shape" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Numerical.cpp" FORMNAME="" UNITNAME="Numerical.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Analy.cpp" FORMNAME="Analysis" UNITNAME="Analy" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="NewMat.lib" FORMNAME="" UNITNAME="NewMat.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Flow.cpp" FORMNAME="FlowForm" UNITNAME="Flow" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CRHM_parse.cpp" FORMNAME="" UNITNAME="CRHM_parse" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="EntryForm.cpp" FORMNAME="FormEntry" UNITNAME="EntryForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MacroUnit.cpp" FORMNAME="" UNITNAME="MacroUnit" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\memmgr.lib" FORMNAME="" UNITNAME="memmgr.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\cp32mti.lib" FORMNAME="" UNITNAME="cp32mti.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="AKAform.cpp" FORMNAME="FormAKA" UNITNAME="AKAform" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=1
+MinorVer=1
+Release=1
+Build=310
+Debug=1
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=Rowan Systems
+FileDescription=
+FileVersion=1.1.1.310
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=CHM
+ProductName=Cold Regions Hydrological Model Platform
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=6
+Item0=$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj;$(Spirit);$(Boost)
+Item1=$(TEEINCPATH);$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj;$(Spirit);$(Spirit2);$(bcbBoost)
+Item2=$(TEEINCPATH);$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj
+Item3=..\..\..\..\Borland\CBuilder6\Projects;D:\Program Files\Steema Software\TeeChart Pro v6 Full Source Code\Sources\BuilderC6\Lib;D:\Program Files\Steema Software\TeeChart Pro v6 Full Source Code\Sources\BuilderC6\Include;$(BCB)\lib;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj
+Item4=D:\Program Files\Steema Software\TeeChart Pro v6 Full Source Code\Sources\BuilderC6\Lib;D:\Program Files\Steema Software\TeeChart Pro v6 Full Source Code\Sources\BuilderC6\Include;$(BCB)\lib;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj
+Item5=$(TEEINCPATH);$(BCB)\lib;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj
+
+[HistoryLists\hlLibraryPath]
+Count=5
+Item0=$(TEELIBPATH);$(BCB)\Projects;$(BCB)\Lib;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj;$(BCB)\bin
+Item1=$(TEELIBPATH);$(BCB)\Projects;$(BCB)\Lib;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj
+Item2=..\..\..\..\Borland\CBuilder6\Projects;..\..\..\TeeChart Pro v6 Full Source Code\Sources\BuilderC6\Lib;$(BCB)\Lib;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj
+Item3=..\..\..\TeeChart Pro v6 Full Source Code\Sources\BuilderC6\Lib;$(BCB)\Lib;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj
+Item4=..\..\..\TeeChart Pro v6 Full Source Code\Sources\BuilderC6\Lib;$(TEELIBPATH);$(BCB)\Lib;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Lib\obj
+
+[HistoryLists\hlDebugSourcePath]
+Count=3
+Item0=$(BCB)\source\vcl
+Item1=
+Item2=
+
+[HistoryLists\hlConditionals]
+Count=7
+Item0=CRHM_DLL;NO_MODULES
+Item1=CRHM_DLL;NO_MODULES;_DEBUG
+Item2=CRHM_DLL;
+Item3=CRHM_DLL;_DEBUG
+Item4=CRHM_DLL
+Item5=CRHM_DLL; NO_MODULES
+Item6=_DEBUG
+
+[HistoryLists\hlFinalOutputDir]
+Count=1
+Item0=C:\CRHM\
+
+[HistoryLists\hIBPIOutputDir]
+Count=2
+Item0=C:\CRHM
+Item1=C:\CRHM\
+
+[Debugging]
+DebugSourceDirs=
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+  </IDEOPTIONS>
+</PROJECT>

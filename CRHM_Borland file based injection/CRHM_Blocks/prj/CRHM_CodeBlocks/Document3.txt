@@ -1,0 +1,50 @@
+      else if(S == "Display_Observation:") {
+
+        while(!DataFile.eof()) {
+          DataFile >> module;
+          if(module[1] == '#') break;
+          DataFile  >> name;
+          if(DataFile.eof()) return; // final exit
+
+          string Kind;
+          long Index;
+
+          S = string(module) + ' ' +  string(name);
+
+          thisVar = ClassVarFind(S);
+
+          if(thisVar && thisVar->FileData != NULL) {
+
+            for(int ii = 0; ii < 100; ii++) {
+              DataFile >> Index >> Kind;
+              if(DataFile.fail()) break;
+
+              if(Kind == "_obs") Kind = "";
+              SS = thisVar->name + "(" + longtoStr(labs(Index)) + ")" + Kind;
+              if(IndexOf(ListBox4, SS) == -1) {
+
+                TSeries *cdSeries;
+                if(thisVar->FileData->Times == NULL){
+                  double Dif = Picker2 - Picker1;
+                  cdSeries = new TSeries(((int)(Dif * thisVar->FileData->Freq))*thisVar->FileData->ModN);
+                }
+                cdSeries->Tag = (int) thisVar;
+
+                cdSeries->Title = SS;
+
+                ListBox4->AddObject(SS, (TObject *) cdSeries);
+              }
+            }
+          }
+          else {
+              CRHMException Except("Unknown Variable " + S +
+                     " in " + string(OpenNamePrj.c_str()), ERR);
+              Message(Except.Message.c_str(),
+                                 "Unknown Variable in project file");
+              LogError(Except);
+
+              DataFile.ignore(256, '\n');
+          }
+          DataFile.clear();
+        }
+      }

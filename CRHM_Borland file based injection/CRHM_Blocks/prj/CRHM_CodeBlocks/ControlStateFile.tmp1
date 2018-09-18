@@ -1,0 +1,200 @@
+Starting main run-up loop
+######
+Time:
+1973 11 4
+######
+DTindx:
+815
+######
+CurrentModuleRun:
+14
+######
+Dimension:
+3 1
+######
+Netroute cum_to_Sd
+0 0 0 
+######
+Netroute cum_to_soil_rechr
+0 0 0 
+######
+Netroute cumbasinflow
+0 0 0 
+######
+Netroute cumbasingw
+0 0 0 
+######
+Netroute cuminflow
+0 0 0 
+######
+Netroute cumoutflow
+0 0 0 
+######
+Netroute cumoutflow_diverted
+0 0 0 
+######
+Netroute gwcuminflow
+0 0 0 
+######
+Netroute gwcumoutflow
+0 0 0 
+######
+Netroute gwcumoutflow_diverted
+0 0 0 
+######
+Netroute runcuminflow
+0 0 0 
+######
+Netroute runcumoutflow
+0 0 0 
+######
+Netroute ssrcuminflow
+0 0 0 
+######
+Netroute ssrcumoutflow
+0 0 0 
+######
+Soil Sd
+0 0 0 
+######
+Soil cum_gw_flow
+0 0 0 
+######
+Soil cum_rechr_ssr
+0 0 0 
+######
+Soil cum_runoff_to_Sd
+0 0 0 
+######
+Soil cum_soil_gw
+0 0 0 
+######
+Soil cum_soil_runoff
+0 0 0 
+######
+Soil cum_soil_ssr
+0 0 0 
+######
+Soil gw
+187 187 187 
+######
+Soil soil_moist
+227.7677 217.9192 217.6992 
+######
+Soil soil_rechr
+47.76772 37.91912 37.69916 
+######
+albedo Albedo
+0.767594 0.767594 0.767594 
+######
+albedo meltflag
+1 1 1 
+######
+albedo net_snowD
+0 0 0 
+######
+albedo newsnowcnt
+1 1 1 
+######
+albedo winter
+0 0 0 
+######
+basin run_ID
+-1 0 0 
+######
+ebsm LW_ebsm
+0 0 0 
+######
+ebsm cumsnowmelt
+0.9329002 0.9329002 0.9329002 
+######
+ebsm net_rainD
+0 0 0 
+######
+ebsm u_ebsm
+-0.07550386 -0.07550386 -0.07550386 
+######
+evap hru_cum_actet
+0.209368 10.05795 10.27791 
+######
+evap hru_cum_evap
+0.209368 11.30488 11.66129 
+######
+frozen cuminfil
+2.977084 2.977084 2.977084 
+######
+frozen cummeltrunoff
+0 0 0 
+######
+frozen cumrunoff
+0 0 0 
+######
+frozen cumsnowinfil
+0 0 0 
+######
+frozen infiltype
+0 0 0 
+######
+frozen snowmeltD_last
+0 0 0 
+######
+frozen t0_Acc
+0 0 0 
+######
+intcp cumnet_rain
+2.977084 2.977084 2.977084 
+######
+netall cum_net
+-146.2601 36.32787 36.32787 
+######
+obs cumhru_rain
+2.977084 2.977084 2.977084 
+######
+obs cumhru_snow
+4.020871 4.020871 4.020871 
+######
+obs hru_eamean
+0.1421673 0.1421673 0.1421673 
+######
+obs hru_rhmean
+68.40833 68.40833 68.40833 
+######
+obs hru_tmax
+-10.1 -10.1 -10.1 
+######
+obs hru_tmean
+-12.45833 -12.45833 -12.45833 
+######
+obs hru_tmin
+-16.8 -16.8 -16.8 
+######
+obs hru_umean
+1.795833 1.795833 1.795833 
+######
+pbsm SWE
+3.08797 3.08797 3.08797 
+######
+pbsm SnowAge
+48 48 48 
+######
+pbsm cumBasinSnowGain
+0 0 0 
+######
+pbsm cumBasinSnowLoss
+0 0 0 
+######
+pbsm cumDrift
+0 0 0 
+######
+pbsm cumDriftIn
+0 0 0 
+######
+pbsm cumSno
+4.020871 4.020871 4.020871 
+######
+pbsm cumSubl
+0 0 0 
+######
+pbsm snowdepth
+0.004342972 0.004342972 0.004342972 
+######

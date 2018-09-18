@@ -1,0 +1,88 @@
+Description - to be added
+###### Version: CRHM 05/25/16  Creation: 5/26/2016 14:23
+Dimensions:
+######
+nhru 1
+nlay 1
+nobs 1
+######
+Macros:
+######
+######
+Observations:
+######
+######
+Dates:
+######
+1979 1 1 1
+1985 10 5
+######
+Modules:
+######
+basin CRHM 02/24/12
+######
+Parameters:
+###### 'basin' parameters always first
+basin basin_area <1E-6 to 1E9>
+1 
+basin basin_name
+'Basin' 
+basin hru_area <1E-6 to 1E9>
+1 
+basin hru_ASL <0 to 360>
+0 
+basin hru_elev <0 to 1E5>
+637 
+basin hru_GSL <0 to 90>
+0 
+basin hru_lat <-90 to 90>
+51.32 
+basin hru_names
+'HRU' 
+basin INIT_STATE
+'' 
+basin Loop_to
+' ' ' ' 
+basin RapidAdvance_to
+' ' 
+basin RUN_END <0 to 1E5>
+0 
+basin RUN_ID <-1E8 to 1E8>
+1 
+basin RUN_START <0 to 1E5>
+0 
+basin StateVars_to_Update
+' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' 
+basin TraceVars
+' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' 
+######
+Initial_State
+######
+######
+Final_State
+######
+######
+Summary_period
+######
+Daily
+######
+Display_Variable:
+######
+######
+Display_Observation:
+######
+######
+Auto_Run
+######
+Auto_Exit
+######
+TChart:
+######
+The Cold Regions Hydrological Model Platform 2006
+ 
+ 
+()
+ 
+ 
+ 
+######

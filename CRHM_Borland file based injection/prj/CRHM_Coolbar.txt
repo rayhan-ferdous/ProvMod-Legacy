@@ -1,0 +1,38 @@
+//---------------------------------------------------------------------------
+
+void __fastcall TMain::FunctionListBox2Click(TObject *Sender)
+{
+  RadioGroupFunct->ItemIndex = Funct;
+  CoolBar1->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain::RadioGroupFunctClick(TObject *Sender){
+
+    Funct = (TFun) RadioGroupFunct->ItemIndex;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain::RadioGroupDisplayClick(TObject *Sender){
+
+    switch (RadioGroupDisplay->ItemIndex) {
+      case 0:
+        ObsFunct_Toggle = 0;
+        RadioGroup1->Items->Strings[14] = "Display off";
+        break;
+      case 1:
+        ObsFunct_Toggle = 1;
+        RadioGroup1->Items->Strings[14] = "Display Final Values";
+        break;
+      case 2:
+        ObsFunct_Toggle = 2;
+        RadioGroup1->Items->Strings[14] = "Display Trend Values";
+        break;
+    }
+  }
+//---------------------------------------------------------------------------
+
+void __fastcall TMain::CancelScreenClick(TObject *Sender){
+
+  CoolBar1->Hide();
+}

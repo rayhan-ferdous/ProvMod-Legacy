@@ -1,0 +1,121 @@
+Description - to be added
+###### Version: CRHM 4.7_16  Creation: 9/4/2012 14:42
+Dimensions:
+######
+nhru 1
+nlay 1
+nobs 1
+######
+Macros:
+######
+'Grow_Crop'
+'declparam, Ht, NHRU,"[0.01]", 0.0, 1.0, "vegetation height", (m)'
+'declparam, Init_Crop_Ht, NHRU,"[0.001]", 0.001, 100.0, "initial crop height", (m)'
+'declparam, Crop_Grow_Rate, NHRU,"[0.1]", 0.01, 1.0, "minimum albedo", (m)'
+'declparam, JCrop_Start, NHRU,"[121]", 1, 366, "start Julian day", ()'
+'declparam, JCrop_Mature, NHRU,"[182]", 1, 366, "maturity Julian day", ()'
+'declparam, JCrop_Harvest, NHRU,"[228]", 1, 366, "harvest Julian day", ()'
+'declvar, Crop_Ht, NHRU, "crop height", ()'
+'command'
+'  if(STEP == 1)'
+'    Ht[hh] = Init_Crop_Ht[hh]'
+'    Crop_Ht[hh] = Ht[hh]'
+'  endif'
+''
+'  if(LASTINT)'
+'    if(JULIAN >= JCrop_Start[hh] && JULIAN < JCrop_Mature[hh] && Crop_Grow_Rate[hh] > 0.0)'
+'      Ht[hh] =  Ht[hh] + Crop_Grow_Rate[hh]'
+'    else if(JULIAN == JCrop_Harvest[hh])'
+'      Ht[hh] =  Init_Crop_Ht[hh]'
+'    endif'
+' '
+'    Crop_Ht[hh] = Ht[hh]'
+'  endif'
+'end'
+######
+Observations:
+######
+C:\Junk\Badlake73_76.obs
+######
+Dates:
+######
+1973 1 1
+1976 1 1
+######
+Modules:
+######
+obs CRHM 05/23/12
+Grow_Crop Macro 04/20/06
+######
+Parameters:
+###### 'basin' parameters always first
+Grow_Crop Crop_Grow_Rate <0.01 to 1>
+0.1 
+Grow_Crop Ht <0 to 1>
+0.01 
+Grow_Crop Init_Crop_Ht <0.001 to 100>
+0.001 
+Grow_Crop JCrop_Harvest <1 to 366>
+228 
+Grow_Crop JCrop_Mature <1 to 366>
+182 
+Grow_Crop JCrop_Start <1 to 366>
+121 
+obs basin_area <1E-6 to 1E9>
+3 
+obs catchadjust <0 to 2>
+0 
+obs ClimChng_precip <0 to 50>
+1 
+obs ClimChng_t <-50 to 50>
+0 
+obs ElevChng_flag <0 to 1>
+0 
+obs hru_area <1E-6 to 1E9>
+1 
+obs hru_elev <0 to 1E5>
+637 
+obs HRU_OBS <1 to 100>
+1 
+1 
+1 
+1 
+1 
+obs lapse_rate <0 to 2>
+0.75 
+obs obs_elev <0 to 1E5>
+637 
+obs ppt_daily_distrib <0 to 1>
+1 
+obs precip_elev_adj <-0.1 to 0.1>
+0 
+obs snow_rain_determination <0 to 1>
+0 
+obs tmax_allrain <-10 to 10>
+4 
+obs tmax_allsnow <-10 to 10>
+0 
+######
+Initial_State
+######
+######
+Final_State
+######
+######
+Display_Variable:
+######
+Grow_Crop Crop_Ht 1
+######
+Display_Observation:
+######
+######
+TChart:
+######
+The Cold Regions Hydrological Model Platform 2011
+ 
+ 
+()
+ 
+ 
+ 
+######

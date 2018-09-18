@@ -1,0 +1,39 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>parser (09/03/02)</title>
+</head>
+
+<body>
+
+<h3>parser - class to decode and assign defaults to ClassPar instances.</h3>
+
+<p>class parser {</p>
+
+<blockquote>
+  <p>const char *exp_ptr; // points to the expression</p>
+  <p>char token[80]; // holds current token</p>
+  <p>char tok_type; // holds token's type</p>
+  <p>int row, col;</p>
+  <p>int repeat;</p>
+  <p>int rowrepeat;</p>
+  <p>bool repeatset;</p>
+  <p>ClassPar *LocalPar; </p>
+  <p>void eval_exp2(float &amp;result);</p>
+  <p>void eval_exp3(float &amp;result);</p>
+  <p>void eval_exp4(float &amp;result);</p>
+  <p>void eval_exp5(float &amp;result);</p>
+  <p>void eval_exp6(float &amp;result);</p>
+  <p>void atom(float &amp;result);</p>
+  <p>void get_token();</p>
+  <p>void serror(int error);</p>
+  <p>int isdelim(char c);</p>
+  <p>public:</p>
+  <p>parser();</p>
+  <p>void eval_exp(ClassPar *Par);</p>
+</blockquote>
+
+<p>};</p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>GlobalCommon (09/05/02)</title>
+</head>
+
+<body>
+
+<h3>GlobalCommon</h3>
+
+<p>&nbsp;&nbsp;&nbsp; A binary fuction object is defined to raise parameter names to upper
+case before comparing for use by the STL container class map.</p>
+
+<p>template &lt;class T&gt;</p>
+
+<p>class Classless : binary_function&lt;T, T, bool&gt; { // function object</p>
+
+<p>public:</p>
+
+<blockquote>
+  <p>bool operator() (T i, T i2) const</p>
+  <p>{</p>
+  <blockquote>
+    <p>string s1(i);</p>
+    <p>string s2(i2);</p>
+    <p>transform(s1.begin(), s1.end(), s1.begin(), ::toupper);</p>
+    <p>transform(s2.begin(), s2.end(), s2.begin(), ::toupper);</p>
+    <p>return (bool) (s1 &lt; s2);</p>
+  </blockquote>
+  <p>}</p>
+</blockquote>
+
+<p>}; </p>
+
+<p>typedef string KeyType;</p>
+
+<p>typedef ClassVar *Var;</p>
+
+<p>typedef ClassPar *Par;</p>
+
+<p>typedef long Dim;</p>
+
+<p>&nbsp;</p>
+
+<p>typedef pair&lt;KeyType, Var&gt; PairVar;</p>
+
+<p>typedef pair&lt;KeyType, Par&gt; PairPar;</p>
+
+<p>typedef pair&lt;KeyType, Dim&gt; PairDim;</p>
+
+<p>&nbsp;</p>
+
+<p>typedef map&lt;KeyType, Var&gt; MapVar;</p>
+
+<p>typedef map&lt;KeyType, Par, Classless&lt;KeyType&gt; &gt; MapPar;</p>
+
+<p>typedef map&lt;KeyType, Dim&gt; MapDim; </p>
+
+<p>&nbsp;</p>
+
+<p>typedef String KeyType2;</p>
+
+<p>typedef pair&lt;KeyType2, KeyType2&gt; Pairstr;</p>
+
+<p>&nbsp;</p>
+
+<p>typedef multimap&lt;KeyType2, KeyType2&gt; Mapstr;</p>
+</body>
+</html>

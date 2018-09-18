@@ -1,0 +1,200 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>ClassModule (09/03/02)</title>
+</head>
+
+<body>
+
+<h3>ClassModule</h3>
+
+<p>&nbsp;</p>
+
+<p>class __declspec(dllexport) ClassModule{</p>
+
+<p>public: </p>
+
+<blockquote>
+  <p>string Name;</p>
+  <p>String DLLName;</p>
+  <p>String Version; </p>
+  <p>ClassModule(string Name, String Version = &quot;undefined&quot;) : Name(Name),
+  Version(Version), DLLName(&quot;&quot;) {}; </p>
+  <p>virtual ~ClassModule(){}; </p>
+  <p>void initbase(void);</p>
+  <p>void InitReadObs(void); // used by RunClick to clear storage.</p>
+  <p>void DelReadObs(void); // used by RunClick to delete storage.</p>
+  <p>void ReadObs(void); // reads current interval observations and executes functions in
+  ReadListN and FunctListN.</p>
+  <p>void addtoreadlist(ClassVar *newVar); // adds observation to read list ReadListN.</p>
+  <p>void addtofunctlist(ClassVar *newVar); // adds function to function list FunctListN.</p>
+  <p>virtual void decl(void){};</p>
+  <p>virtual void init(void){};</p>
+  <p>virtual void run(void) {};</p>
+  <p>virtual void finish(bool good) {}; </p>
+  <p>void declvar(string variable, TDim dimen, string help, string units, float **value,
+  float ***layvalue = NULL, bool PointPlot = false); </p>
+  <p>void declvar(string variable, TDim dimen, string help, string units, long **value, long
+  ***ilayvalue = NULL, bool PointPlot = false); </p>
+  <p>void decllocal(string variable, TDim dimen, string help, string units, float **value,
+  float ***layvalue = NULL, bool share = false); </p>
+  <p>void decllocal(string variable, TDim dimen, string help, string units, long **value,
+  long ***ilayvalue = NULL, bool share = false); </p>
+  <p>void declparam(string param, TDim dimen, string valstr, string minstr, string maxstr,
+  string help, string units, const float **value, const float ***layvalue = NULL, const int
+  dim = 1); </p>
+  <p>void declparam(string param, TDim dimen, string valstr, string minstr, string maxstr,
+  string help, string units, const long **value, const long ***ilayvalue = NULL, const int
+  dim = 1); </p>
+  <p>void declgetvar(string source, string name, const float **value, const float
+  ***layvalue = NULL); </p>
+  <p>void declgetvar(string source, string name, const long **value, const long ***layvalue
+  = NULL); </p>
+  <p>void declreadobs(string variable, TDim dimen, string help, string units, const float
+  **value, bool optional = false); </p>
+  <p>void declreadobs(string variable, TDim dimen, string help, string units, const long
+  **value, bool optional = false); </p>
+  <p>void declobsfunc(string obs, string variable, const float **value, TFun typeFun, bool
+  optional = false); </p>
+  <p>void declobsfunc(string obs, string variable, const long **value, TFun typeFun, bool
+  optional = false); </p>
+  <p>void declputvar(string source, string name, float **value, float ***layvalue = NULL); </p>
+  <p>void declputvar(string source, string name, long **value, long ***layvalue = NULL); </p>
+</blockquote>
+
+<p>};</p>
+
+<h3>Member Functions.</h3>
+
+<h3>Constructors.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Defines module name and sets <em>Version</em> to &quot;undefined if
+not given&quot;.</p>
+
+<h3>Destructors.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Does nothing.</p>
+
+<h3>void initbase(void);</h3>
+
+<p>&nbsp;&nbsp;&nbsp; A function required to set up modules before the model execution by
+calling module <em>init()</em> and <em>decl()</em> functions of every module with
+Global::BuildFlag = INIT.</p>
+
+<h3>void InitReadObs(void); // used by RunClick to clear storage</h3>
+
+<p>&nbsp;&nbsp;&nbsp; Clears ReadListN and FunctListN.</p>
+
+<h3>void DelReadObs(void); // used by RunClick to delete storage </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Same as <em>InitReadObs()</em>.</p>
+
+<h3>void ReadObs(void); // reads current interval observations </h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Reads current interval observations and executes functions in
+ReadListN and FunctListN.</p>
+
+<h3>void addtoreadlist(ClassVar *newVar); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Called by <em>ClassModule::declreadobs()</em> to add observations to
+be read every time interval to ReadListN.</p>
+
+<h3>void addtofunctlist(ClassVar *newVar); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Called by&nbsp; ClassModule::declobsfunc() to add observations
+functions to beexecuted every time interval to FunctListN.</p>
+
+<h3>virtual void decl(void){};</h3>
+
+<p>&nbsp;&nbsp; Redefined by the user to define parameters and variables in their module.</p>
+
+<h3>virtual void init(void){};</h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Redefined by the user to define the initializing code for
+their module.</p>
+
+<h3>virtual void run(void) {};</h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Redefined by the user to define the run code for their module.</p>
+
+<h3>virtual void finish(bool good) {}; </h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Redefined by the user to define any final reporting required
+for their module.</p>
+
+<h3>void declvar(string variable, TDim dimen, string help, string units, float **value,
+float ***layvalue = NULL, bool PointPlot = false); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Declares a floating point user variable.</p>
+
+<h3>void declvar(string variable, TDim dimen, string help, string units, long **value,
+long ***ilayvalue = NULL, bool PointPlot = false); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Declares a long user variable.</p>
+
+<h3>void decllocal(string variable, TDim dimen, string help, string units, float **value,
+float ***layvalue = NULL, bool share = false); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Declares a floating point user variable not displayed in CRHM
+display select window.&nbsp; It may be shared between user modules.</p>
+
+<h3>void decllocal(string variable, TDim dimen, string help, string units, long **value,
+long ***ilayvalue = NULL, bool share = false); </h3>
+
+<p>Declares a long user variable not displayed in CRHM display select window.&nbsp; It may
+be shared between user modules.</p>
+
+<h3>void declparam(string param, TDim dimen, string valstr, string minstr, string maxstr,
+string help, string units, const float **value, const float ***layvalue = NULL, const int
+dim = 1); </h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Declares a floating point user parameter.</p>
+
+<h3>void declparam(string param, TDim dimen, string valstr, string minstr, string maxstr,
+string help, string units, const long **value, const long ***ilayvalue = NULL, const int
+dim = 1); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Declares a long userparameter.</p>
+
+<h3>void declgetvar(string source, string name, const float **value, const float
+***layvalue = NULL); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Connects to floating point variable declared in anothe user module.</p>
+
+<h3>void declgetvar(string source, string name, const long **value, const long ***layvalue
+= NULL); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Connects to long variable declared in anothe user module.</p>
+
+<h3>void declreadobs(string variable, TDim dimen, string help, string units, const float
+**value, bool optional = false); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Connects to floating point observation variable.</p>
+
+<h3>void declreadobs(string variable, TDim dimen, string help, string units, const long
+**value, bool optional = false); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Connects to long observation variable.</p>
+
+<h3>void declobsfunc(string obs, string variable, const float **value, TFun typeFun, bool
+optional = false); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Connects to a floating point observation function of a variable.</p>
+
+<h3>void declobsfunc(string obs, string variable, const long **value, TFun typeFun, bool
+optional = false); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Connects to a long observation function of a variable.</p>
+
+<h3>void declputvar(string source, string name, float **value, float ***layvalue = NULL); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Connects to a floating point user variable.&nbsp; Code declarations
+allow the variable value to be changed.</p>
+
+<h3>void declputvar(string source, string name, long **value, long ***layvalue = NULL); </h3>
+
+<p>&nbsp;&nbsp;&nbsp; Connects to a long user variable.&nbsp; Code declarations allow the
+variable value to be changed.</p>
+</body>
+</html>

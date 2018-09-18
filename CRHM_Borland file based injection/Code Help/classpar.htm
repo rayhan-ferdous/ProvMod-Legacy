@@ -1,0 +1,190 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>ClassPar (08/27/02)</title>
+</head>
+
+<body>
+
+<h3>ClassPar - CRHM parameter object.</h3>
+
+<p>class __declspec(dllexport) ClassPar { </p>
+
+<blockquote>
+  <p>public: </p>
+  <p>string module; // module creating/using the parameter.</p>
+  <p>string param; // parameter name.</p>
+  <p>string help; // description given in module call.</p>
+  <p>string units; // units given in module call.</p>
+  <p>TVar varType; // enum TVar {none, Int, Float, notused, Read, ReadI, ReadF};</p>
+  <p>TDim dimen; // enum TDim {ONE=1, TWO, THREE, FOUR, FIVE, SIX, NHRU, NOBS, NLAY, NDEF};</p>
+  <p>long dim; // primary array dimension.</p>
+  <p>long lay; // secondary array dimension.</p>
+  <p>// value of varType determines parameter type and determines if.</p>
+  <p>float * values; </p>
+  <p>long *ivalues; </p>
+  <p>float ** layvalues; </p>
+  <p>long **ilayvalues; </p>
+  <p>string valstr; // fill string passed to <em>parser</em> to set default parameter
+  values.</p>
+  <p>float minVal; // minimum parameter value defined by module author.</p>
+  <p>float maxVal; // maximum parameter value defined by module author.</p>
+  <p>ClassPar(string module = &quot;none&quot;, string param = &quot;none&quot;) </p>
+  <p>&nbsp;&nbsp;&nbsp; : module(module), param(param), dim(0), values(NULL), ivalues(NULL),
+  layvalues(NULL), ilayvalues(NULL) </p>
+  <p>&nbsp;&nbsp;&nbsp; {}; </p>
+  <p>ClassPar(string module, string param, TDim dimen, string valstr, float minVal, float
+  maxVal, string help, string units, TVar varType, int defdim); </p>
+  <p>ClassPar(ClassPar &amp;p); // copy constructor </p>
+  <p>virtual __fastcall ~ClassPar(); </p>
+  <p>float &amp;operator[](int ii) {return values[ii];} </p>
+  <p>bool Same(ClassPar &amp;p); // compares parameter data </p>
+  <p>void Change(ClassPar &amp;p); // changes this values to p </p>
+  <p>virtual string UserName(void){return module + ' ' + param;}; </p>
+  <p>friend class parser; </p>
+</blockquote>
+
+<p>};</p>
+
+<h3>General.</h3>
+
+<blockquote>
+  <p>Modules create all parameters by calling <em>declparam(...)</em> in their <em>*.dec</em>
+  routine.&nbsp; Note that this is the only way parameters can be instantiated.</p>
+</blockquote>
+
+<h3>Data Members.</h3>
+
+<h3>TVar varType.</h3>
+
+<blockquote>
+  <p>// enum TVar {none, Int, Float, notused, Read, ReadI, ReadF};</p>
+  <p>A parameter is created as long or floating point as determined by <strong>varType </strong>being
+  Int or Float.</p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<h3>TDim dimen.</h3>
+
+<blockquote>
+  <p>// enum TDim {ONE=1, TWO, THREE, FOUR, FIVE, SIX, NHRU, NOBS, NLAY, NDEF};</p>
+  <p>A parameter is created to serve one of the following purposes:<ol>
+    <li>One dimensional (NHRU) - simple module parameter.</li>
+    <li>One dimensional (NOBS) - used only for observation manipulation.</li>
+    <li>One dimensional ( ONE) ... (SIX).</li>
+    <li>TWO dimensional (NLAY, NHRU) - used in multi - layer models.</li>
+    <li>TWO dimensional (1, NDEF) - used to indirectly assign model parameters.</li>
+  </ol>
+  <p>The following variables are set as follows depending upon the value of TDim, dim and
+  lay in the call to <em>declparam(...)</em>.</p>
+  <p>long dim; // primary array dimension.</p>
+  <p>long lay; // secondary array dimension.</p>
+  <p>// if(dim == NLAY) { lay = getdim(dimen); dim = getdim(NHRU);}</p>
+  <p>// else if(dimen == NDEF) { lay = defdim; dim = 1;}</p>
+  <p>// else if(dimen &lt; NHRU) dim = getdim(dimen);</p>
+  <p>// else dim = getdim(NHRU);</p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<h3>N.B.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; The following 4 pointers (values/layvalues and ivalues/ilayvalues)
+are always handled as pairs.&nbsp; Storage is allocated to layvalues or ilayvalues and
+values or ivalues is set equal to the first layer. The other pair are left as NULL.
+&nbsp; This is different from how they are handled for ClassVar.</p>
+
+<h3>float * values.</h3>
+
+<blockquote>
+  <p>Pointer to allocated floating point array defined in layvalues[0].&nbsp; NULL if long
+  parameter.</p>
+</blockquote>
+
+<h3>long *ivalues; </h3>
+
+<blockquote>
+  <p>Pointer to allocated long array defined in ilayvalues[0].&nbsp; NULL if floating point
+  parameter.</p>
+</blockquote>
+
+<h3>float ** layvalues; </h3>
+
+<blockquote>
+  <p>Two dimensional pointer array to which storage is assigned when the parameter is
+  floating point, otherwise is NULL.&nbsp; The first dimension is <em>lay</em> and the
+  second is <em>dim</em>.</p>
+</blockquote>
+
+<h3>long **ilayvalues; </h3>
+
+<blockquote>
+  <p>Two dimensional pointer array to which storage is assigned when the parameter is long,
+  otherwise is NULL.&nbsp; The first dimension is <em>lay</em> and the second is <em>dim</em>.</p>
+</blockquote>
+
+<h3>Member Functions.</h3>
+
+<h3>Constructors.</h3>
+
+<ol>
+  <li>default<p>ClassPar(string module = &quot;none&quot;, string param = &quot;none&quot;) :
+    module(module), param(param), dim(0), values(NULL), ivalues(NULL), layvalues(NULL),
+    ilayvalues(NULL)&nbsp; {}; </p>
+  </li>
+  <li>used</li>
+</ol>
+
+<blockquote>
+  <p>ClassPar(string module, string param, TDim dimen, string valstr, float minVal, float
+  maxVal, string help, string units, TVar varType, int defdim); </p>
+</blockquote>
+
+<h3>Destructor</h3>
+
+<blockquote>
+  <p>virtual __fastcall ~ClassPar(); </p>
+</blockquote>
+
+<h3>Copy constructor</h3>
+
+<blockquote>
+  <p>ClassPar(ClassPar &amp;p);</p>
+  <p>Create copy allocating new storage for data members.</p>
+</blockquote>
+
+<h3>Operator [ ]</h3>
+
+<blockquote>
+  <p>float &amp;operator[](int ii) {return values[ii];} </p>
+</blockquote>
+
+<h3>Compare Parameters</h3>
+
+<blockquote>
+  <p>bool Same(ClassPar &amp;p); </p>
+  <p>Returns false if any parameter value is different.</p>
+</blockquote>
+
+<h3>Change Parameter</h3>
+
+<blockquote>
+  <p>void Change(ClassPar &amp;p); </p>
+  <p>Assign parameter values to those given by &amp;p</p>
+</blockquote>
+
+<h3>Return names string</h3>
+
+<blockquote>
+  <p>virtual string UserName(void){return module + ' ' + param;}; </p>
+</blockquote>
+
+<h3>Parse default string and assign values</h3>
+
+<blockquote>
+  <p>friend class parser; </p>
+</blockquote>
+</body>
+</html>

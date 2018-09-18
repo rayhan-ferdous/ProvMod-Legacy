@@ -1,0 +1,46 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>MoveModulesToGlobal (09/03/02)</title>
+</head>
+
+<body>
+
+<h3>MoveModulesToGlobal - Loads CRHM user modules.</h3>
+
+<p>&nbsp;&nbsp;&nbsp; This function is called by CRHMmain either loaded statically from
+the CRHM modules defined as the default module library or as an imported function from a
+dynamically linked DLL.</p>
+
+<h3>Static version MoveModulesToGlobal().</h3>
+
+<p>&nbsp;&nbsp;&nbsp; MoveModulesToGlobal() is defined in &quot;OurModules.h&quot; and
+other module libraries and is specified using a simple or conditional #include.</p>
+
+<p>#ifdef QUINTON</p>
+
+<blockquote>
+  <p>#include &quot;quinton.h&quot;</p>
+  <p>#include &quot;quinton.cpp&quot;</p>
+</blockquote>
+
+<p>#else</p>
+
+<blockquote>
+  <p>#include &quot;OurModules.h&quot;</p>
+  <p>#include &quot;OurModules.cpp&quot;</p>
+</blockquote>
+
+<p>#endif </p>
+
+<p>&nbsp;&nbsp;&nbsp; In __fastcall TMain::FormCreate(TObject *Sender) there is a call to
+MoveModulesToGlobal().&nbsp; The default is the user default name.</p>
+
+<h3>Imported version of MoveModulesToGlobal</h3>
+
+<p>&nbsp;&nbsp;&nbsp; In __fastcall TMain::OpenDLLFile(String FileName) the call
+LoadUserModules = (LoadModuleType *) GetProcAddress(DLL, &quot;_MoveModulesToGlobal&quot;)
+imports the function to loaded from the dynamically linked DLL.</p>
+</body>
+</html>
