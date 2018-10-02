@@ -119,10 +119,14 @@ def rename_nodes():
         name = k['n']['name']
 
         if name != 'crhm':
-            name2 = name[name.find('::') + 2: name.find(' @@@')]
-            print name
+            if '::' in name:
+                name2 = name[name.find('::') + 2: name.find(' @@@')]
+                print name
+            else:
+                name2 = name[0 : name.find(' @@@')]
+                print name
 
-            sq = 'match(n) where n.name = "' + name + '" set n.name = "' + name2 + '"'
+            sq = 'match(n) where n.name = "' + name + '" set n.name2 = "' + name2 + '"'
             print sq
             graph.run(sq)
 

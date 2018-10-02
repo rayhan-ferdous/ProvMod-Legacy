@@ -1,2 +1,3 @@
-import py2neo as pn
+a = 'abcdef@@@xyz'
 
+print a[a.find(':') : len(a)]
