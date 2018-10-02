@@ -1,11 +1,11 @@
 import py2neo as pn
 
 def delete_graph():
-    graph = pn.Graph(' http://54.167.174.205:35030/db/data/',
-                     http_port=35030,
-                     bolt_port=35029,
+    graph = pn.Graph('http://34.239.207.52:34199/db/data/',
+                     http_port=34199,
+                     bolt_port=34198,
                      user='neo4j',
-                     password='circulation-catchers-drawer')
+                     password='springs-rules-reserve')
 
     graph.delete_all()
 
@@ -32,11 +32,11 @@ def create_graph():
     scenario = raw_input('scenario name?')
 
 
-    graph = pn.Graph(' http://54.167.174.205:35030/db/data/',
-                     http_port=35030,
-                     bolt_port=35029,
+    graph = pn.Graph('http://34.239.207.52:34199/db/data/',
+                     http_port=34199,
+                     bolt_port=34198,
                      user='neo4j',
-                     password='circulation-catchers-drawer')
+                     password='springs-rules-reserve')
 
     xml = open('injectionv2.log')
     stack = []
@@ -62,30 +62,20 @@ def create_graph():
             child = stack[len(stack) - 1]
 
             # print stack
-            print parent
-
+            # print parent
             print child
-
-
-
 
             childfnameindex = child.find('@@@')
             childfname = child[childfnameindex + 4:len(child) - 9]
 
-
-
             if child not in nodes:
                 nodes.add(child)
                 q1 = 'create(n:'+ childfname +'{name:"' + child + '", scenario:"' + scenario + '"})'
-                print q1
-
                 graph.run(q1)
 
             if ((parent, child)) not in edges:
                 edges.add((parent, child))
                 q2 = 'match (p), (c) where p.name ="' + parent + '" and c.name ="' + child + '" create (p)-[r:calls]->(c)'
-                print q2
-
                 graph.run(q2)
 
 
@@ -102,32 +92,3 @@ def flush_log_source():
     f.close()
 
     print 'log source flushed!'
-
-def rename_nodes():
-    graph = pn.Graph(' http://54.167.174.205:35030/db/data/',
-                     http_port=35030,
-                     bolt_port=35029,
-                     user='neo4j',
-                     password='circulation-catchers-drawer')
-
-    q = 'match(n) return n'
-
-    n = graph.run(q)
-
-    for k in n:
-
-        name = k['n']['name']
-
-        if name != 'crhm':
-            name2 = name[name.find('::') + 2: name.find(' @@@')]
-            print name
-
-            sq = 'match(n) where n.name = "' + name + '" set n.name = "' + name2 + '"'
-            print sq
-            graph.run(sq)
-
-delete_graph()
-format_log()
-create_graph()
-rename_nodes()
-flush_log_source()
