@@ -1,8 +1,29 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
+from Tkinter import *
+
+button = ''
+label = ''
+
+userlog = open('ucloseall.log')
+#userlog = open('uinit.log')      #view 2
+#userlog = open('uopen.log')      #view 2
+#userlog = open('ureport.log')    #view 2
+#userlog = open('scenarios/8.log') #parameters
+
 view = 1
 
+
+
+f0 = open('init.log') #17
+f1 = open('open.log') #7
+f2 = open('close.log') #15
+f3 = open('exceprun.log') #9
+
+
+
+'''
 #f = open('test.txt')
 f0 = open('scenarios/0.log') #analysis
 f1 = open('scenarios/1.log') #prj>report
@@ -13,8 +34,9 @@ f5 = open('scenarios/5.log') #prj>refresh rate>select
 f6 = open('scenarios/6.log') #observation>open
 f7 = open('scenarios/7.log') #prj>frequency default>cancel
 f8 = open('scenarios/8.log') #parameters
-f9 = open('scenarios/9.log') #parameters
+f9 = open('scenarios/9.log') #export
 f10 = open('scenarios/10.log') #help
+'''
 
 def buildgraph(f, view):
     g = nx.DiGraph()
@@ -58,7 +80,10 @@ def buildgraph(f, view):
             g.add_edges_from([(parent, child)])
 
         else:
-            stack.pop()
+            try:
+                stack.pop()
+            except Exception as e:
+                pass
 
     #end of loop
 
@@ -104,9 +129,16 @@ def similarity(list1, list2):
 
 ### existing scenario part
 
+#ga = buildgraph(fa, view)
+#gb = buildgraph(fb, view)
+
 g0 = buildgraph(f0, view)
 g1 = buildgraph(f1, view)
 g2 = buildgraph(f2, view)
+g3 = buildgraph(f3, view)
+
+
+'''
 g3 = buildgraph(f3, view)
 g4 = buildgraph(f4, view)
 g5 = buildgraph(f5, view)
@@ -115,14 +147,14 @@ g7 = buildgraph(f7, view)
 g8 = buildgraph(f8, view)
 g9 = buildgraph(f9, view)
 g10 = buildgraph(f10, view)
-
+'''
 
 
 
 ### building graph metric
 
 #full graph
-graphs = [g0, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10]
+graphs = [g0, g1, g2, g3] # g3, g4, # g5, g6, g7, g8, g9, g10]
 
 #compressed graph
 compressed_graphs = []
@@ -130,33 +162,34 @@ compressed_graphs = []
 for g in graphs:
     compressed_graphs.append(compressed_info(g))
 
+def buttonevent():
+    global maxsim, matchingscene
 
-### user scenario part
+    ### user scenario part
 
-ftest = open('C:/injection.log')
-gtest = buildgraph(ftest, view)
+    ftest = (userlog)
+    gtest = buildgraph(ftest, view)
 
-#custom_draw(gtest)
+    #custom_draw(gtest)
 
-#compress graph
-compressed_gtest = compressed_info(gtest)
+    #compress graph
+    compressed_gtest = compressed_info(gtest)
 
-### get similarities
+    ### get similarities
 
-sims = []
-for com in compressed_graphs:
-    sims.append(similarity(com, compressed_gtest))
+    sims = []
+    for com in compressed_graphs:
+        sims.append(similarity(com, compressed_gtest))
 
-print '\n\n'
+    print '\n\n'
 
-print sims
+    print sims
 
-maxsim = max(sims)
-matchingscene = sims.index(maxsim)
-print 'maxsim =', maxsim
-print 'scenario', matchingscene
+    maxsim = max(sims)
+    matchingscene = sims.index(maxsim)
+    #print 'maxsim =', maxsim
+    #print 'scenario', matchingscene
 
-def color():
     nodegrp1 = graphs[matchingscene].nodes
     edgegrp1 = graphs[matchingscene].edges
 
@@ -171,46 +204,77 @@ def color():
 
     position = nx.circular_layout(G)
 
+
+
+
+    #saved
     nx.draw(G,
             pos=position,
-            nodelist = nodegrp1,
-            edgelist = edgegrp1,
-            with_labels = True,
-            node_size = 500,
-            edge_color = 'darkblue',
-            node_shape = 's',
-            width = 1,
-            alpha = 1,
-            node_color = 'yellow',
-            font_color = 'red',
-            font_size = 8,
-            arrowstyle = '->',
+            nodelist=nodegrp1,
+            edgelist=edgegrp1,
+            with_labels=True,
+            node_size=700,
+            edge_color='darkblue',
+            node_shape='s',
+            width=1,
+            alpha=1,
+            node_color='deepskyblue',
+            font_color='black',
+            font_size=8,
+            arrowstyle='->',
             )
 
+
+    #user
     nx.draw(G,
             pos=position,
-            nodelist = nodegrp2,
-            edgelist = edgegrp2,
-            with_labels = False,
-            node_size = 500,
-            #edge_color = 'lightgreen',
-            #node_shape = 'd',
-            width = 0,
-            alpha = 1,
-            node_color = 'lightgreen',
-            font_color = 'red',
-            font_size = 8,
-            #arrowstyle = '->',
+            nodelist=nodegrp2,
+            edgelist=edgegrp2,
+            with_labels=False,
+            node_size=700,
+            edge_color = 'salmon',
+            # node_shape = 'd',
+            width=1,
+            alpha=1,
+            node_color='salmon',
+            #font_color='blue',
+            #font_size=8,
+            # arrowstyle = '->',
             )
 
+
+    label.config(text = 'max similarity = ' + str(maxsim) + '\nmatched scenes = ' + str(matchingscene) + '\nsimilarity scores = ' + str(sims))
+    #open('C:/injection.log', 'w').close()
     plt.show()
 
 
 
 
+### console running part
 
-color()
+# plot
+#color()
+
+# flush log file
+#open('C:/injection.log', 'w').close()
 
 
+### GUI part
+try:
+    root = Tk()
+    root.geometry('300x200')
+    root.title('Call Graph Generator')
 
-open('C:/injection.log', 'w').close()
+    button = Button(root, text = 'Plot', command = buttonevent)
+    label = Label(root, text = 'none')
+
+    button.pack()
+    label.pack()
+
+    button.place(x = 100, y = 20, height = 50, width = 100, in_=root)
+    label.place(x = 30, y = 100, in_ = root)
+
+
+    root.mainloop()
+except Exception as e:
+    pass
