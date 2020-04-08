@@ -4,6 +4,10 @@ Research work for extracting function level software architecture. This work use
 
 Installation Guide at https://github.com/rayhan-ferdous/ProvMod-Legacy/wiki
 
+# Architecture Analyzer
+
+![3](https://github.com/rayhan-ferdous/ProvMod-Legacy/blob/master/3.png)
+
 # Mathematical Model
 
 ![1](https://github.com/rayhan-ferdous/ProvMod-Legacy/blob/master/1.png)
@@ -12,6 +16,4 @@ Installation Guide at https://github.com/rayhan-ferdous/ProvMod-Legacy/wiki
 
 ![2](https://github.com/rayhan-ferdous/ProvMod-Legacy/blob/master/2.png)
 
-# Architecture Analyzer
 
-![3](https://github.com/rayhan-ferdous/ProvMod-Legacy/blob/master/3.png)
